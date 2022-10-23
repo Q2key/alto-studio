@@ -1,0 +1,24 @@
+{
+  "name": "nodejs.backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "nodemon --inspect index.js",
+    "start": "npm run build && node .",
+    "ci": "npm i nodemon -g && npm i ts-node -g && npm ci",
+    "start:dev": "ts-node-dev --inspect-brk=0.0.0.0:9229 .\\src\\index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "nodemon": "^2.0.15",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "fastify": "^3.27.4"
+  }
+}
