@@ -7,11 +7,10 @@
         {
             "type": "node",
             "request": "attach",
-            "protocol": "auto",
             "restart": true,
-            "autoAttachChildProcesses": true,
-            "name": "Attach to Process",
-            "port": 9229
+            "name": "Server debug",
+            "port": 9229,
+            "continueOnAttach": true
         }
     ]
 }
