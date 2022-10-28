@@ -1,40 +1,42 @@
-import Fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify';
-import { Server, IncomingMessage, ServerResponse } from 'http';
+import express from 'express'
 
-const server: FastifyInstance = Fastify({});
+const app = express()
 
-const opts: RouteShorthandOptions = {
-    schema: {
-        response: {
-            200: {
-                type: 'object',
-                properties: {
-                    pong: {
-                        type: 'string'
-                    }
-                }
-            }
-        }
-    }
+interface BaseParams<IDType = number> {
+    id: IDType
 }
 
-server.get('/ping', opts, async (request, reply) => {
-    return { pong: 'it worked! twice !' }
+interface DogDetails {
+    name: string
+    breed: DogBreed
+    adopted_at: Date | null
+    birth_date: Date | null
+}
+
+interface APIResponse<Data> {
+    data: Data
+    message: string
+}
+
+interface Pagination {
+    page: number
+    limit: number
+    breed: DogBreed
+}
+
+interface Empty {
+
+}
+
+type DogBreed = 'labrador' | 'german shepherd' | 'golden retriever'
+
+type Dog = BaseParams & DogDetails
+
+app.get<Empty, APIResponse<Dog[]>, Empty, Pagination>('/api/v1/users', (req, res) => {
+    res.send({ data: [{ id: 1, name: 'Sharik', breed: 'labrador', adopted_at: null, birth_date: null }], message: 'ok' })
 })
 
-export const serverStart = async () => {
-    try {
-        await server.listen(8080);
-
-        const address = server.server.address();
-        const port = typeof address === 'string' ? address : address?.port;
-
-        console.log(`Server started at 🏋️: ${port}`);
-
-    } catch (err) {
-        server.log.error(err)
-        process.exit(1)
-    }
-}
-
-serverStart();
+const port = 8080;
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
