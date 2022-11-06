@@ -1,25 +1,31 @@
+import { DataSource, Repository } from "typeorm";
 import { User } from "../../entity/User";
 import { IServiceCradle, IUserRepo } from "../../interface";
 
 export class UserRepository implements IUserRepo {
-    public readonly service: IServiceCradle;
-    constructor(service: IServiceCradle) {
-        this.service = service;
+    private readonly service: IServiceCradle;
+    private readonly ds: DataSource;
+    private repo: Repository<User>
+
+    constructor({ dataSource }: IServiceCradle) {
+        this.ds = dataSource;
+        this.repo = this.ds.getRepository(User);
     }
 
-    save(user: User): Promise<boolean> {
+    async save(user: User): Promise<boolean> {
         return Promise.resolve(true);
     }
 
-    findOne(id: number): Promise<User> {
+    async findOne(id: number): Promise<User> {
         return Promise.resolve({ id: 1, firstName: '' });
     }
 
-    find(fromIndex = 0, count = 999999): Promise<User[]> {
-        return Promise.resolve([])
+    async find(fromIndex = 0, count = 999999): Promise<User[]> {
+        const users = await this.repo.find();
+        return Promise.resolve(users)
     };
 
-    deleteOne(id: string): Promise<boolean> {
+    async deleteOne(id: string): Promise<boolean> {
         return Promise.resolve(true);
     };
 

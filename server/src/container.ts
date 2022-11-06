@@ -1,9 +1,10 @@
-import { AwilixContainer, createContainer, InjectionMode, asClass, asValue } from "awilix";
+import { AwilixContainer, createContainer, InjectionMode, asClass, asValue, Lifetime } from "awilix";
+import { DataSource } from "typeorm";
 import { UserRepository } from "./api/repository/UserRepository";
 import { GetUsersUseCase } from "./domain/use-cases/user/getUsers/getUsers";
 import { IServiceCradle } from "./interface";
 
-export const createServiceContainer = (): AwilixContainer<IServiceCradle> => {
+export const createServiceContainer = (dataSource: DataSource): AwilixContainer<IServiceCradle> => {
     const container = createContainer<IServiceCradle>({
         injectionMode: InjectionMode.PROXY,
     });
@@ -17,8 +18,8 @@ export const createServiceContainer = (): AwilixContainer<IServiceCradle> => {
     });
 
     container.register({
-        dataSource: asValue(true),
-    });
+        dataSource: asValue(dataSource),
+    })
 
     return container;
 }

@@ -2,7 +2,7 @@ import "reflect-metadata";
 import { DataSource } from 'typeorm';
 import { User } from "./entity/User";
 
-export const AppDataSource = new DataSource({
+const AppDataSource = new DataSource({
     type: "postgres",
     host: "localhost",
     port: 5432,
@@ -16,3 +16,6 @@ export const AppDataSource = new DataSource({
     subscribers: [],
 });
 
+export const createDataSource = async (): Promise<DataSource> => {
+    return await AppDataSource.initialize();
+}

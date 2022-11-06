@@ -1,6 +1,8 @@
 import { createService } from '../src/service';
 import { createServiceContainer } from '../src/container';
+import { createDataSource } from '../src/data-source';
 import { createServer } from 'http';
+
 import { config } from 'dotenv'
 
 const gracefulShutdown = (cb: () => Promise<void>): void => {
@@ -27,7 +29,12 @@ const main = async () => {
     const port = 8080;
     const hostname = '0.0.0.0';
 
-    const container = createServiceContainer();
+    const dbSource = await createDataSource();
+    if (dbSource.isInitialized) {
+        console.log(`database has started`);
+    }
+
+    const container = createServiceContainer(dbSource);
     const service = createService(container);
 
     const server = createServer(service).listen(port, hostname, () => {

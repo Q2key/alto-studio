@@ -1,3 +1,4 @@
+import { DataSource } from "typeorm";
 import { GetUsersUseCase } from "../domain/use-cases/user/getUsers/getUsers";
 import { User } from "../entity/User";
 
@@ -15,5 +16,5 @@ export interface IUserRepo {
 export interface IServiceCradle {
     userRepository: IUserRepo;
     getUsersUseCase: IUseCase<void, User[]>;
-    dataSource: boolean;
+    dataSource: DataSource;
 }
