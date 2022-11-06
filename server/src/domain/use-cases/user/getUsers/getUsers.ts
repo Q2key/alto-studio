@@ -1,8 +1,15 @@
 import { User } from "../../../../entity/User";
-import { IUseCase } from "../../../../interface";
+import { IServiceCradle, IUseCase, IUserRepo } from "../../../../interface";
 
 export class GetUsersUseCase implements IUseCase<void, User[]> {
-    public execute = (): Promise<User[]> => {
-        return Promise.resolve([])
+    public readonly repo: IUserRepo;
+
+    constructor({ userRepository }: IServiceCradle) {
+        this.repo = userRepository;
+    }
+
+    public execute = async (): Promise<User[]> => {
+        const users = await this.repo.find();
+        return Promise.resolve(users)
     }
 }
