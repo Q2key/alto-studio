@@ -2,8 +2,8 @@ import { createService } from '../src/service';
 import { createServiceContainer } from '../src/container';
 import { createDataSource } from '../src/data-source';
 import { createServer } from 'http';
-
 import { config } from 'dotenv'
+import process from 'node:process';
 
 const gracefulShutdown = (cb: () => Promise<void>): void => {
     const events = ['SIGINT', 'SIGTERM', 'uncaughtException']
@@ -26,8 +26,8 @@ const gracefulShutdown = (cb: () => Promise<void>): void => {
 const main = async () => {
     config();
 
-    const port = 8080;
-    const hostname = '0.0.0.0';
+    const port = Number(process.env.SERVER_PORT) || 4000;
+    const hostname = process.env.SERVER_HOST || '0.0.0.0';
 
     const dbSource = await createDataSource();
     if (dbSource.isInitialized) {
