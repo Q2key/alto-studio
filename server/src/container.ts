@@ -1,14 +1,23 @@
-import { AwilixContainer, createContainer, InjectionMode, asClass } from "awilix";
+import { AwilixContainer, createContainer, InjectionMode, asClass, asValue } from "awilix";
 import { UserRepository } from "./api/repository/UserRepository";
+import { GetUsersUseCase } from "./domain/use-cases/user/getUsers/getUsers";
 import { IServiceCradle } from "./interface";
 
-export const createAwilixContainer = (): AwilixContainer<IServiceCradle> => {
+export const createServiceContainer = (): AwilixContainer<IServiceCradle> => {
     const container = createContainer<IServiceCradle>({
         injectionMode: InjectionMode.PROXY,
     });
 
     container.register({
         userRepository: asClass(UserRepository).singleton(),
+    });
+
+    container.register({
+        getUsersUseCase: asClass(GetUsersUseCase).singleton(),
+    });
+
+    container.register({
+        dataSource: asValue(true),
     });
 
     return container;

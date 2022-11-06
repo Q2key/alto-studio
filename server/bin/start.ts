@@ -1,12 +1,52 @@
-import { createServer } from '../src/api/server';
-import { createAwilixContainer } from '../src/container';
-import { IServiceCradle } from '../src/interface';
+import { createService } from '../src/service';
+import { createServiceContainer } from '../src/container';
+import { createServer } from 'http';
+import { config } from 'dotenv'
 
-(async () => {
-    const container = createAwilixContainer();
-    const service = container.build<IServiceCradle>(container);
-    const server = createServer(service);
-    server.listen(8080, () => {
-        console.log('server started on port: 8080');
+const gracefulShutdown = (cb: () => Promise<void>): void => {
+    const events = ['SIGINT', 'SIGTERM', 'uncaughtException']
+    events.forEach((event) => {
+        process.on(event, async (args: unknown) => {
+            // eslint-disable-next-line no-console
+            console.log(`${event} signal received. ${args}`)
+            try {
+                await cb()
+            } catch (err) {
+                process.exit(1)
+            }
+
+            process.exit(0)
+        })
     })
-})();
+}
+
+
+const main = async () => {
+    config();
+
+    const port = 8080;
+    const hostname = '0.0.0.0';
+
+    const container = createServiceContainer();
+    const service = createService(container);
+
+    const server = createServer(service).listen(port, hostname, () => {
+        // eslint-disable-next-line no-console
+        console.log(`server is running at: ${hostname}:${port}`)
+    })
+
+    gracefulShutdown(async () => {
+        await new Promise<void>((resolve, reject) => {
+            server.close((err) => {
+                if (err) {
+                    reject(err.message)
+                } else {
+                    resolve()
+                }
+            })
+        })
+    })
+
+}
+
+main();
