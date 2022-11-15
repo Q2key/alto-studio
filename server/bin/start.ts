@@ -26,8 +26,8 @@ const gracefulShutdown = (cb: () => Promise<void>): void => {
 const main = async () => {
     config();
 
-    const port = Number(process.env.SERVER_PORT) || 4000;
-    const hostname = process.env.SERVER_HOST || '0.0.0.0';
+    const port = Number(process.env.SERVER_PORT);
+    const hostname = process.env.SERVER_HOST;
 
     const dbSource = await createDataSource();
     if (dbSource.isInitialized) {

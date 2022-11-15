@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
-import { GetUsersUseCase } from "../domain/use-cases/user/getUsers/getUsers";
-import { User } from "../entity/User";
+import { IUserMapper } from "../dto/IUserMapper";
+import { User } from "../domain/User/User";
 
 export interface IUseCase<TIn, TOut> {
     execute: (payload: TIn) => Promise<TOut>;
@@ -17,4 +17,5 @@ export interface IServiceCradle {
     userRepository: IUserRepo;
     getUsersUseCase: IUseCase<void, User[]>;
     dataSource: DataSource;
+    userMapper: IUserMapper;
 }

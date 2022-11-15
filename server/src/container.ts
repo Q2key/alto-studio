@@ -1,7 +1,8 @@
-import { AwilixContainer, createContainer, InjectionMode, asClass, asValue, Lifetime } from "awilix";
+import { AwilixContainer, createContainer, InjectionMode, asClass, asValue } from "awilix";
 import { DataSource } from "typeorm";
-import { UserRepository } from "./api/repository/UserRepository";
 import { GetUsersUseCase } from "./domain/use-cases/user/getUsers/getUsers";
+import { UserMapper } from "./infrastructure/mapper/UserMapper";
+import { UserRepository } from "./infrastructure/repository/UserRepository";
 import { IServiceCradle } from "./interface";
 
 export const createServiceContainer = (dataSource: DataSource): AwilixContainer<IServiceCradle> => {
@@ -15,6 +16,10 @@ export const createServiceContainer = (dataSource: DataSource): AwilixContainer<
 
     container.register({
         getUsersUseCase: asClass(GetUsersUseCase).singleton(),
+    });
+
+    container.register({
+        userMapper: asClass(UserMapper).singleton(),
     });
 
     container.register({

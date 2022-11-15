@@ -1,9 +1,8 @@
 import { DataSource, Repository } from "typeorm";
-import { User } from "../../entity/User";
+import { User } from "../../domain/User/User";
 import { IServiceCradle, IUserRepo } from "../../interface";
 
 export class UserRepository implements IUserRepo {
-    private readonly service: IServiceCradle;
     private readonly ds: DataSource;
     private repo: Repository<User>
 
