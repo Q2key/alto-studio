@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import { IUserMapper } from "../dto/IUserMapper";
+import { IUserMapper } from "../domain/User/IUserMapper";
 import { User } from "../domain/User/User";
 
 export interface IUseCase<TIn, TOut> {
