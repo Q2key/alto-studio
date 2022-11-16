@@ -16,10 +16,10 @@ export class UserRepository implements IUserRepo {
     }
 
     async findOne(id: number): Promise<User> {
-        return Promise.resolve({ id: 1, firstName: '' });
+        return Promise.resolve({ id: '', firstName: '' });
     }
 
-    async find(fromIndex = 0, count = 999999): Promise<User[]> {
+    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<User[]> {
         const users = await this.repo.find();
         return Promise.resolve(users)
     };

@@ -1,21 +1,21 @@
 import { DataSource } from "typeorm";
+import { IUserEntity } from "../domain/User/IUserEntity";
 import { IUserMapper } from "../domain/User/IUserMapper";
-import { User } from "../domain/User/User";
 
 export interface IUseCase<TIn, TOut> {
     execute: (payload: TIn) => Promise<TOut>;
 }
 
 export interface IUserRepo {
-    save(user: User): Promise<boolean>;
-    findOne(id: number): Promise<User>;
-    find: (fromIndex?: number, count?: number) => Promise<User[]>;
+    save(user: IUserEntity): Promise<boolean>;
+    findOne(id: number): Promise<IUserEntity>;
+    find: (fromIndex?: number, count?: number) => Promise<IUserEntity[]>;
     deleteOne: (id: string) => Promise<boolean>;
 }
 
 export interface IServiceCradle {
     userRepository: IUserRepo;
-    getUsersUseCase: IUseCase<void, User[]>;
+    getUsersUseCase: IUseCase<void, IUserEntity[]>;
     dataSource: DataSource;
     userMapper: IUserMapper;
 }
