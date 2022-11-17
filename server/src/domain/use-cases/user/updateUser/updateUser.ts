@@ -1,6 +1,7 @@
-import { IServiceCradle, IUseCase, IUserRepo } from "../../../../interface";
+import { IServiceCradle, IUseCase } from "../../../../interface";
 import { IUserDto } from "../../../User/IUserEntity";
 import { IUserMapper } from "../../../User/IUserMapper";
+import { IUserRepo } from "../../../User/IUserRepo";
 
 export class UpdateUsersUseCase implements IUseCase<void, IUserDto[]> {
     private readonly repo: IUserRepo;

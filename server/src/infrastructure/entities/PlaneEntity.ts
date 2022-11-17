@@ -1,14 +1,16 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
-import { IUserEntity } from '../../domain/User/IUserEntity';
+import { IPlaneEntity } from '../../domain/Plane/IPlaneEntity';
 import { IDBEntity } from './IDBEntity';
 
-@Entity('user')
-export class UserEntity implements IUserEntity, IDBEntity {
+@Entity('plane')
+export class PlaneEntity implements IPlaneEntity, IDBEntity {
+
     @PrimaryGeneratedColumn('uuid')
-    id: string
+    id: string;
 
     @Column('varchar')
-    firstName: string;
+    name: string;
+
 
     createdAt: string;
     updatedAt: string;
