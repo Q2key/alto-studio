@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { DataSource } from 'typeorm';
-import { User } from "./domain/User/User";
+import { UserEntity } from "./infrastructure/entities/UserEntity";
 
 const AppDataSource = new DataSource({
     type: "postgres",
@@ -11,7 +11,7 @@ const AppDataSource = new DataSource({
     database: "altodb",
     synchronize: true,
     logging: false,
-    entities: [User],
+    entities: [UserEntity],
     migrations: [],
     subscribers: [],
 });

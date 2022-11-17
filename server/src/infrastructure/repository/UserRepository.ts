@@ -1,31 +1,32 @@
 import { DataSource, Repository } from "typeorm";
-import { User } from "../../domain/User/User";
+import { IUserEntity } from "../../domain/User/IUserEntity";
 import { IServiceCradle, IUserRepo } from "../../interface";
+import { UserEntity } from "../entities/UserEntity";
 
 export class UserRepository implements IUserRepo {
     private readonly ds: DataSource;
-    private repo: Repository<User>
+    private repo: Repository<UserEntity>
 
     constructor({ dataSource }: IServiceCradle) {
         this.ds = dataSource;
-        this.repo = this.ds.getRepository(User);
+        this.repo = this.ds.getRepository(UserEntity);
     }
 
-    async save(user: User): Promise<boolean> {
-        return Promise.resolve(true);
+    deleteOne: (id: string) => Promise<boolean>;
+
+    async save(user: IUserEntity): Promise<IUserEntity> {
+        const created = await this.repo.save<IUserEntity>(user);
+        return Promise.resolve(created);
     }
 
-    async findOne(id: number): Promise<User> {
+    async findOne(id: number): Promise<IUserEntity> {
         return Promise.resolve({ id: '', firstName: '' });
     }
 
-    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<User[]> {
+    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IUserEntity[]> {
         const users = await this.repo.find();
         return Promise.resolve(users)
     };
 
-    async deleteOne(id: string): Promise<boolean> {
-        return Promise.resolve(true);
-    };
 
 }

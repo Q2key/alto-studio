@@ -1,7 +1,6 @@
 import { IServiceCradle, IUseCase, IUserRepo } from "../../../../interface";
 import { IUserDto } from "../../../User/IUserEntity";
 import { IUserMapper } from "../../../User/IUserMapper";
-import { User } from "../../../User/User";
 
 export class GetUsersUseCase implements IUseCase<void, IUserDto[]> {
     private readonly repo: IUserRepo;
@@ -13,7 +12,6 @@ export class GetUsersUseCase implements IUseCase<void, IUserDto[]> {
     }
 
     public execute = async (): Promise<IUserDto[]> => {
-        const users = await (await this.repo.find()).map(u => User.Create(u.id, u.firstName));
-        return Promise.resolve(users.map(this.mapper.toDTO))
+        throw ('not implemented')
     }
 }

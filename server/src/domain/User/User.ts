@@ -1,12 +1,15 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 import { IUserEntity } from "./IUserEntity";
 
-@Entity()
 export class User implements IUserEntity {
-    @PrimaryGeneratedColumn('uuid')
-    id: string
+    readonly id: string;
+    readonly firstName: string;
 
-    @Column()
-    firstName: string;
+    constructor(id: string, firstName: string) {
+        this.id = id;
+        this.firstName = firstName;
+    }
+
+    public static Create(id: string, firstName: string): User {
+        return new User(id, firstName);
+    }
 }
-
