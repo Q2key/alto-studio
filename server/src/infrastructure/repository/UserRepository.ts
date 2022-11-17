@@ -1,6 +1,7 @@
 import { DataSource, Repository } from "typeorm";
 import { IUserEntity } from "../../domain/User/IUserEntity";
-import { IServiceCradle, IUserRepo } from "../../interface";
+import { IUserRepo } from "../../domain/User/IUserRepo";
+import { IServiceCradle } from "../../interface";
 import { UserEntity } from "../entities/UserEntity";
 
 export class UserRepository implements IUserRepo {
@@ -20,7 +21,7 @@ export class UserRepository implements IUserRepo {
     }
 
     async findOne(id: number): Promise<IUserEntity> {
-        return Promise.resolve({ id: '', firstName: '' });
+        throw ('not implemented');
     }
 
     async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IUserEntity[]> {

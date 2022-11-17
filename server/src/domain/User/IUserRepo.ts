@@ -1,4 +1,4 @@
-import { IUserEntity } from "../domain/User/IUserEntity";
+import { IUserEntity } from "./IUserEntity";
 
 export interface IUserRepo {
     save(user: IUserEntity): Promise<IUserEntity>;

@@ -1,4 +1,4 @@
-import { IEntity } from "../../interface";
+import { IEntity } from "../IEntity";
 
 export interface IUserEntity extends IEntity<string> {
     firstName: string;
