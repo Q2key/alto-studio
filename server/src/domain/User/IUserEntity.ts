@@ -1,9 +1,10 @@
+import { IEntity } from "../../interface";
 
 export interface IUserProps {
     firstName: string;
 }
 
-export interface IUserEntity extends IUserProps {
+export interface IUserEntity extends IEntity<string> {
     id: string;
 }
 

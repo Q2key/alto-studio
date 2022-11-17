@@ -6,6 +6,10 @@ export interface IUseCase<TIn, TOut> {
     execute: (payload: TIn) => Promise<TOut>;
 }
 
+export interface IEntity<TIdentity> {
+    id: TIdentity;
+}
+
 export interface IUserRepo {
     save(user: IUserEntity): Promise<boolean>;
     findOne(id: number): Promise<IUserEntity>;
