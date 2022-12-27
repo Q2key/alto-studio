@@ -1,5 +1,5 @@
 import { IUseCase } from "../../../../interface";
 
-export class getPlanesUseCase implements IUseCase<{}, {}> {
+export class getRendersUseCase implements IUseCase<{}, {}> {
     execute: (payload: {}) => Promise<{}>;
 }

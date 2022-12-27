@@ -1,16 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
-import { IUserEntity } from '../../domain/User/IUserEntity';
-import { IDBEntity } from './IDBEntity';
+import { Entity, Column } from 'typeorm'
+import { IUserEntity } from '../../domain/entities/User/IUser';
+import { BaseDBEntity } from './BaseDBEntity';
 
 @Entity('user')
-export class UserEntity implements IUserEntity, IDBEntity {
-    @PrimaryGeneratedColumn('uuid')
-    id: string
+export class UserEntity extends BaseDBEntity implements IUserEntity {
+    constructor() {
+        super();
+    }
 
     @Column('varchar')
     firstName: string;
-
-    createdAt: string;
-    updatedAt: string;
-    deletedAt: string;
 }
