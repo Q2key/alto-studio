@@ -1,8 +1,8 @@
 import { IUseCase, IServiceCradle } from "../../../../interface";
-import { IUserDto } from "../../../User/IUserEntity";
-import { IUserMapper } from "../../../User/IUserMapper";
-import { IUserRepo } from "../../../User/IUserRepo";
-import { User } from "../../../User/User";
+import { IUserDto } from "../../../entities/User/IUser";
+import { IUserMapper } from "../../../entities/User/IUserMapper";
+import { IUserRepo } from "../../../entities/User/IUserRepo";
+import { User } from "../../../entities/User/User";
 import { ICreateUserInput } from "./createUserInput";
 
 export class CreateUsersUseCase implements IUseCase<ICreateUserInput, IUserDto> {

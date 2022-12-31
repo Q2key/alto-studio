@@ -1,14 +1,14 @@
 import { DataSource } from "typeorm";
 import { ICreateUserInput } from "../domain/use-cases/user/createUser/createUserInput";
 import { IUseCase } from ".";
-import { IUserEntity } from "../domain/User/IUserEntity";
-import { IUserMapper } from "../domain/User/IUserMapper";
-import { IUserRepo } from "../domain/User/IUserRepo";
+import { IUser } from "../domain/entities/User/IUser";
+import { IUserMapper } from "../domain/entities/User/IUserMapper";
+import { IUserRepo } from "../domain/entities/User/IUserRepo";
 
 export interface IServiceCradle {
     userRepository: IUserRepo;
-    getUsersUseCase: IUseCase<void, IUserEntity[]>;
-    createUserUseCase: IUseCase<ICreateUserInput, IUserEntity>;
+    getUsersUseCase: IUseCase<void, IUser[]>;
+    createUserUseCase: IUseCase<ICreateUserInput, IUser>;
     dataSource: DataSource;
     userMapper: IUserMapper;
 }

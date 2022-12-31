@@ -1,9 +1,9 @@
 import { IEntity } from "../IEntity";
 
-export interface IUserEntity extends IEntity<string> {
+export interface IUser extends IEntity<string> {
     firstName: string;
 }
 
-export interface IUserDto extends IUserEntity {
+export interface IUserDto extends IUser {
 
 }

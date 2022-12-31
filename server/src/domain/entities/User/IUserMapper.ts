@@ -1,7 +1,7 @@
+import { IMapper } from "../../../infrastructure/mapper/IMapper";
+import { IUser, IUserDto } from "./IUser";
 
-import { IMapper } from "../../infrastructure/mapper/IMapper";
-import { IUserEntity, IUserDto } from "./IUser";
 
-export interface IUserMapper extends IMapper<IUserEntity, IUserDto> {
-    toDTO(entity: IUserEntity): IUserDto;
+export interface IUserMapper extends IMapper<IUser, IUserDto> {
+    toDTO(entity: IUser): IUserDto;
 }

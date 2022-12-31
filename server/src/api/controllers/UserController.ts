@@ -1,6 +1,6 @@
 import { NextFunction } from "express";
+import { IUserDto } from "../../domain/entities/User/IUser";
 import { ICreateUserInput } from "../../domain/use-cases/user/createUser/createUserInput";
-import { IUserDto } from "../../domain/User/IUserEntity";
 import { IServiceCradle } from "../../interface";
 import { BaseController, TRequestBody, TResponse } from "./BaseController";
 

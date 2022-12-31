@@ -1,6 +1,7 @@
-import { IServiceCradle, IUseCase, IUserRepo } from "../../../../interface";
-import { IUserDto } from "../../../User/IUserEntity";
-import { IUserMapper } from "../../../User/IUserMapper";
+import { IUseCase, IServiceCradle } from "../../../../interface";
+import { IUserDto } from "../../../entities/User/IUser";
+import { IUserMapper } from "../../../entities/User/IUserMapper";
+import { IUserRepo } from "../../../entities/User/IUserRepo";
 
 export class GetUsersUseCase implements IUseCase<void, IUserDto[]> {
     private readonly repo: IUserRepo;

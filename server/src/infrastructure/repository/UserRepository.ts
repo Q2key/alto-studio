@@ -1,6 +1,6 @@
 import { DataSource, Repository } from "typeorm";
-import { IUserEntity } from "../../domain/User/IUserEntity";
-import { IUserRepo } from "../../domain/User/IUserRepo";
+import { IUser } from "../../domain/entities/User/IUser";
+import { IUserRepo } from "../../domain/entities/User/IUserRepo";
 import { IServiceCradle } from "../../interface";
 import { UserEntity } from "../entities/UserEntity";
 
@@ -15,16 +15,16 @@ export class UserRepository implements IUserRepo {
 
     deleteOne: (id: string) => Promise<boolean>;
 
-    async save(user: IUserEntity): Promise<IUserEntity> {
-        const created = await this.repo.save<IUserEntity>(user);
+    async save(user: IUser): Promise<IUser> {
+        const created = await this.repo.save<IUser>(user);
         return Promise.resolve(created);
     }
 
-    async findOne(id: number): Promise<IUserEntity> {
+    async findOne(id: number): Promise<IUser> {
         throw ('not implemented');
     }
 
-    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IUserEntity[]> {
+    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IUser[]> {
         const users = await this.repo.find();
         return Promise.resolve(users)
     };

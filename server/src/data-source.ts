@@ -1,6 +1,5 @@
 import "reflect-metadata";
 import { DataSource } from 'typeorm';
-import { PlaneEntity } from "./infrastructure/entities/PlaneEntity";
 import { UserEntity } from "./infrastructure/entities/UserEntity";
 
 const AppDataSource = new DataSource({
@@ -12,7 +11,7 @@ const AppDataSource = new DataSource({
     database: "altodb",
     synchronize: true,
     logging: false,
-    entities: [UserEntity, PlaneEntity],
+    entities: [UserEntity],
     migrations: [],
     subscribers: [],
 });

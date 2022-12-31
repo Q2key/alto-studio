@@ -1,8 +1,8 @@
-import { IUserEntity } from "./IUser";
+import { IUser } from "./IUser";
 
 export interface IUserRepo {
-    save(user: IUserEntity): Promise<IUserEntity>;
-    findOne(id: number): Promise<IUserEntity>;
-    find: (fromIndex?: number, count?: number) => Promise<IUserEntity[]>;
+    save(user: IUser): Promise<IUser>;
+    findOne(id: number): Promise<IUser>;
+    find: (fromIndex?: number, count?: number) => Promise<IUser[]>;
     deleteOne: (id: string) => Promise<boolean>;
 }
