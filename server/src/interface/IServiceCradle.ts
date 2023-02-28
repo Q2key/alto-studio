@@ -18,7 +18,7 @@ export interface IServiceCradle {
     getUsersUseCase: IUseCase<void, IUserDto[]>;
     createUserUseCase: IUseCase<ICreateUserInput, IUserDto>;
     
-    getProjectUseCase: IUseCase<void, IProjectDto[]>;
+    getProjectsUseCase: IUseCase<void, IProjectDto[]>;
     createProjectsUseCase: IUseCase<IProjectInput, IProjectDto>;
 
     /* data sources */

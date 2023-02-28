@@ -1,16 +1,16 @@
-import { Column, CreateDateColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { IDBEntity } from "./IDBEntity";
 
 export class BaseDBEntity implements IDBEntity {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("uuid")
     id: string;
 
-    @Column('date', { default: null })
+    @Column({ type: 'date', default: '() => NOW();' })
     createdAt: string;
 
-    @Column('date', { default: null })
+    @Column({ type: 'date', default: '() => NOW();' })
     updatedAt: string;
 
-    @Column('date', { default: null })
+    @Column({ type: 'date', default: null })
     deletedAt: string
 } 

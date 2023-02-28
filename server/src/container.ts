@@ -25,7 +25,7 @@ export const createServiceContainer = (dataSource: DataSource): AwilixContainer<
         createUserUseCase: asClass(CreateUsersUseCase).singleton(),
 
         createProjectsUseCase: asClass(AddProjectsUseCase).singleton(),
-        getProjectUseCase: asClass(GetProjectsUseCase).singleton(),
+        getProjectsUseCase: asClass(GetProjectsUseCase).singleton(),
     });
 
     container.register({

@@ -4,18 +4,17 @@ export class Project implements IProject {
     readonly id: string;
     userId: string;
     name: string;
-    startedAt: string;
-    finishedAt: string;
+    startedAt?: string;
+    finishedAt?: string;
 
-    constructor(id: string, userId: string, name: string, startedAt: string, finishedAt: string) {
-        this.id = id;
+    constructor(userId: string, name: string, startedAt?: string, finishedAt?: string) {
         this.userId = userId;
         this.name = name;
         this.startedAt = startedAt;
         this.finishedAt = finishedAt;
     }
 
-    static Create(id: string, userId: string, name: string, startedAt: string, finishedAt: string): Project {
-        return new Project(id, userId, name, startedAt, finishedAt);
+    static Create(userId: string, name: string, startedAt?: string, finishedAt?: string): Project {
+        return new Project(userId, name, startedAt, finishedAt);
     }
 }

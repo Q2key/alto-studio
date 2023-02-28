@@ -1,6 +1,7 @@
-import { Entity, Column } from 'typeorm'
+import { Entity, Column, OneToMany } from 'typeorm'
 import { IUser } from '../../domain/entities/User/IUser';
 import { BaseDBEntity } from './BaseDBEntity';
+import { ProjectEntity } from './ProjectEntity';
 
 @Entity('user')
 export class UserEntity extends BaseDBEntity implements IUser {
@@ -10,4 +11,7 @@ export class UserEntity extends BaseDBEntity implements IUser {
 
     @Column('varchar')
     firstName: string;
+
+    @OneToMany(() => ProjectEntity, (project) => project.user)
+    projects
 }

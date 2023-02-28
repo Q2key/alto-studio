@@ -25,7 +25,7 @@ export class UserRepository implements IUserRepo {
     }
 
     async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IUser[]> {
-        const users = await this.repo.find();
+        const users = await this.repo.find({relations: {projects: true }});
         return Promise.resolve(users)
     };
 }

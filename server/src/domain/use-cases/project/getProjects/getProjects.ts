@@ -14,7 +14,7 @@ export class GetProjectsUseCase implements IUseCase<void, IProjectDto[]> {
     }
 
     public execute = async (): Promise<IProjectDto[]> => {
-        const projects = (await this.repo.find()).map(p => Project.Create(p.id, p.userId, p.name, p.startedAt, p.finishedAt));
+        const projects = (await this.repo.find()).map(p => Project.Create(p.userId, p.name, p.startedAt, p.finishedAt));
         return Promise.resolve(projects.map(this.mapper.toDTO))
     }
 }
