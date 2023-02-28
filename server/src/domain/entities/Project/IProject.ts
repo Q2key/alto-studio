@@ -7,6 +7,4 @@ export interface IProject extends IEntity<string> {
     finishedAt?: string;
 }
 
-export interface IProjectDto extends IProject {
-    
- }
+export interface IProjectDto extends IProject { }

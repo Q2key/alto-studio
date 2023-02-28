@@ -1,5 +1,5 @@
 import { DataSource, Repository } from "typeorm";
-import { IProject } from "../../domain/entities/Project/IProject";
+import { IProject,  } from "../../domain/entities/Project/IProject";
 import { IProjectRepo } from "../../domain/entities/Project/IProjectRepo";
 import { IServiceCradle } from "../../interface";
 import { ProjectEntity } from "../entities/ProjectEntity";
@@ -10,6 +10,7 @@ export class ProjectRepository implements IProjectRepo {
 
     constructor({ dataSource }: IServiceCradle) {
         this.ds = dataSource;
+        String.prototype
         this.repo = this.ds.getRepository(ProjectEntity);
     }
 
@@ -25,7 +26,7 @@ export class ProjectRepository implements IProjectRepo {
     }
 
     async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IProject[]> {
-        const users = await this.repo.find();
-        return Promise.resolve(users)
+        const projects = await this.repo.find();
+        return Promise.resolve(projects)
     };
 }
