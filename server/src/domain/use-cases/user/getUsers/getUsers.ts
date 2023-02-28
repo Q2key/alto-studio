@@ -14,7 +14,7 @@ export class GetUsersUseCase implements IUseCase<void, IUserDto[]> {
     }
 
     public execute = async (): Promise<IUserDto[]> => {
-        const users = await (await this.repo.find()).map(u => User.Create(u.id, u.firstName));
+        const users = (await this.repo.find()).map(u => User.Create(u.id, u.firstName));
         return Promise.resolve(users.map(this.mapper.toDTO))
     }
 }

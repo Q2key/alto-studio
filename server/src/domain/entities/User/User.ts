@@ -1,10 +1,12 @@
-import { BaseEntity } from "../BaseEntity";
 
-export class User extends BaseEntity {
+import { IUser } from "./IUser";
+
+export class User implements IUser {
+    readonly id: string;
     readonly firstName: string;
 
     constructor(id: string, firstName: string) {
-        super(id);
+        this.id = id;
         this.firstName = firstName;
     }
 

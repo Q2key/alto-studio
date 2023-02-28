@@ -1,6 +1,6 @@
 import { IMapper } from "../../../infrastructure/mapper/IMapper";
-import { IRenderDto, IRenderEntity } from "./IRender";
+import { IRenderDto, IRender } from "./IRender";
 
-export interface IRenderMapper extends IMapper<IRenderEntity, IRenderDto> {
-    toDTO(entity: IRenderEntity): IRenderDto;
+export interface IRenderMapper extends IMapper<IRender, IRenderDto> {
+    toDTO(entity: IRender): IRenderDto;
 }

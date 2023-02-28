@@ -1,9 +1,11 @@
 import { IEntity } from "../IEntity";
 
-export interface IRenderEntity extends IEntity<string> {
+export interface IRender extends IEntity<string> {
     name: string;
+    src: string;
+    meta: string;
 }
 
-export interface IRenderDto extends IRenderEntity {
+export interface IRenderDto extends IRender {
 
 }

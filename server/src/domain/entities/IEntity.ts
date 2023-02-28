@@ -1,3 +1,3 @@
 export interface IEntity<TIdentity> {
-    id: TIdentity;
+    readonly id: TIdentity;
 }

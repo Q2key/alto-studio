@@ -5,10 +5,10 @@ export class BaseDBEntity implements IDBEntity {
     @PrimaryGeneratedColumn()
     id: string;
 
-    @CreateDateColumn()
+    @Column('date', { default: null })
     createdAt: string;
 
-    @CreateDateColumn()
+    @Column('date', { default: null })
     updatedAt: string;
 
     @Column('date', { default: null })

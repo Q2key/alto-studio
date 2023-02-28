@@ -28,6 +28,4 @@ export class UserRepository implements IUserRepo {
         const users = await this.repo.find();
         return Promise.resolve(users)
     };
-
-
 }
