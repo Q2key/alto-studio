@@ -1,4 +1,4 @@
-import { Entity, Column, OneToMany } from 'typeorm'
+import { Entity, Column, OneToMany, JoinColumn } from 'typeorm'
 import { IUser } from '../../domain/entities/User/IUser';
 import { BaseDBEntity } from './BaseDBEntity';
 import { ProjectEntity } from './ProjectEntity';
@@ -13,5 +13,6 @@ export class UserEntity extends BaseDBEntity implements IUser {
     firstName: string;
 
     @OneToMany(() => ProjectEntity, (project) => project.user)
-    projects
+    @JoinColumn()
+    projects: ProjectEntity[]
 }
