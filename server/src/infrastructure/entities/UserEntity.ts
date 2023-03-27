@@ -12,7 +12,7 @@ export class UserEntity extends BaseDBEntity implements IUser {
     @Column('varchar')
     firstName: string;
 
-    @OneToMany(() => ProjectEntity, (project) => project.user)
+    @OneToMany(() => ProjectEntity, e => e.user)
     @JoinColumn()
     projects: ProjectEntity[]
 }
