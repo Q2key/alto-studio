@@ -1,7 +1,6 @@
 version: '3.8'
 name: alto-pg
 services:
-
   db:
     image: postgres:15.2-alpine
     restart: always
@@ -17,6 +16,15 @@ services:
     restart: always
     ports:
       - 8081:8081
+
+  grafana:
+    container_name: alto_grafana
+    image: grafana/grafana:7.5.6
+    restart: always
+    ports:
+      - 3033:3000
+    volumes:
+       - ./monitoring/grafana/grafana.ini:/etc/grafana/grafana.ini
 
 volumes:
   db:

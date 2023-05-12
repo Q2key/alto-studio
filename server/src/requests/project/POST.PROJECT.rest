@@ -1,0 +1,9 @@
+POST /project HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+Content-Length: 30
+
+{
+    "name": "My awesome project",
+    "userId": "d9ebb762-d455-4620-a8f2-2a4955c9978f"
+}

@@ -12,6 +12,7 @@ import { ProjectMapper } from "./infrastructure/mapper/ProjectMapper";
 import { RenderRepository } from "./infrastructure/repository/RenderRepository";
 import { GetRendersUseCase } from "./domain/use-cases/render/getRenders/getRenders";
 import { UploadRenderUseCase } from "./domain/use-cases/render/uploadRender/uploadRender";
+import { RenderMapper } from "./infrastructure/mapper/RenderMapper";
 
 export const createServiceContainer = (dataSource: DataSource): AwilixContainer<IServiceCradle> => {
     const container = createContainer<IServiceCradle>({
@@ -25,12 +26,13 @@ export const createServiceContainer = (dataSource: DataSource): AwilixContainer<
     });
 
     container.register({
+        // user
         getUsersUseCase: asClass(GetUsersUseCase).singleton(),
         createUserUseCase: asClass(CreateUsersUseCase).singleton(),
-
+        // project
         createProjectsUseCase: asClass(AddProjectsUseCase).singleton(),
         getProjectsUseCase: asClass(GetProjectsUseCase).singleton(),
-
+        // render
         getRendersUseCase: asClass(GetRendersUseCase).singleton(),
         uploadRenderUseCase: asClass(UploadRenderUseCase).singleton(),
     });
@@ -38,6 +40,7 @@ export const createServiceContainer = (dataSource: DataSource): AwilixContainer<
     container.register({
         userMapper: asClass(UserMapper).singleton(),
         projectMapper: asClass(ProjectMapper).singleton(),
+        renderMapper: asClass(RenderMapper).singleton(),
     });
 
     container.register({

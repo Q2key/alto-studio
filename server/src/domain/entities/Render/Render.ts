@@ -12,6 +12,7 @@ export class Render implements IRender {
         name: string,
         src: string,
         meta: string) {
+        this.projectId = projectId;
         this.name = name;
         this.src = src;
         this.meta = meta;
