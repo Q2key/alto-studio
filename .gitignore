@@ -3,6 +3,3 @@ client/dist
 
 server/node_modules
 server/dist
-
-crawler/node_modules
-crawler/dist

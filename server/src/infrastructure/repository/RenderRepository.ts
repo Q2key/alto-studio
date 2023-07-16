@@ -18,16 +18,16 @@ export class RenderRepository implements IRenderRepo {
 
     deleteOne: (id: string) => Promise<boolean>;
 
-    async save(render: IRender): Promise<IRender> {
+    async save(render: IRender): Promise<RenderEntity> {
         const created = await this.repo.save<IRender>(render);
         return Promise.resolve(created);
     }
 
-    async findOne(id: number): Promise<IRender> {
+    async findOne(id: number): Promise<RenderEntity> {
         throw ('not implemented');
     }
 
-    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IRender[]> {
+    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<RenderEntity[]> {
         const renders = await this.repo.find();
         return Promise.resolve(renders)
     };

@@ -15,16 +15,16 @@ export class UserRepository implements IUserRepo {
 
     deleteOne: (id: string) => Promise<boolean>;
 
-    async save(user: IUser): Promise<IUser> {
+    async save(user: IUser): Promise<UserEntity> {
         const created = await this.repo.save<IUser>(user);
         return Promise.resolve(created);
     }
 
-    async findOne(id: number): Promise<IUser> {
+    async findOne(id: number): Promise<UserEntity> {
         throw ('not implemented');
     }
 
-    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IUser[]> {
+    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<UserEntity[]> {
         const users = await this.repo.find({relations: {projects: true }});
         return Promise.resolve(users)
     };

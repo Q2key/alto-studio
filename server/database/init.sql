@@ -1,1 +1,1 @@
-CREATE DATABASE altodb;
+CREATE DATABASE alto;

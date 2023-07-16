@@ -10,7 +10,7 @@ const AppDataSource = new DataSource({
     port: 5433,
     username: "postgres",
     password: "postgres",
-    database: "altodb",
+    database: "alto",
     synchronize: true,
     logging: false,
     entities: [
