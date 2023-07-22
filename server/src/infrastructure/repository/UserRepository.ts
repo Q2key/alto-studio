@@ -1,7 +1,7 @@
 import { DataSource, Repository } from "typeorm";
-import { IUser } from "../../domain/entities/User/IUser";
-import { IUserRepo } from "../../domain/entities/User/IUserRepo";
-import { IServiceCradle } from "../../interface";
+import { IUser } from "../../core/entities/User/IUser";
+import { IUserRepo } from "../../core/repository/IUserRepo";
+import { IServiceCradle } from "../../abstractions";
 import { UserEntity } from "../entities/UserEntity";
 
 export class UserRepository implements IUserRepo {

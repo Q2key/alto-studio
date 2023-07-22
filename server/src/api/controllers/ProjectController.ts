@@ -1,8 +1,8 @@
 import {NextFunction} from "express";
-import {IProjectDto} from "../../domain/entities/Project/IProject";
-import {IProjectInput} from "../../domain/use-cases/project/addProject/addProjectInput";
-import {IServiceCradle} from "../../interface";
+import {IServiceCradle} from "../../abstractions";
 import {BaseController, TRequestBody, TResponse} from "./BaseController";
+import { IProjectDto } from "../../core/dto/IProjectDto";
+import { ICreateProjectDto } from "../../core/dto/ICreateProjectDto";
 
 export class ProjectController extends BaseController {
     public readonly service: IServiceCradle;
@@ -16,17 +16,17 @@ export class ProjectController extends BaseController {
         projects: IProjectDto[]
     }>, next: NextFunction): Promise<TResponse<{ projects: IProjectDto[] }>> => {
         return this.wrap(async () => {
-            const projects = await this.service.getProjectsUseCase.execute()
+            const projects = await this.service.projectUseCases.getAll();
             return res.json({projects});
         }, next);
     }
 
 
-    public Create = async (req: TRequestBody<IProjectInput>, res: TResponse<{
+    public Create = async (req: TRequestBody<ICreateProjectDto>, res: TResponse<{
         project: IProjectDto
     }>, next: NextFunction): Promise<TResponse<{ project: IProjectDto }>> => {
         return this.wrap(async () => {
-            const project = await this.service.createProjectsUseCase.execute(req.body)
+            const project = await this.service.projectUseCases.createNew(req.body)
             return res.json({project})
         }, next);
     }

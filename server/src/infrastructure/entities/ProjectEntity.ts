@@ -1,13 +1,11 @@
+import { Entity, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { BaseDBEntity } from "./BaseDBEntity";
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from "typeorm";
-import { IProject } from "../../domain/entities/Project/IProject";
 import { UserEntity } from "./UserEntity";
-import { RenderEntity } from "./RenderEntity";
-import { Render } from "../../domain/entities/Render/Render";
+import { IProject } from "../../core/entities/Project/IProject";
 
 
 @Entity('project')
-export class ProjectEntity extends BaseDBEntity {
+export class ProjectEntity extends BaseDBEntity implements IProject {
     constructor() {
         super();
     }
@@ -28,8 +26,4 @@ export class ProjectEntity extends BaseDBEntity {
     @ManyToOne(() => UserEntity, e => e.projects)
     @JoinColumn()
     user: UserEntity
-
-    @OneToMany(() => RenderEntity, e => e.project)
-    @JoinColumn()
-    renders: RenderEntity[]
 }

@@ -1,18 +1,13 @@
 import { AwilixContainer, createContainer, InjectionMode, asClass, asValue } from "awilix";
 import { DataSource } from "typeorm";
-import { CreateUsersUseCase } from "./domain/use-cases/user/createUser/createUser";
-import { GetUsersUseCase } from "./domain/use-cases/user/getUsers/getUsers";
-import { UserMapper } from "./infrastructure/mapper/UserMapper";
 import { UserRepository } from "./infrastructure/repository/UserRepository";
 import { ProjectRepository } from "./infrastructure/repository/ProjectRepository";
-import { IServiceCradle } from "./interface";
-import { AddProjectsUseCase } from "./domain/use-cases/project/addProject/addProject";
-import { GetProjectsUseCase } from "./domain/use-cases/project/getProjects/getProjects";
-import { ProjectMapper } from "./infrastructure/mapper/ProjectMapper";
-import { RenderRepository } from "./infrastructure/repository/RenderRepository";
-import { GetRendersUseCase } from "./domain/use-cases/render/getRenders/getRenders";
-import { UploadRenderUseCase } from "./domain/use-cases/render/uploadRender/uploadRender";
-import { RenderMapper } from "./infrastructure/mapper/RenderMapper";
+import { IServiceCradle } from "./abstractions";
+import { ProjectMapper } from "./use-cases/project/ProjectMapper";
+import { ProjectUseCases } from "./use-cases/project/ProjectUseCases";
+import { UserMapper } from "./use-cases/user/UserMapper";
+import { UserUseCases } from "./use-cases/user/UserUseCases";
+
 
 export const createServiceContainer = (dataSource: DataSource): AwilixContainer<IServiceCradle> => {
     const container = createContainer<IServiceCradle>({
@@ -22,25 +17,16 @@ export const createServiceContainer = (dataSource: DataSource): AwilixContainer<
     container.register({
         userRepository: asClass(UserRepository).singleton(),
         projectRepository: asClass(ProjectRepository).singleton(),
-        renderRepository: asClass(RenderRepository).singleton(),
     });
 
     container.register({
-        // user
-        getUsersUseCase: asClass(GetUsersUseCase).singleton(),
-        createUserUseCase: asClass(CreateUsersUseCase).singleton(),
-        // project
-        createProjectsUseCase: asClass(AddProjectsUseCase).singleton(),
-        getProjectsUseCase: asClass(GetProjectsUseCase).singleton(),
-        // render
-        getRendersUseCase: asClass(GetRendersUseCase).singleton(),
-        uploadRenderUseCase: asClass(UploadRenderUseCase).singleton(),
+        userUseCases: asClass(UserUseCases).singleton(),
+        projectUseCases: asClass(ProjectUseCases).singleton(),
     });
 
     container.register({
         userMapper: asClass(UserMapper).singleton(),
         projectMapper: asClass(ProjectMapper).singleton(),
-        renderMapper: asClass(RenderMapper).singleton(),
     });
 
     container.register({

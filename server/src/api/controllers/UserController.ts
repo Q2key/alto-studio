@@ -1,8 +1,8 @@
 import {NextFunction} from "express";
-import {IUserDto} from "../../domain/entities/User/IUser";
-import {ICreateUserInput} from "../../domain/use-cases/user/createUser/createUserInput";
-import {IServiceCradle} from "../../interface";
+import {ICreateUserDto} from "../../core/dto/ICreateUserDto";
+import {IServiceCradle} from "../../abstractions";
 import {BaseController, TRequestBody, TResponse} from "./BaseController";
+import { IUserDto } from "../../core/dto/IUserDto";
 
 export class UserController extends BaseController {
     public readonly service: IServiceCradle;
@@ -16,17 +16,17 @@ export class UserController extends BaseController {
         users: IUserDto[]
     }>, next: NextFunction): Promise<TResponse<{ users: IUserDto[] }>> => {
         return this.wrap(async () => {
-            const users = await this.service.getUsersUseCase.execute()
+            const users = await this.service.userUseCases.getAll()
             return res.json({users})
         }, next);
     }
 
 
-    public Create = async (req: TRequestBody<ICreateUserInput>, res: TResponse<{
+    public Create = async (req: TRequestBody<ICreateUserDto>, res: TResponse<{
         user: IUserDto
     }>, next: NextFunction): Promise<TResponse<{ user: IUserDto }>> => {
         return this.wrap(async () => {
-            const user = await this.service.createUserUseCase.execute(req.body)
+            const user = await this.service.userUseCases.createNew(req.body)
             return res.json({user})
         }, next);
     }
