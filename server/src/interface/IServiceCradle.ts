@@ -12,6 +12,7 @@ import { IRenderRepo } from "../domain/entities/Render/IRenderRepo";
 import { IRenderMapper } from "../domain/entities/Render/IRenderMapper";
 import { IRenderDto } from "../domain/entities/Render/IRender";
 import { IUploadRenderInput } from "../domain/use-cases/render/uploadRender/uploadRenderInput";
+import { CourseUseCases } from "../domain/use-cases/course/course-use-cases";
 
 export interface IServiceCradle {
     /* Repositories */
@@ -28,6 +29,8 @@ export interface IServiceCradle {
 
     getRendersUseCase: IUseCase<void, IRenderDto[]>;
     uploadRenderUseCase: IUseCase<IUploadRenderInput, IRenderDto>;
+
+    courseUseCases: CourseUseCases;
 
     /* data sources */
     dataSource: DataSource;
