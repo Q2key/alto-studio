@@ -1,8 +1,8 @@
 import { DataSource, Repository } from "typeorm";
 import { IServiceCradle } from "../../abstractions";
-import {ISubscriptionRepo} from "../../domain/repository/ISubscriptionRepo";
-import {SubscriptionEntity} from "../entities/SubscriptionEntity";
-import {Subscription} from "../../domain/entities/Subscribtion/Subscription";
+import { ISubscriptionRepo } from "../../domain/repository/ISubscriptionRepo";
+import { SubscriptionEntity } from "../entities/SubscriptionEntity";
+import { Subscription } from "../../domain/entities/Subscription/Subscription";
 
 export class SubscriptionRepository implements ISubscriptionRepo {
     private readonly ds: DataSource;
@@ -29,7 +29,7 @@ export class SubscriptionRepository implements ISubscriptionRepo {
     };
 
     async findOne(id: string): Promise<SubscriptionEntity> {
-        const subscription = await this.repo.findOneBy({id: id});
+        const subscription = await this.repo.findOneBy({ id: id });
         return Promise.resolve(subscription)
     }
 

@@ -1,8 +1,8 @@
 import { DataSource, Repository } from "typeorm";
-import { IProject,  } from "../../domain/entities/Project/IProject";
 import { IProjectRepo } from "../../domain/repository/IProjectRepo";
 import { IServiceCradle } from "../../abstractions";
 import { ProjectEntity } from "../entities/ProjectEntity";
+import { Project } from "../../domain/entities/Project/Project";
 
 export class ProjectRepository implements IProjectRepo {
     private readonly ds: DataSource;
@@ -15,8 +15,8 @@ export class ProjectRepository implements IProjectRepo {
 
     deleteOne: (id: string) => Promise<boolean>;
 
-    async save(project: IProject): Promise<ProjectEntity> {
-        const created = await this.repo.save<IProject>(project);
+    async save(project: Project): Promise<ProjectEntity> {
+        const created = await this.repo.save<Project>(project);
         return Promise.resolve(created);
     }
 

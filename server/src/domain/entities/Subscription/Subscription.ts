@@ -15,12 +15,4 @@ export class Subscription implements ISubscription {
         this.available = available;
         this.description = description;
     }
-
-    static Create (
-        name: string,
-        available: boolean,
-        description: string,
-    ): Subscription {
-        return new Subscription(name, available, description);
-    }
 }

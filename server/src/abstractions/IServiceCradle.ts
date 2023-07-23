@@ -5,7 +5,6 @@ import { ProjectUseCases } from "../use-cases/project/ProjectUseCases";
 import { UserUseCases } from "../use-cases/user/UserUseCases";
 import { IProjectMapper } from "../domain/mappers/IProjectMapper";
 import { IUserMapper } from "../domain/mappers/IUserMapper";
-import {SubscriptionRepository} from "../infrastructure/repository/SubscriptionRepository";
 import {ISubscriptionRepo} from "../domain/repository/ISubscriptionRepo";
 import {ISubscriptionMapper} from "../domain/mappers/ISubscriptionMapper";
 import {SubscriptionUseCases} from "../use-cases/subscription/SubscriptionUseCases";

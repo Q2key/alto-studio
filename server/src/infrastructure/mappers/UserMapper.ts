@@ -1,20 +1,18 @@
 
-import { IUserDto } from "../../dto/user/IUserDto";
+import { User } from "../../domain/entities/User/User";
 import { IUserMapper } from "../../domain/mappers/IUserMapper";
-import {UserEntity} from "../entities/UserEntity";
-import {IUser} from "../../domain/entities/User/IUser";
+import { IUserDto } from "../../dto/user/IUserDto";
 
 export class UserMapper implements IUserMapper {
-    toDTO(entity: UserEntity): IUserDto {
+    toDTO(entity: User): IUserDto {
         return {
+            id: entity.id,
             firstName: entity.firstName,
             role: entity.role,
-            projects: entity.projects,
         }
     }
 
-    toDomain(dto: IUserDto): IUser {
-        return undefined;
+    toDomain(dto: IUserDto): User {
+        return new User(dto.firstName, dto.role);
     }
-
 }

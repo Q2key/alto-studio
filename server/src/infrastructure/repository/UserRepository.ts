@@ -1,9 +1,8 @@
 import { DataSource, Repository } from "typeorm";
-import { IUser } from "../../domain/entities/User/IUser";
 import { IUserRepo } from "../../domain/repository/IUserRepo";
 import { IServiceCradle } from "../../abstractions";
 import { UserEntity } from "../entities/UserEntity";
-import {User} from "../../domain/entities/User/User";
+import { User } from "../../domain/entities/User/User";
 
 export class UserRepository implements IUserRepo {
     private readonly ds: DataSource;
@@ -14,12 +13,12 @@ export class UserRepository implements IUserRepo {
         this.repo = this.ds.getRepository(UserEntity);
     }
 
-    async save(user: IUser): Promise<UserEntity> {
-        const created = await this.repo.save<IUser>(user);
+    async save(user: User): Promise<UserEntity> {
+        const created = await this.repo.save<User>(user);
         return Promise.resolve(created);
     }
 
-    async update(id: string, user: IUser): Promise<boolean> {
+    async update(id: string, user: User): Promise<boolean> {
         const created = await this.repo.update(id, {id, firstName: user.firstName });
         return Promise.resolve(created.affected > 0);
     }

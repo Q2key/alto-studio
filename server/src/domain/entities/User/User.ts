@@ -1,22 +1,16 @@
-import {IUser} from "./IUser";
-import {IUserRole} from "../UserRole/IUserRole";
+import { IUser } from "./IUser";
+import { UserRoles } from "../UserRole/IUserRole";
 
 export class User implements IUser {
+    readonly id?: string;
     firstName: string;
-    role: IUserRole;
+    role: UserRoles;
 
     constructor(
         firstName: string,
-        role: IUserRole,
+        role: UserRoles,
     ) {
         this.firstName = firstName;
         this.role = role;
-    }
-
-    static Create(
-        firstName: string,
-        role: IUserRole,
-    ): User {
-        return new User(firstName, role);
     }
 }

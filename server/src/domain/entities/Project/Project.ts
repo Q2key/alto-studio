@@ -10,11 +10,4 @@ export class Project implements IProject{
         this.name = name;
         this.userId = userId;
     }
-
-    static Create (
-        name: string,
-        userId: string,
-    ): Project {
-        return new Project(name, userId)
-    }
 }
