@@ -1,5 +1,5 @@
 import { Entity, Column, OneToMany, JoinColumn } from 'typeorm'
-import { IUser } from '../../core/entities/User/IUser';
+import { IUser } from '../../domain/entities/User/IUser';
 import { BaseDBEntity } from './BaseDBEntity';
 import { ProjectEntity } from './ProjectEntity';
 

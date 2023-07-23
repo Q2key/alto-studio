@@ -1,7 +1,7 @@
 import { Entity, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { BaseDBEntity } from "./BaseDBEntity";
 import { UserEntity } from "./UserEntity";
-import { IProject } from "../../core/entities/Project/IProject";
+import { IProject } from "../../domain/entities/Project/IProject";
 
 
 @Entity('project')

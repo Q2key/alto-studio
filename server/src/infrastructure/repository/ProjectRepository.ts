@@ -1,6 +1,6 @@
 import { DataSource, Repository } from "typeorm";
-import { IProject,  } from "../../core/entities/Project/IProject";
-import { IProjectRepo } from "../../core/repository/IProjectRepo";
+import { IProject,  } from "../../domain/entities/Project/IProject";
+import { IProjectRepo } from "../../domain/repository/IProjectRepo";
 import { IServiceCradle } from "../../abstractions";
 import { ProjectEntity } from "../entities/ProjectEntity";
 

@@ -3,10 +3,10 @@ import { DataSource } from "typeorm";
 import { UserRepository } from "./infrastructure/repository/UserRepository";
 import { ProjectRepository } from "./infrastructure/repository/ProjectRepository";
 import { IServiceCradle } from "./abstractions";
-import { ProjectMapper } from "./use-cases/project/ProjectMapper";
 import { ProjectUseCases } from "./use-cases/project/ProjectUseCases";
-import { UserMapper } from "./use-cases/user/UserMapper";
 import { UserUseCases } from "./use-cases/user/UserUseCases";
+import { ProjectMapper } from "./interfaces/mappers/ProjectMapper";
+import { UserMapper } from "./interfaces/mappers/UserMapper";
 
 
 export const createServiceContainer = (dataSource: DataSource): AwilixContainer<IServiceCradle> => {

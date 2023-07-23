@@ -1,7 +1,7 @@
-import { IEntity } from "../IEntity";
+
 import { IProject } from "../Project/IProject";
 
-export interface IUser extends IEntity<string> {
+export interface IUser  {
     firstName: string;
     projects?: IProject[];
 }

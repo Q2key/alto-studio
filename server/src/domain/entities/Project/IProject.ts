@@ -1,6 +1,5 @@
-import { IEntity } from '../IEntity';
 
-export interface IProject extends IEntity<string> {
+export interface IProject {
     name: string;
     userId: string;
     startedAt?: string;

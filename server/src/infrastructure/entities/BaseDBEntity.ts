@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, PrimaryGeneratedColumn } from "typeorm";
 import { IDBEntity } from "./IDBEntity";
 
 export class BaseDBEntity implements IDBEntity {

@@ -1,8 +1,8 @@
 import { IServiceCradle } from "../../abstractions";
-import { ICreateUserDto } from "../../core/dto/ICreateUserDto";
-import { IUserDto } from "../../core/dto/IUserDto";
-import { IUserMapper } from "../../core/mapper/IUserMapper";
-import { IUserRepo } from "../../core/repository/IUserRepo";
+import { ICreateUserDto } from "../../interfaces/dto/ICreateUserDto";
+import { IUserDto } from "../../interfaces/dto/IUserDto";
+import { IUserRepo } from "../../domain/repository/IUserRepo";
+import { IUserMapper } from "../../interfaces/mappers/IUserMapper";
 
 export class UserUseCases {
     private readonly repo: IUserRepo;

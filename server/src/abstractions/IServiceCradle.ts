@@ -1,10 +1,11 @@
 import { DataSource } from "typeorm";
-import { IUserMapper } from "../core/mapper/IUserMapper";
-import { IUserRepo } from "../core/repository/IUserRepo";
-import { IProjectRepo } from "../core/repository/IProjectRepo";
-import { IProjectMapper } from "../core/mapper/IProjectMapper";
-import { UserUseCases } from "../core/use-cases/user/UserUseCases";
-import { ProjectUseCases } from "../core/use-cases/project/ProjectUseCases";
+import { IUserRepo } from "../domain/repository/IUserRepo";
+import { IProjectRepo } from "../domain/repository/IProjectRepo";
+import { ProjectUseCases } from "../use-cases/project/ProjectUseCases";
+import { UserUseCases } from "../use-cases/user/UserUseCases";
+import { IProjectMapper } from "../interfaces/mappers/IProjectMapper";
+import { IUserMapper } from "../interfaces/mappers/IUserMapper";
+
 
 export interface IServiceCradle {
     /* Repositories */
