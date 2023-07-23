@@ -4,7 +4,9 @@ import { IUserDto } from "../dto/IUserDto";
 import { IUserMapper } from "./IUserMapper";
 
 export class UserMapper implements IUserMapper {
-    toDTO(entity: IUser): IUserDto {
-        return entity as IUserDto;
+    toDTO({id, ...rest}: IUser): IUserDto {
+        return {
+            ...rest
+        };
     }
 }

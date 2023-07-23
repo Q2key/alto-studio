@@ -5,4 +5,3 @@ export interface IProject {
     startedAt?: string;
     finishedAt?: string;
 }
-

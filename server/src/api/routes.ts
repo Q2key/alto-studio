@@ -8,6 +8,8 @@ export const createRoutes = (app: Express, service: IServiceCradle): void => {
     app.use(express.json({ strict: true }));
     app.get('/users', userController.FindAll);
     app.post('/user', userController.Create);
+    app.post('/put', userController.Update);
+    app.delete('/user', userController.Delete);
 
     const projectController = new ProjectController(service);
     app.get('/projects', projectController.FindAll);

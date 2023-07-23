@@ -3,6 +3,8 @@ import { ICreateUserDto } from "../../interfaces/dto/ICreateUserDto";
 import { IUserDto } from "../../interfaces/dto/IUserDto";
 import { IUserRepo } from "../../domain/repository/IUserRepo";
 import { IUserMapper } from "../../interfaces/mappers/IUserMapper";
+import { IDeleteUserDto } from "../../interfaces/dto/IDeleteUserDto";
+import { IUpdateUserDto } from "../../interfaces/dto/IUpdateUserDto";
 
 export class UserUseCases {
     private readonly repo: IUserRepo;
@@ -14,21 +16,22 @@ export class UserUseCases {
     }
 
     public async getAll(): Promise<IUserDto[]> {
-        return (await this.repo.find()).map(this.mapper.toDTO);
+        const users = await this.repo.find();
+        return users.map(this.mapper.toDTO);
     }
 
-    public async createNew({id, firstName}: ICreateUserDto): Promise<IUserDto> {
+    public async create({id, firstName}: ICreateUserDto): Promise<IUserDto> {
         const user = await this.repo.save({firstName});
         return Promise.resolve(this.mapper.toDTO(user));
     }
 
-    public async deleteUser({id, firstName}: ICreateUserDto): Promise<boolean> {
+    public async update({id, user}: IUpdateUserDto): Promise<boolean> {
+        const updated = await this.repo.update(id, {...user});
+        return Promise.resolve(updated);
+    }
+
+    public async deleteUser({id}: IDeleteUserDto): Promise<boolean> {
         const deleted = await this.repo.deleteOne(id);
         return Promise.resolve(deleted);
-    }
-
-    public async updateUser({id, firstName}: ICreateUserDto): Promise<IUserDto> {
-        const user = await this.repo.save({firstName});
-        return Promise.resolve(this.mapper.toDTO(user));
     }
 }
