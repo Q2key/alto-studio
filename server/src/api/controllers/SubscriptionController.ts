@@ -1,10 +1,10 @@
 import {NextFunction} from "express";
 import {IServiceCradle} from "../../abstractions";
 import {BaseController, TRequestBody, TResponse} from "./BaseController";
-import {ISubscribtionDto} from "../../interfaces/dto/subscription/ISubscribtionDto";
-import {ICreateSubscriptionDto} from "../../interfaces/dto/subscription/ICreateSubscriptionDto";
-import {IUpdateSubscriptionDto} from "../../interfaces/dto/subscription/IUpdateSubscriptionDto";
-import {IDeleteSubscriptionDto} from "../../interfaces/dto/subscription/IDeleteSubscriptionDto";
+import {ISubscriptionDto} from "../../dto/subscription/ISubscriptionDto";
+import {ICreateSubscriptionDto} from "../../dto/subscription/ICreateSubscriptionDto";
+import {IUpdateSubscriptionDto} from "../../dto/subscription/IUpdateSubscriptionDto";
+import {IDeleteSubscriptionDto} from "../../dto/subscription/IDeleteSubscriptionDto";
 
 export class SubscriptionController extends BaseController {
     public readonly service: IServiceCradle;
@@ -15,8 +15,8 @@ export class SubscriptionController extends BaseController {
     }
 
     public FindAll = async (req: TRequestBody<{}>, res: TResponse<{
-        subscriptions: ISubscribtionDto[]
-    }>, next: NextFunction): Promise<TResponse<{ subscriptions: ISubscribtionDto[] }>> => {
+        subscriptions: ISubscriptionDto[]
+    }>, next: NextFunction): Promise<TResponse<{ subscriptions: ISubscriptionDto[] }>> => {
         return this.wrap(async () => {
             const subscriptions = await this.service.subscriptionUseCases.getAll()
             return res.json({subscriptions})
@@ -24,8 +24,8 @@ export class SubscriptionController extends BaseController {
     }
 
     public Create = async (req: TRequestBody<ICreateSubscriptionDto>, res: TResponse<{
-        subscription: ISubscribtionDto
-    }>, next: NextFunction): Promise<TResponse<{ subscription: ISubscribtionDto }>> => {
+        subscription: ISubscriptionDto
+    }>, next: NextFunction): Promise<TResponse<{ subscription: ISubscriptionDto }>> => {
         return this.wrap(async () => {
             const subscription = await this.service.subscriptionUseCases.create(req.body)
             return res.json({subscription})

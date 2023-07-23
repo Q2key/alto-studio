@@ -1,10 +1,10 @@
 import {ISubscriptionRepo} from "../../domain/repository/ISubscriptionRepo";
-import {ISubscriptionMapper} from "../../interfaces/mappers/subscription/ISubscriptionMapper";
+import {ISubscriptionMapper} from "../../domain/mappers/ISubscriptionMapper";
 import {IServiceCradle} from "../../abstractions";
-import {ISubscribtionDto} from "../../interfaces/dto/subscription/ISubscribtionDto";
-import {ICreateSubscriptionDto} from "../../interfaces/dto/subscription/ICreateSubscriptionDto";
-import {IUpdateSubscriptionDto} from "../../interfaces/dto/subscription/IUpdateSubscriptionDto";
-import {IDeleteSubscriptionDto} from "../../interfaces/dto/subscription/IDeleteSubscriptionDto";
+import {ISubscriptionDto} from "../../dto/subscription/ISubscriptionDto";
+import {ICreateSubscriptionDto} from "../../dto/subscription/ICreateSubscriptionDto";
+import {IUpdateSubscriptionDto} from "../../dto/subscription/IUpdateSubscriptionDto";
+import {IDeleteSubscriptionDto} from "../../dto/subscription/IDeleteSubscriptionDto";
 
 export class SubscriptionUseCases {
     private readonly repo: ISubscriptionRepo;
@@ -15,18 +15,18 @@ export class SubscriptionUseCases {
         this.mapper = cradle.subscriptionMapper;
     }
 
-    public async getAll(): Promise<ISubscribtionDto[]> {
+    public async getAll(): Promise<ISubscriptionDto[]> {
         const subscriptions = await this.repo.find();
         return subscriptions.map(this.mapper.toDTO);
     }
 
-    public async create({name, description, available}: ICreateSubscriptionDto): Promise<ISubscribtionDto> {
-        const user = await this.repo.save({name, available, description});
+    public async create(dto: ICreateSubscriptionDto): Promise<ISubscriptionDto> {
+        const user = await this.repo.save(this.mapper.toDomain(dto));
         return Promise.resolve(this.mapper.toDTO(user));
     }
 
     public async update({id, subscription}: IUpdateSubscriptionDto): Promise<boolean> {
-        const updated = await this.repo.update(id, {...subscription});
+        const updated = await this.repo.update(id, this.mapper.toDomain(subscription));
         return Promise.resolve(updated);
     }
 

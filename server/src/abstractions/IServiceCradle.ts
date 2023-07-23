@@ -3,11 +3,11 @@ import { IUserRepo } from "../domain/repository/IUserRepo";
 import { IProjectRepo } from "../domain/repository/IProjectRepo";
 import { ProjectUseCases } from "../use-cases/project/ProjectUseCases";
 import { UserUseCases } from "../use-cases/user/UserUseCases";
-import { IProjectMapper } from "../interfaces/mappers/project/IProjectMapper";
-import { IUserMapper } from "../interfaces/mappers/user/IUserMapper";
+import { IProjectMapper } from "../domain/mappers/IProjectMapper";
+import { IUserMapper } from "../domain/mappers/IUserMapper";
 import {SubscriptionRepository} from "../infrastructure/repository/SubscriptionRepository";
 import {ISubscriptionRepo} from "../domain/repository/ISubscriptionRepo";
-import {ISubscriptionMapper} from "../interfaces/mappers/subscription/ISubscriptionMapper";
+import {ISubscriptionMapper} from "../domain/mappers/ISubscriptionMapper";
 import {SubscriptionUseCases} from "../use-cases/subscription/SubscriptionUseCases";
 
 

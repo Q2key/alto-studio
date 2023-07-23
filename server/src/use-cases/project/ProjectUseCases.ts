@@ -1,8 +1,8 @@
 import { IServiceCradle } from "../../abstractions";
-import { ICreateProjectDto } from "../../interfaces/dto/project/ICreateProjectDto";
-import { IProjectDto } from "../../interfaces/dto/project/IProjectDto";
+import { ICreateProjectDto } from "../../dto/project/ICreateProjectDto";
+import { IProjectDto } from "../../dto/project/IProjectDto";
 import { IProjectRepo } from "../../domain/repository/IProjectRepo";
-import { IProjectMapper } from "../../interfaces/mappers/project/IProjectMapper";
+import { IProjectMapper } from "../../domain/mappers/IProjectMapper";
 
 export class ProjectUseCases {
     private readonly repo: IProjectRepo;
@@ -17,18 +17,8 @@ export class ProjectUseCases {
         return (await this.repo.find()).map(this.mapper.toDTO);
     }
 
-    public async createNew({id, firstName, userId}: ICreateProjectDto): Promise<IProjectDto> {
-        const user = await this.repo.save({name: firstName, userId});
-        return Promise.resolve(this.mapper.toDTO(user));
-    }
-
-    public async deleteUser({id}: ICreateProjectDto): Promise<boolean> {
-        const deleted = await this.repo.deleteOne(id);
-        return Promise.resolve(deleted);
-    }
-
-    public async updateUser({id, firstName, userId}: ICreateProjectDto): Promise<IProjectDto> {
-        const user = await this.repo.save({name: firstName, userId});
+    public async createNew(dto: ICreateProjectDto): Promise<IProjectDto> {
+        const user = await this.repo.save(this.mapper.toDomain(dto));
         return Promise.resolve(this.mapper.toDTO(user));
     }
 }

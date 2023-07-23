@@ -1,5 +1,5 @@
 import { Column, PrimaryGeneratedColumn } from "typeorm";
-import { IDBEntity } from "./IDBEntity";
+import { IDBEntity } from "../../abstractions/IDBEntity";
 
 export class BaseDBEntity implements IDBEntity {
     @PrimaryGeneratedColumn("uuid")

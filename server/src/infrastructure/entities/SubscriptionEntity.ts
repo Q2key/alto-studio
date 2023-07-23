@@ -1,9 +1,6 @@
 import { Entity, Column, OneToMany, JoinColumn } from 'typeorm'
-import { IUser } from '../../domain/entities/User/IUser';
 import { BaseDBEntity } from './BaseDBEntity';
-import { ProjectEntity } from './ProjectEntity';
-import {IUserRole} from "../../domain/entities/UserRole/IUserRole";
-import {ISubscription} from "../../domain/entities/Subscribtion/ISubscription";
+import {ISubscription} from "../../domain/entities/Subscription/ISubscription";
 
 @Entity('subscriptions')
 export class SubscriptionEntity extends BaseDBEntity implements ISubscription {

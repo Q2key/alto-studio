@@ -1,4 +1,4 @@
-import { UserRoles } from "../../../domain/entities/UserRole/IUserRole";
+import { UserRoles } from "../../domain/entities/UserRole/IUserRole";
 
 export interface ICreateUserDto {
     id?: string;

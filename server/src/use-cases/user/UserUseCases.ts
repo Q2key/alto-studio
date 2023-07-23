@@ -1,10 +1,10 @@
 import { IServiceCradle } from "../../abstractions";
-import { ICreateUserDto } from "../../interfaces/dto/user/ICreateUserDto";
-import { IUserDto } from "../../interfaces/dto/user/IUserDto";
+import { ICreateUserDto } from "../../dto/user/ICreateUserDto";
+import { IUserDto } from "../../dto/user/IUserDto";
 import { IUserRepo } from "../../domain/repository/IUserRepo";
-import { IUserMapper } from "../../interfaces/mappers/user/IUserMapper";
-import { IDeleteUserDto } from "../../interfaces/dto/user/IDeleteUserDto";
-import { IUpdateUserDto } from "../../interfaces/dto/user/IUpdateUserDto";
+import { IUserMapper } from "../../domain/mappers/IUserMapper";
+import { IDeleteUserDto } from "../../dto/user/IDeleteUserDto";
+import { IUpdateUserDto } from "../../dto/user/IUpdateUserDto";
 
 export class UserUseCases {
     private readonly repo: IUserRepo;
@@ -20,13 +20,13 @@ export class UserUseCases {
         return users.map(this.mapper.toDTO);
     }
 
-    public async create({id, firstName, role}: ICreateUserDto): Promise<IUserDto> {
-        const user = await this.repo.save({firstName, role });
+    public async create(dto: ICreateUserDto): Promise<IUserDto> {
+        const user = await this.repo.save(this.mapper.toDomain(dto));
         return Promise.resolve(this.mapper.toDTO(user));
     }
 
-    public async update({id, user}: IUpdateUserDto): Promise<boolean> {
-        const updated = await this.repo.update(id, {...user});
+    public async update(dto: IUpdateUserDto): Promise<boolean> {
+        const updated = await this.repo.update(dto.id, this.mapper.toDomain(dto.user));
         return Promise.resolve(updated);
     }
 

@@ -3,6 +3,7 @@ import { IUser } from "../../domain/entities/User/IUser";
 import { IUserRepo } from "../../domain/repository/IUserRepo";
 import { IServiceCradle } from "../../abstractions";
 import { UserEntity } from "../entities/UserEntity";
+import {User} from "../../domain/entities/User/User";
 
 export class UserRepository implements IUserRepo {
     private readonly ds: DataSource;

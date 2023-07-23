@@ -1,7 +1,8 @@
 
 import { IUserDto } from "../../dto/user/IUserDto";
-import { IUserMapper } from "./IUserMapper";
-import {UserEntity} from "../../../infrastructure/entities/UserEntity";
+import { IUserMapper } from "../../domain/mappers/IUserMapper";
+import {UserEntity} from "../entities/UserEntity";
+import {IUser} from "../../domain/entities/User/IUser";
 
 export class UserMapper implements IUserMapper {
     toDTO(entity: UserEntity): IUserDto {
@@ -10,6 +11,10 @@ export class UserMapper implements IUserMapper {
             role: entity.role,
             projects: entity.projects,
         }
+    }
+
+    toDomain(dto: IUserDto): IUser {
+        return undefined;
     }
 
 }
