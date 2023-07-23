@@ -2,7 +2,7 @@ import { IServiceCradle } from "../../abstractions";
 import { ICreateUserDto } from "../../interfaces/dto/user/ICreateUserDto";
 import { IUserDto } from "../../interfaces/dto/user/IUserDto";
 import { IUserRepo } from "../../domain/repository/IUserRepo";
-import { IUserMapper } from "../../interfaces/mappers/IUserMapper";
+import { IUserMapper } from "../../interfaces/mappers/user/IUserMapper";
 import { IDeleteUserDto } from "../../interfaces/dto/user/IDeleteUserDto";
 import { IUpdateUserDto } from "../../interfaces/dto/user/IUpdateUserDto";
 

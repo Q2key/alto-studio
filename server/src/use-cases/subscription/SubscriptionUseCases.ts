@@ -1,5 +1,5 @@
 import {ISubscriptionRepo} from "../../domain/repository/ISubscriptionRepo";
-import {ISubscriptionMapper} from "../../interfaces/mappers/ISubscriptionMapper";
+import {ISubscriptionMapper} from "../../interfaces/mappers/subscription/ISubscriptionMapper";
 import {IServiceCradle} from "../../abstractions";
 import {ISubscribtionDto} from "../../interfaces/dto/subscription/ISubscribtionDto";
 import {ICreateSubscriptionDto} from "../../interfaces/dto/subscription/ICreateSubscriptionDto";

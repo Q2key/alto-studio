@@ -5,11 +5,11 @@ import { ProjectRepository } from "./infrastructure/repository/ProjectRepository
 import { IServiceCradle } from "./abstractions";
 import { ProjectUseCases } from "./use-cases/project/ProjectUseCases";
 import { UserUseCases } from "./use-cases/user/UserUseCases";
-import { ProjectMapper } from "./interfaces/mappers/ProjectMapper";
-import { UserMapper } from "./interfaces/mappers/UserMapper";
+import { ProjectMapper } from "./interfaces/mappers/project/ProjectMapper";
+import { UserMapper } from "./interfaces/mappers/user/UserMapper";
 import {SubscriptionRepository} from "./infrastructure/repository/SubscriptionRepository";
 import {SubscriptionUseCases} from "./use-cases/subscription/SubscriptionUseCases";
-import {SubscriptionMapper} from "./interfaces/mappers/SubscriptionMapper";
+import {SubscriptionMapper} from "./interfaces/mappers/subscription/SubscriptionMapper";
 
 
 export const createServiceContainer = (dataSource: DataSource): AwilixContainer<IServiceCradle> => {
