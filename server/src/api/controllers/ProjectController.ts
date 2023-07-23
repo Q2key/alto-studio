@@ -1,8 +1,8 @@
 import {NextFunction} from "express";
 import {IServiceCradle} from "../../abstractions";
 import {BaseController, TRequestBody, TResponse} from "./BaseController";
-import { IProjectDto } from "../../interfaces/dto/IProjectDto";
-import { ICreateProjectDto } from "../../interfaces/dto/ICreateProjectDto";
+import { IProjectDto } from "../../interfaces/dto/project/IProjectDto";
+import { ICreateProjectDto } from "../../interfaces/dto/project/ICreateProjectDto";
 
 export class ProjectController extends BaseController {
     public readonly service: IServiceCradle;

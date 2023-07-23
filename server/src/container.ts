@@ -7,6 +7,9 @@ import { ProjectUseCases } from "./use-cases/project/ProjectUseCases";
 import { UserUseCases } from "./use-cases/user/UserUseCases";
 import { ProjectMapper } from "./interfaces/mappers/ProjectMapper";
 import { UserMapper } from "./interfaces/mappers/UserMapper";
+import {SubscriptionRepository} from "./infrastructure/repository/SubscriptionRepository";
+import {SubscriptionUseCases} from "./use-cases/subscription/SubscriptionUseCases";
+import {SubscriptionMapper} from "./interfaces/mappers/SubscriptionMapper";
 
 
 export const createServiceContainer = (dataSource: DataSource): AwilixContainer<IServiceCradle> => {
@@ -17,16 +20,19 @@ export const createServiceContainer = (dataSource: DataSource): AwilixContainer<
     container.register({
         userRepository: asClass(UserRepository).singleton(),
         projectRepository: asClass(ProjectRepository).singleton(),
+        subscriptionRepository: asClass(SubscriptionRepository).singleton(),
     });
 
     container.register({
         userUseCases: asClass(UserUseCases).singleton(),
         projectUseCases: asClass(ProjectUseCases).singleton(),
+        subscriptionUseCases: asClass(SubscriptionUseCases).singleton(),
     });
 
     container.register({
         userMapper: asClass(UserMapper).singleton(),
         projectMapper: asClass(ProjectMapper).singleton(),
+        subscriptionMapper: asClass(SubscriptionMapper).singleton(),
     });
 
     container.register({

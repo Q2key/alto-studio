@@ -1,11 +1,8 @@
 
-
-import { IUser } from "../../domain/entities/User/IUser";
 import { UserEntity } from "../../infrastructure/entities/UserEntity";
-import { IUserDto } from "../dto/IUserDto";
+import { IUserDto } from "../dto/user/IUserDto";
 import {IMapper} from "./IMapper";
 
-
-export interface IUserMapper extends IMapper<IUser, IUserDto> {
+export interface IUserMapper extends IMapper<UserEntity, IUserDto> {
     toDTO(entity: UserEntity): IUserDto;
 }

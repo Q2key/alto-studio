@@ -1,10 +1,10 @@
 import { IServiceCradle } from "../../abstractions";
-import { ICreateUserDto } from "../../interfaces/dto/ICreateUserDto";
-import { IUserDto } from "../../interfaces/dto/IUserDto";
+import { ICreateUserDto } from "../../interfaces/dto/user/ICreateUserDto";
+import { IUserDto } from "../../interfaces/dto/user/IUserDto";
 import { IUserRepo } from "../../domain/repository/IUserRepo";
 import { IUserMapper } from "../../interfaces/mappers/IUserMapper";
-import { IDeleteUserDto } from "../../interfaces/dto/IDeleteUserDto";
-import { IUpdateUserDto } from "../../interfaces/dto/IUpdateUserDto";
+import { IDeleteUserDto } from "../../interfaces/dto/user/IDeleteUserDto";
+import { IUpdateUserDto } from "../../interfaces/dto/user/IUpdateUserDto";
 
 export class UserUseCases {
     private readonly repo: IUserRepo;
@@ -20,8 +20,8 @@ export class UserUseCases {
         return users.map(this.mapper.toDTO);
     }
 
-    public async create({id, firstName}: ICreateUserDto): Promise<IUserDto> {
-        const user = await this.repo.save({firstName});
+    public async create({id, firstName, role}: ICreateUserDto): Promise<IUserDto> {
+        const user = await this.repo.save({firstName, role });
         return Promise.resolve(this.mapper.toDTO(user));
     }
 

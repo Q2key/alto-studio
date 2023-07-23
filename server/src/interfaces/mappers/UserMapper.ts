@@ -1,12 +1,15 @@
 
-import { IUser } from "../../domain/entities/User/IUser";
-import { IUserDto } from "../dto/IUserDto";
+import { IUserDto } from "../dto/user/IUserDto";
 import { IUserMapper } from "./IUserMapper";
+import {UserEntity} from "../../infrastructure/entities/UserEntity";
 
 export class UserMapper implements IUserMapper {
-    toDTO({id, ...rest}: IUser): IUserDto {
+    toDTO(entity: UserEntity): IUserDto {
         return {
-            ...rest
-        };
+            firstName: entity.firstName,
+            role: entity.role,
+            projects: entity.projects,
+        }
     }
+
 }

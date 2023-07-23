@@ -1,8 +1,10 @@
 
 import { IProject } from "../Project/IProject";
+import { UserRoles} from "../UserRole/IUserRole";
 
 export interface IUser  {
-    id?: string;
+    readonly id?: string;
     firstName: string;
+    role: UserRoles;
     projects?: IProject[];
 }

@@ -1,6 +1,6 @@
 
 import { IProject } from "../../domain/entities/Project/IProject";
-import { IProjectDto } from "../dto/IProjectDto";
+import { IProjectDto } from "../dto/project/IProjectDto";
 import { IProjectMapper } from "./IProjectMapper";
 
 export class ProjectMapper implements IProjectMapper {

@@ -1,6 +1,6 @@
 import { IServiceCradle } from "../../abstractions";
-import { ICreateProjectDto } from "../../interfaces/dto/ICreateProjectDto";
-import { IProjectDto } from "../../interfaces/dto/IProjectDto";
+import { ICreateProjectDto } from "../../interfaces/dto/project/ICreateProjectDto";
+import { IProjectDto } from "../../interfaces/dto/project/IProjectDto";
 import { IProjectRepo } from "../../domain/repository/IProjectRepo";
 import { IProjectMapper } from "../../interfaces/mappers/IProjectMapper";
 
