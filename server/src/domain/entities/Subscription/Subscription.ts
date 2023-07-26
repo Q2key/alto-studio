@@ -4,7 +4,7 @@ export class Subscription implements ISubscription {
     readonly id?: string;
     name: string;
     description: string;
-    enabled: boolean;
+    available: boolean;
     expiredAt: string;
     startedAt: string;
     price: number;
@@ -15,7 +15,7 @@ export class Subscription implements ISubscription {
     constructor(
         name: string,
         description: string,
-        enabled: boolean,
+        available: boolean,
         expiredAt: string,
         startedAt: string,
         price: number,
@@ -25,7 +25,7 @@ export class Subscription implements ISubscription {
     ) {
         this.name = name;
         this.description = description;
-        this.enabled = enabled;
+        this.available = available;
         this.expiredAt = expiredAt;
         this.startedAt = startedAt;
         this.price = price;

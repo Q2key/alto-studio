@@ -1,5 +1,5 @@
+import { UserRoles } from "../../../dto/types/UserRoles";
 import { IUser } from "./IUser";
-import { UserRoles } from "../UserRole/IUserRole";
 
 export class User implements IUser {
     readonly id?: string;

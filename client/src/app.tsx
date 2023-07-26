@@ -1,16 +1,40 @@
+import 'normalize.css';
 import React from "react";
 import ReactDOM from "react-dom";
-import { Login } from "./pages/login/Login";
-import 'normalize.css';
+import {
+  BrowserRouter, Link, Route, Routes, NavLink, Outlet 
+} from "react-router-dom";
 
-const App: React.FC = () => {
+import { MainPage } from "./pages/main/MainPage";
+import { AboutPage } from './pages/about/AboutPage';
+import { HomePage } from './pages/home/HomePage';
 
+const NavBar: React.FC = () => {
   return (
-    <Login />
+    <ul>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/home">HomePage</NavLink>
+      </li>
+      <li>
+        <NavLink to="/about">AboutPage</NavLink>
+      </li>
+    </ul>
   )
 }
 
 ReactDOM.render(
-  <App />,
+  <BrowserRouter>
+    <NavBar/>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+
+    </Routes>
+
+  </BrowserRouter>,
   document.getElementById("root")
 );

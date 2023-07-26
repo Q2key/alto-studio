@@ -1,10 +1,10 @@
-import {ISubscriptionRepo} from "../../domain/repository/ISubscriptionRepo";
-import {ISubscriptionMapper} from "../../domain/mappers/ISubscriptionMapper";
-import {IServiceCradle} from "../../abstractions";
-import {ISubscriptionDto} from "../../dto/subscription/ISubscriptionDto";
-import {ICreateSubscriptionDto} from "../../dto/subscription/ICreateSubscriptionDto";
-import {IUpdateSubscriptionDto} from "../../dto/subscription/IUpdateSubscriptionDto";
-import {IDeleteSubscriptionDto} from "../../dto/subscription/IDeleteSubscriptionDto";
+import { ISubscriptionRepo } from "../../domain/repository/ISubscriptionRepo";
+import { ISubscriptionMapper } from "../../domain/mappers/ISubscriptionMapper";
+import { IServiceCradle } from "../../abstractions";
+import { ISubscriptionDto } from "../../dto/subscription/ISubscriptionDto";
+import { ICreateSubscriptionDto } from "../../dto/subscription/ICreateSubscriptionDto";
+import { IUpdateSubscriptionDto } from "../../dto/subscription/IUpdateSubscriptionDto";
+import { IDeleteSubscriptionDto } from "../../dto/subscription/IDeleteSubscriptionDto";
 
 export class SubscriptionUseCases {
     private readonly repo: ISubscriptionRepo;
@@ -21,16 +21,16 @@ export class SubscriptionUseCases {
     }
 
     public async create(dto: ICreateSubscriptionDto): Promise<ISubscriptionDto> {
-        const user = await this.repo.save(this.mapper.toDomain(dto));
-        return Promise.resolve(this.mapper.toDTO(user));
+        const userEntity = await this.repo.save(this.mapper.toDomain(dto));
+        return Promise.resolve(this.mapper.toDTO(userEntity));
     }
 
-    public async update({id, subscription}: IUpdateSubscriptionDto): Promise<boolean> {
+    public async update({ id, subscription }: IUpdateSubscriptionDto): Promise<boolean> {
         const updated = await this.repo.update(id, this.mapper.toDomain(subscription));
         return Promise.resolve(updated);
     }
 
-    public async deleteUser({id}: IDeleteSubscriptionDto): Promise<boolean> {
+    public async deleteUser({ id }: IDeleteSubscriptionDto): Promise<boolean> {
         const deleted = await this.repo.deleteOne(id);
         return Promise.resolve(deleted);
     }

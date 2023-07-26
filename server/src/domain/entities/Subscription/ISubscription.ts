@@ -16,7 +16,7 @@ export interface ISubscription {
     readonly id?: string;
     name: string;
     description: string;
-    enabled: boolean;
+    available: boolean;
     startedAt: string;
     expiredAt: string;
     price: number;

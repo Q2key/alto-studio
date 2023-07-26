@@ -1,6 +1,6 @@
 import { Entity, Column } from 'typeorm'
 import { BaseDBEntity } from './BaseDBEntity';
-import { ISubscription } from "../../domain/entities/Subscription/ISubscription";
+import { BillingCycleKind, DurationKind, ISubscription } from "../../domain/entities/Subscription/ISubscription";
 
 @Entity('subscriptions')
 export class SubscriptionEntity extends BaseDBEntity implements ISubscription {
@@ -10,6 +10,24 @@ export class SubscriptionEntity extends BaseDBEntity implements ISubscription {
 
     @Column('boolean')
     available: boolean;
+
+    @Column('date')
+    startedAt: string;
+    
+    @Column('date')
+    expiredAt: string;
+    
+    @Column('float')
+    price: number;
+
+    @Column('varchar')
+    features: string[];
+
+    @Column('int')
+    durationKind: DurationKind;
+    
+    @Column('int')
+    billingCycleKind: BillingCycleKind;
 
     @Column('varchar')
     description: string;
