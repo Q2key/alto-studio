@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const loaderUtils = require('loader-utils');
 const config = {
-  entry: "./src/app.tsx",
+  entry: "./src/index.tsx",
   module: {
     rules: [
       {
@@ -19,6 +19,17 @@ const config = {
             ],
           },
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false,
+            }
+          },
+        ],
       },
       {
         test: /\.css$/,

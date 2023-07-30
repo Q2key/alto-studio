@@ -1,0 +1,19 @@
+.wrapper {
+    display: grid;
+    background-color: #ebebeb;
+    height: calc(100vh);
+    padding: 5px;
+    gap: 5px;
+    box-sizing:border-box;
+}
+
+@media (min-width: 700px) {
+    .wrapper {
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: 5% auto 10%;
+        grid-template-areas:
+            "header header  header"
+            "nav    content content"
+            "footer footer  footer";
+    }
+}

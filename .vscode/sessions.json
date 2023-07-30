@@ -1,0 +1,49 @@
+{
+  "$schema": "https://cdn.statically.io/gh/nguyenngoclongdev/cdn/main/schema/v7/terminal-keeper.json",
+  "theme": "tribe",
+  "active": "default",
+  "activateOnStartup": true,
+  "keepExistingTerminals": false,
+  "sessions": {
+    "default": [
+      [
+        {
+          "name": "docker:ros",
+          "commands": [
+            ""
+          ]
+        },
+        {
+          "name": "docker:k8s",
+          "commands": [
+            ""
+          ]
+        },
+      ],
+    ],
+    "saved-session-1": [
+      {
+        "name": "connect",
+        "commands": [
+          ""
+        ]
+      }
+    ],
+    "saved-session-2": [
+      [
+        {
+          "name": "api",
+          "commands": [
+            ""
+          ]
+        },
+        {
+          "name": "log",
+          "commands": [
+            ""
+          ]
+        }
+      ]
+    ]
+  }
+}
