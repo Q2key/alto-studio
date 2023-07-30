@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { Card } from '../Card/Card';
+import { Card } from '../../Card/Card';
 import css from './Header.module.css';
-import { UserOptionProps, UserOptions } from '../UserOptions/UserOptions';
+import { UserOptionProps, UserOptions } from '../../UserOptions/UserOptions';
 
 const mockAdminProps:UserOptionProps = {
     userName: 'Alisa Totskaya',
