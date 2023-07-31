@@ -18,8 +18,7 @@ export const SubscriptionsPage: React.FC = () => {
     },[]);
     
     return (
-        <PageContainer>
-            <h1>Subscriptions</h1>
+        <PageContainer title='Подписки'>
             <ul>
                 {subscriptions.map((el, i) => {
                     return <li key={i}>{JSON.stringify(el)}</li>

@@ -1,0 +1,13 @@
+:root {
+    .theme-light {
+
+        --color-main: #ededed;
+        --color-accent: white;
+
+        --text-color-0: #ededed;
+        --text-color-1: #333333;
+        --text-color-3: #333333;
+        --text-color-4: #333333;
+        --box-shadow-color: rgba(0,0,0,0.1);
+    }
+}

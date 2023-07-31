@@ -4,6 +4,6 @@ import { Card } from "../../Card/Card";
 
 export const Footer: FC = () => (
     <footer className={css.footer}>
-        <Card>About us</Card>
+        About us
     </footer>
 );

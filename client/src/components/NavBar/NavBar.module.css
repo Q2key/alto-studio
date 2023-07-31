@@ -2,11 +2,15 @@
     grid-area: nav;
 }
 
-.navbar ul {
-    margin: 0;
-    padding: 0;
+.navbar a {
+    text-decoration: none;
+    padding: inherit;
+    padding: 5px;
 }
 
-.navbar li {
-    list-style: none;
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
+

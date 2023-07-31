@@ -8,8 +8,10 @@ export type UserOptionProps = {
 }
 
 export const UserOptions: FC<UserOptionProps> = ({userName, imgSrc}) => (
-    <div className={css.container}>
-        <div>{userName}</div>
-        <img src={enot}></img>
+    <div className={css.wrapper}>
+        <div className={css.container}>
+            <div>{userName}</div>
+            <img className={css.avatar} src={enot}></img>
+        </div>
     </div>
 )

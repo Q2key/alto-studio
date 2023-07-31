@@ -1,0 +1,10 @@
+.item {
+    text-decoration: none;
+    color: var(--text-color-1);
+    width: 100%;
+}
+
+.active {
+    /* text-decoration: underline; */
+    font-weight: 400;
+}

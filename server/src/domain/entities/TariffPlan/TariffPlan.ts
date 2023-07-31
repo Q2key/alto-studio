@@ -1,3 +1,4 @@
+import { Subscription } from "../Subscription/Subscription";
 import { ITariffPlan } from "./ITariffPlan";
 
 export class TariffPlan implements ITariffPlan {
@@ -6,16 +7,19 @@ export class TariffPlan implements ITariffPlan {
     description: string;
     enabled: boolean;
     includedSubscriptionIds: number[];
+    subscriptions: Subscription[];
 
     constructor(
         name: string,
         description: string,
         enabled: boolean,
-        includedSubscriptionIds: number[]
+        includedSubscriptionIds: number[],
+        subscriptions: Subscription[],
     ) {
         this.name = name;
         this.description = description;
         this.enabled = enabled;
         this.includedSubscriptionIds = includedSubscriptionIds;
+        this.subscriptions = subscriptions;
     }
 }

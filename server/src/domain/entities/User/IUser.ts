@@ -6,5 +6,4 @@ export interface IUser  {
     readonly id?: string;
     firstName: string;
     role: UserRoles;
-    projects?: IProject[];
 }
