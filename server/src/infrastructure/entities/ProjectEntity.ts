@@ -23,7 +23,7 @@ export class ProjectEntity extends BaseDBEntity implements IProject {
     name: string;
 
     /* Relations */
-    @ManyToOne(() => UserEntity, e => e.projects)
-    @JoinColumn()
-    user: UserEntity
+    // @ManyToOne(() => UserEntity, e => e.projects)
+    // @JoinColumn()
+    // // user: UserEntity
 }

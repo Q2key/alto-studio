@@ -13,6 +13,15 @@ export class UserMapper implements IUserMapper {
     }
 
     toDomain(dto: IUserDto): User {
-        return new User(dto.firstName, dto.role);
+        return new User(
+            dto.firstName, 
+            'middleName', 
+            'lastName', 
+            'a@.com', 
+            'passwordHash', 
+            'salt', 
+            dto.role, 
+            true, 
+            undefined);
     }
 }
