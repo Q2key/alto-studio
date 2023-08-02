@@ -1,27 +1,14 @@
 
 import { User } from "../../domain/entities/User/User";
 import { IUserMapper } from "../../domain/mappers/IUserMapper";
-import { IUserDto } from "../../dto/user/IUserDto";
+import { IUserResponseDto } from "../../dto/user/IUserResponseDto";
 
 export class UserMapper implements IUserMapper {
-    toDTO(entity: User): IUserDto {
+    toDTO(domain: User): IUserResponseDto {
         return {
-            id: entity.id,
-            firstName: entity.firstName,
-            role: entity.role,
+            id: domain.id,
+            firstName: domain.firstName,
+            role: domain.role,
         }
-    }
-
-    toDomain(dto: IUserDto): User {
-        return new User(
-            dto.firstName, 
-            'middleName', 
-            'lastName', 
-            'a@.com', 
-            'passwordHash', 
-            'salt', 
-            dto.role, 
-            true, 
-            undefined);
     }
 }

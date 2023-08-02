@@ -1,10 +1,9 @@
 import { IUser } from "../entities/User/IUser";
-import {UserEntity} from "../../infrastructure/entities/UserEntity";
 
 export interface IUserRepo {
-    save(user: IUser): Promise<UserEntity>;
+    save(user: IUser): Promise<IUser>;
     update(id: string, user: IUser): Promise<boolean>;
-    findOne(id: string): Promise<UserEntity>;
-    find: (fromIndex?: number, count?: number) => Promise<UserEntity[]>;
+    findOne(id: string): Promise<IUser>;
+    find: (fromIndex?: number, count?: number) => Promise<IUser[]>;
     deleteOne: (id: string) => Promise<boolean>;
 }

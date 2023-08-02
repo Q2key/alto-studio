@@ -1,8 +1,7 @@
+import { IUser } from "../../domain/entities/User/IUser";
 import { ICreateUserDto } from "./ICreateUserDto";
-
-type IUpdateUserPayload = Omit<ICreateUserDto, 'id'>;
 
 export interface IUpdateUserDto {
     id: string;
-    user: IUpdateUserPayload;
+    user: Omit<Partial<IUser>, 'id'>;
 }

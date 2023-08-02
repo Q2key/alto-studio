@@ -21,12 +21,12 @@ export class SubscriptionUseCases {
     }
 
     public async create(dto: ICreateSubscriptionDto): Promise<ISubscriptionDto> {
-        const userEntity = await this.repo.save(this.mapper.toDomain(dto));
+        const userEntity = await this.repo.save({...dto});
         return Promise.resolve(this.mapper.toDTO(userEntity));
     }
 
     public async update({ id, subscription }: IUpdateSubscriptionDto): Promise<boolean> {
-        const updated = await this.repo.update(id, this.mapper.toDomain(subscription));
+        const updated = await this.repo.update(id, subscription);
         return Promise.resolve(updated);
     }
 

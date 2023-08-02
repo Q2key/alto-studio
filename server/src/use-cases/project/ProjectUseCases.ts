@@ -18,7 +18,7 @@ export class ProjectUseCases {
     }
 
     public async createNew(dto: ICreateProjectDto): Promise<IProjectDto> {
-        const user = await this.repo.save(this.mapper.toDomain(dto));
+        const user = await this.repo.save(dto);
         return Promise.resolve(this.mapper.toDTO(user));
     }
 }

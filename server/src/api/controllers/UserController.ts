@@ -2,7 +2,7 @@ import {NextFunction} from "express";
 import {ICreateUserDto} from "../../dto/user/ICreateUserDto";
 import {IServiceCradle} from "../../abstractions";
 import {BaseController, TRequestBody, TResponse} from "./BaseController";
-import { IUserDto } from "../../dto/user/IUserDto";
+import { IUserResponseDto } from "../../dto/user/IUserResponseDto";
 import { IDeleteUserDto } from "../../dto/user/IDeleteUserDto";
 import { IUpdateUserDto } from "../../dto/user/IUpdateUserDto";
 
@@ -15,8 +15,8 @@ export class UserController extends BaseController {
     }
 
     public FindAll = async (req: TRequestBody<{}>, res: TResponse<{
-        users: IUserDto[]
-    }>, next: NextFunction): Promise<TResponse<{ users: IUserDto[] }>> => {
+        users: IUserResponseDto[]
+    }>, next: NextFunction): Promise<TResponse<{ users: IUserResponseDto[] }>> => {
         return this.wrap(async () => {
             const users = await this.service.userUseCases.getAll()
             return res.json({users})
@@ -24,8 +24,8 @@ export class UserController extends BaseController {
     }
 
     public Create = async (req: TRequestBody<ICreateUserDto>, res: TResponse<{
-        user: IUserDto
-    }>, next: NextFunction): Promise<TResponse<{ user: IUserDto }>> => {
+        user: IUserResponseDto
+    }>, next: NextFunction): Promise<TResponse<{ user: IUserResponseDto }>> => {
         return this.wrap(async () => {
             const user = await this.service.userUseCases.create(req.body)
             return res.json({user})

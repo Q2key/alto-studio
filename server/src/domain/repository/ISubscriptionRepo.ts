@@ -1,5 +1,6 @@
-import {Subscription} from "../entities/Subscribtion/Subscription";
+
 import {SubscriptionEntity} from "../../infrastructure/entities/SubscriptionEntity";
+import { Subscription } from "../entities/Subscription/Subscription";
 
 export interface ISubscriptionRepo {
     save(subscription: Subscription): Promise<SubscriptionEntity>;
