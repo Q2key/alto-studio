@@ -6,8 +6,4 @@ export class ProjectMapper implements IProjectMapper {
     toDTO(entity: Project): IProjectDto {
         return entity as IProjectDto;
     }
-
-    toDomain(domain: IProjectDto): Project {
-        return new Project(domain.name, domain.userId);
-    }
 }

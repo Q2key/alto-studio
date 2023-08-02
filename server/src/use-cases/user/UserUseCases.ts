@@ -6,7 +6,7 @@ import { IUserMapper } from "../../domain/mappers/IUserMapper";
 import { IDeleteUserDto } from "../../dto/user/IDeleteUserDto";
 import { IUpdateUserDto } from "../../dto/user/IUpdateUserDto";
 import { User } from "../../domain/entities/User/User";
-import { ICryptoService } from "../../domain/services/ICryptoService";
+import { ICryptoService } from "../../services/ICryptoService";
 import { CryptoService } from "../../infrastructure/services/CryptoService";
 import { IUser } from "../../domain/entities/User/IUser";
 

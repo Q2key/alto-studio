@@ -1,13 +1,13 @@
 import { AwilixContainer, createContainer, InjectionMode, asClass, asValue } from "awilix";
 import { DataSource } from "typeorm";
-import { UserRepository } from "./infrastructure/repository/UserRepository";
-import { ProjectRepository } from "./infrastructure/repository/ProjectRepository";
+import { UserRepository } from "./infrastructure/repositories/UserRepository";
+import { ProjectRepository } from "./infrastructure/repositories/ProjectRepository";
 import { IServiceCradle } from "./abstractions";
 import { ProjectUseCases } from "./use-cases/project/ProjectUseCases";
 import { UserUseCases } from "./use-cases/user/UserUseCases";
 import { ProjectMapper } from "./use-cases/project/ProjectMapper";
 import { UserMapper } from "./use-cases/user/UserMapper";
-import { SubscriptionRepository } from "./infrastructure/repository/SubscriptionRepository";
+import { SubscriptionRepository } from "./infrastructure/repositories/SubscriptionRepository";
 import { SubscriptionUseCases } from "./use-cases/subscription/SubscriptionUseCases";
 import { SubscriptionMapper } from "./use-cases/subscription/SubscriptionMapper";
 
