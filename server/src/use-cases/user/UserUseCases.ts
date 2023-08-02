@@ -5,9 +5,6 @@ import { IUserRepo } from "../../domain/repository/IUserRepo";
 import { IUserMapper } from "../../domain/mappers/IUserMapper";
 import { IDeleteUserDto } from "../../dto/user/IDeleteUserDto";
 import { IUpdateUserDto } from "../../dto/user/IUpdateUserDto";
-import { User } from "../../domain/entities/User/User";
-import { ICryptoService } from "../../services/ICryptoService";
-import { CryptoService } from "../../services/CryptoService";
 import { IUser } from "../../domain/entities/User/IUser";
 import { UserService } from "../../services/UserService";
 

@@ -1,8 +1,8 @@
 import { User } from "../domain/entities/User/User";
 import { ICryptoService } from "./ICryptoService";
 import { ICreateUserDto } from "../dto/user/ICreateUserDto";
-import { CryptoService } from "./CryptoService";
 import { IUSerService } from "./IUserService";
+import { CryptoService } from "../infrastructure/external-services/ArgonCryptoService";
 
 export class UserService implements IUSerService {
     readonly cryptoService: ICryptoService;
@@ -11,17 +11,25 @@ export class UserService implements IUSerService {
         this.cryptoService = new CryptoService();
     }
 
-    async createUserWithPasswordHash(dto: ICreateUserDto): Promise<User> {
-        const passwordHash = await this.cryptoService.encryptString(dto.password);
+    async createUserWithPasswordHash({
+        firstName, 
+        middleName, 
+        lastName, 
+        email, 
+        password, 
+        role,
+    }: ICreateUserDto): Promise<User> {
+        const passwordHash = await this.cryptoService
+            .encryptString(password);
 
         const userToCreate = new User(
-          dto.firstName,
-          dto.middleName,
-          dto.lastName,
-          dto.email,
+          firstName,
+          middleName,
+          lastName,
+          email,
           passwordHash,
-          "",
-          dto.role,
+          passwordHash,
+          role,
           true,
           undefined
         );

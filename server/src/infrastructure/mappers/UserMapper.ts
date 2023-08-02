@@ -8,7 +8,10 @@ export class UserMapper implements IUserMapper {
         return {
             id: domain.id,
             firstName: domain.firstName,
-            role: domain.role,
+            lastName: domain.lastName,
+            middleName: domain.middleName,
+            email: domain.email,
+            role: Number(domain.role),   
         }
     }
 }
