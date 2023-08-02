@@ -1,4 +1,4 @@
-import { ICryptoService } from "../../services/ICryptoService";
+import { ICryptoService } from "./ICryptoService";
 
 import argon2 from 'argon2';
 
