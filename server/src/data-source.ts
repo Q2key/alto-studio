@@ -1,8 +1,11 @@
 import "reflect-metadata";
 import { DataSource } from 'typeorm';
-import { ProjectEntity } from "./infrastructure/entities/ProjectEntity";
-import { UserEntity } from "./infrastructure/entities/UserEntity";
-import {SubscriptionEntity} from "./infrastructure/entities/SubscriptionEntity";
+import { SubscriptionDB } from "./infrastructure/entities/SubscriptionDB";
+import { UserDB } from "./infrastructure/entities/UserDB";
+import { ResourceDB } from "./infrastructure/entities/ResourceDB";
+import { LessonDB } from "./infrastructure/entities/LessonDB";
+import { LessonResourcesDB } from "./infrastructure/entities/LessonResourcesDB";
+import { Multer } from "multer";
 
 const AppDataSource = new DataSource({
     type: "postgres",
@@ -14,9 +17,11 @@ const AppDataSource = new DataSource({
     synchronize: true,
     logging: false,
     entities: [
-        UserEntity,
-        ProjectEntity,
-        SubscriptionEntity,
+        UserDB,
+        ResourceDB,
+        LessonDB,
+        LessonResourcesDB,
+        SubscriptionDB,
     ],
     migrations: [],
     subscribers: [],

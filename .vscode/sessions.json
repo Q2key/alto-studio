@@ -8,39 +8,17 @@
     "default": [
       [
         {
-          "name": "docker:ros",
+          "name": "alto:server",
+          "cwd": "D:/dev/alto-studio/server",
           "commands": [
-            ""
+            "npm run watch"
           ]
         },
         {
-          "name": "docker:k8s",
+          "name": "alto:client",
+          "cwd": "D:/dev/alto-studio/client",
           "commands": [
-            ""
-          ]
-        },
-      ],
-    ],
-    "saved-session-1": [
-      {
-        "name": "connect",
-        "commands": [
-          ""
-        ]
-      }
-    ],
-    "saved-session-2": [
-      [
-        {
-          "name": "api",
-          "commands": [
-            ""
-          ]
-        },
-        {
-          "name": "log",
-          "commands": [
-            ""
+            "npm run start"
           ]
         }
       ]

@@ -1,8 +1,8 @@
-import { IMaterial } from "../Material/IMaterial";
+import { ILessonResources } from "../LessonResources/ILessonResources";
 
 export interface ILesson {
     id?: string;
     name: string;
     description: string;
-    mediaResource: IMaterial[]
+    mediaResource: ILessonResources[]
 }

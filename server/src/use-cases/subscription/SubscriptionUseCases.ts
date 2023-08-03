@@ -21,8 +21,8 @@ export class SubscriptionUseCases {
     }
 
     public async create(dto: ICreateSubscriptionDto): Promise<ISubscriptionDto> {
-        const userEntity = await this.repo.save({...dto});
-        return Promise.resolve(this.mapper.toDTO(userEntity));
+        const UserDB = await this.repo.save({...dto});
+        return Promise.resolve(this.mapper.toDTO(UserDB));
     }
 
     public async update({ id, subscription }: IUpdateSubscriptionDto): Promise<boolean> {

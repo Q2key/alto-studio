@@ -1,31 +1,32 @@
-import { DataSource } from "typeorm";
-import { IUserRepo } from "../domain/repository/IUserRepo";
-import { IProjectRepo } from "../domain/repository/IProjectRepo";
-import { ProjectUseCases } from "../use-cases/project/ProjectUseCases";
-import { UserUseCases } from "../use-cases/user/UserUseCases";
-import { IProjectMapper } from "../domain/mappers/IProjectMapper";
-import { IUserMapper } from "../domain/mappers/IUserMapper";
-import {ISubscriptionRepo} from "../domain/repository/ISubscriptionRepo";
-import {ISubscriptionMapper} from "../domain/mappers/ISubscriptionMapper";
-import {SubscriptionUseCases} from "../use-cases/subscription/SubscriptionUseCases";
-
+import { DataSource } from 'typeorm';
+import { IUserRepo } from '../domain/repository/IUserRepo';
+import { UserUseCases } from '../use-cases/user/UserUseCases';
+import { IUserMapper } from '../domain/mappers/IUserMapper';
+import { ISubscriptionRepo } from '../domain/repository/ISubscriptionRepo';
+import { ISubscriptionMapper } from '../domain/mappers/ISubscriptionMapper';
+import { SubscriptionUseCases } from '../use-cases/subscription/SubscriptionUseCases';
+import { IResourceMapper } from '../domain/mappers/IResourceMapper';
+import { IResourceRepository } from '../domain/repository/IResourceRepo';
+import { ResourceUseCases } from '../use-cases/resource/ResourceUseCases';
+import { Multer } from 'multer';
 
 export interface IServiceCradle {
     /* Repositories */
     userRepository: IUserRepo;
-    projectRepository: IProjectRepo;
+    resourceRepository: IResourceRepository;
     subscriptionRepository: ISubscriptionRepo;
 
     /* Use Cases */
     userUseCases: UserUseCases;
-    projectUseCases: ProjectUseCases;
+    resourceUseCases: ResourceUseCases;
     subscriptionUseCases: SubscriptionUseCases;
 
     /* Mappers */
     userMapper: IUserMapper;
-    projectMapper: IProjectMapper;
+    resourceMapper: IResourceMapper;
     subscriptionMapper: ISubscriptionMapper;
 
     /* data sources */
-    dataSource: DataSource;
+    dataSource: DataSource; //!bad design
+    fileService: Multer;
 }

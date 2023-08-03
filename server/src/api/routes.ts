@@ -1,22 +1,33 @@
 import express, { Express } from 'express';
+import multer from 'multer';
 import { IServiceCradle } from '../abstractions';
-import { ProjectController } from './controllers/ProjectController';
 import { UserController } from './controllers/UserController';
-import {SubscriptionController} from "./controllers/SubscriptionController";
+import { SubscriptionController } from "./controllers/SubscriptionController";
+import { ResourceController } from './controllers/ResourceController';
+
+
+
+const upload = multer({ dest: 'uploads/' })
+
 
 export const createRoutes = (app: Express, service: IServiceCradle): void => {
-    const userController = new UserController(service);
     app.use(express.json({ strict: true }));
+
+    const userController = new UserController(service);
+    const resourceController = new ResourceController(service);
+    const subscriptionController = new SubscriptionController(service);
+
+    /* users */
     app.get('/users', userController.FindAll);
     app.post('/user', userController.Create);
     app.post('/put', userController.Update);
     app.delete('/user', userController.Delete);
 
-    const projectController = new ProjectController(service);
-    app.get('/projects', projectController.FindAll);
-    app.post('/project', projectController.Create);
+    /* subscriptions */
+    app.get('/resources', resourceController.FindAll);
+    app.post('/resource', upload.single('file'), resourceController.Upload);
 
-    const subscriptionController = new SubscriptionController(service);
+    /* subscriptions */
     app.get('/subscriptions', subscriptionController.FindAll);
     app.post('/subscription', subscriptionController.Create);
 }

@@ -1,19 +1,19 @@
 import { DataSource, Repository } from "typeorm";
 import { IUserRepo } from "../../domain/repository/IUserRepo";
 import { IServiceCradle } from "../../abstractions";
-import { UserEntity } from "../entities/UserEntity";
+import { UserDB } from "../entities/UserDB";
 import { User } from "../../domain/entities/User/User";
 
 export class UserRepository implements IUserRepo {
     private readonly ds: DataSource;
-    private repo: Repository<UserEntity>
+    private repo: Repository<UserDB>
 
     constructor({ dataSource }: IServiceCradle) {
         this.ds = dataSource;
-        this.repo = this.ds.getRepository(UserEntity);
+        this.repo = this.ds.getRepository(UserDB);
     }
 
-    async save(user: User): Promise<UserEntity> {
+    async save(user: User): Promise<UserDB> {
         const created = await this.repo.save<User>(user);
         return Promise.resolve(created);
     }
@@ -23,13 +23,13 @@ export class UserRepository implements IUserRepo {
         return Promise.resolve(created.affected > 0);
     }
 
-    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<UserEntity[]> {
+    async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<UserDB[]> {
         // const users = await this.repo.find({relations: {projects: true }});
         const users = await this.repo.find();
         return Promise.resolve(users)
     };
 
-    async findOne(id: string): Promise<UserEntity> {
+    async findOne(id: string): Promise<UserDB> {
         const user = await this.repo.findOneBy({id: id});
         return Promise.resolve(user)
     }

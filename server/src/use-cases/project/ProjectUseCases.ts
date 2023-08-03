@@ -1,8 +1,8 @@
 import { IServiceCradle } from "../../abstractions";
 import { ICreateProjectDto } from "../../dto/project/ICreateProjectDto";
 import { IProjectDto } from "../../dto/project/IProjectDto";
-import { IProjectRepo } from "../../domain/repository/IProjectRepo";
-import { IProjectMapper } from "../../domain/mappers/IProjectMapper";
+import { IProjectRepo } from "../../domain/repository/IResourceRepo";
+import { IProjectMapper } from "../../domain/mappers/IResourceMapper";
 
 export class ProjectUseCases {
     private readonly repo: IProjectRepo;

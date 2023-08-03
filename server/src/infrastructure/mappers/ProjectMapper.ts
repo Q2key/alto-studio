@@ -1,9 +1,10 @@
-import { IProjectDto } from "../../dto/project/IProjectDto";
-import { IProjectMapper } from "../../domain/mappers/IProjectMapper";
-import { Project } from "../../domain/entities/Project/Project";
+import { IResource } from "../../domain/entities/Resource/IResource";
+import { IResourceMapper } from "../../domain/mappers/IResourceMapper";
+import { IResourceResponseDto } from "../../dto/resource/IResourceResponseDto";
 
-export class ProjectMapper implements IProjectMapper {
-    toDTO(entity: Project): IProjectDto {
-        return entity as IProjectDto;
+export class ResourceMapper implements IResourceMapper
+ {
+    toDTO(entity: IResource): IResourceResponseDto {
+        return entity as IResourceResponseDto;
     }
 }
