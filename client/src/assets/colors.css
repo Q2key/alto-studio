@@ -1,13 +1,19 @@
 :root {
     .theme-light {
+        --bg-color-backdrop: #ededed85; 
+        
+        --bg-color-main-1: #ededed;
+        --bg-color-main-2: #ededed;
+        --bg-color-main-3: #ededed;
+        
+        --bg-color-accent-1: rgb(123, 211, 162);
+        --bg-color-accent-2: rgb(123, 211, 162);
+        --bg-color-accent-3: rgb(123, 211, 162);
 
-        --color-main: #ededed;
-        --color-accent: white;
+        --text-color-main-1: green;
+        --text-color-main-2: blue;
+        --text-color-main-3: purple;
 
-        --text-color-0: #ededed;
-        --text-color-1: #333333;
-        --text-color-3: #333333;
-        --text-color-4: #333333;
         --box-shadow-color: rgba(0,0,0,0.1);
     }
 }

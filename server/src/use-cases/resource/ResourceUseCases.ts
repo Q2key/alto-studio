@@ -24,6 +24,7 @@ export class ResourceUseCases {
         originalname,
         mimetype,
         destination,
+        path,
         size,
     }: IUploadResourceInput): Promise<IResourceResponseDto> {
         const resource = await this.repo.save({

@@ -13,6 +13,7 @@ import { Footer } from "./components/layout/Footer/Footer";
 import { FinancesPage } from "./pages/finances/SubscriptionsPage";
 import { UsersPage } from "./pages/users/UsersPage";
 import { PublicationsPage } from "./pages/publications/PublicationsPage";
+import { ResourcesPage } from "./pages/resources/ResourcesPage";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="/about" element={<AboutPage />} />
         <Route path="/subscriptions" element={<SubscriptionsPage />} />
         <Route path="/publications" element={<PublicationsPage />} />
+        <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/finances" element={<FinancesPage />} />
         <Route path="/users" element={<UsersPage />} />
       </Routes>

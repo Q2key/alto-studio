@@ -18,7 +18,7 @@ export class ResourceController extends BaseController {
             resources: IResourceResponseDto[];
         }>,
         next: NextFunction
-    ): Promise<TResponse<{ resources: IUserResponseDto[] }>> => {
+    ): Promise<TResponse<{ resources: IResourceResponseDto[] }>> => {
         return this.wrap(async () => {
             const resources = await this.service.resourceUseCases.GetAll();
             return res.json({ resources });

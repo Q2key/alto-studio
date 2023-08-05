@@ -20,7 +20,7 @@ export const NavBar: FC = () => (
         </NavLink> */}
         <NavLink to="/publications">
           {({ isActive, isPending }) => (
-            <NavBarItem isActive={isActive} title="Управление контентом" />
+            <NavBarItem isActive={isActive} title="Контент" />
           )}
         </NavLink>
         <NavLink to="/users">
@@ -36,6 +36,11 @@ export const NavBar: FC = () => (
         <NavLink to="/subscriptions">
           {({ isActive, isPending }) => (
             <NavBarItem isActive={isActive} title="Подписки и тарифы" />
+          )}
+        </NavLink>
+        <NavLink to="/resources">
+          {({ isActive, isPending }) => (
+            <NavBarItem isActive={isActive} title="Ресурсы" />
           )}
         </NavLink>
       </div>

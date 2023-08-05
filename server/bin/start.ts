@@ -31,7 +31,7 @@ const main = async () => {
 
     const dbSource = await createDataSource();
     if (dbSource.isInitialized) {
-        console.log(`database has started`);
+        console.log(`👩‍❤️‍👩database has started`);
     }
 
     const container = createServiceContainer(dbSource);
@@ -39,7 +39,7 @@ const main = async () => {
 
     const server = createServer(service).listen(port, hostname, () => {
         // eslint-disable-next-line no-console
-        console.log(`server is running at: ${hostname}:${port}`)
+        console.log(`👩‍❤️‍👩server is running at: ${hostname}:${port}`)
     })
 
     gracefulShutdown(async () => {

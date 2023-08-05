@@ -11,7 +11,12 @@ const mockAdminProps:UserOptionProps = {
 export const Header: FC = () => (
     <header className={css.header}>
         <Card>
-            <UserOptions {...mockAdminProps} />
+            <div className={css.panel}>
+                <div className={css.school}>
+                    Школа поедания сырков
+                </div>
+                <UserOptions {...mockAdminProps} />
+            </div>
         </Card>
     </header>
 )

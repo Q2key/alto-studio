@@ -9,8 +9,7 @@ import { SubscriptionMapper } from './infrastructure/mappers/SubscriptionMapper'
 import { UserMapper } from './infrastructure/mappers/UserMapper';
 import { ResourceRepository } from './infrastructure/repositories/ResourceRepository';
 import { ResourceUseCases } from './use-cases/resource/ResourceUseCases';
-import { ResourceMapper } from './infrastructure/mappers/ProjectMapper';
-import { Multer } from 'multer';
+import { ResourceMapper } from './infrastructure/mappers/ResourceMapper';
 
 export const createServiceContainer = (dataSource: DataSource): AwilixContainer<IServiceCradle> => {
     const container = createContainer<IServiceCradle>({

@@ -10,7 +10,7 @@ export enum BillingCycleKind {
     Early,
     Instant,
     Free,
-}
+};
 
 export interface ISubscriptionDto {
     readonly id?: string;
