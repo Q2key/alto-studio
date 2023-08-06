@@ -4,8 +4,6 @@ import { SubscriptionDB } from "./infrastructure/entities/SubscriptionDB";
 import { UserDB } from "./infrastructure/entities/UserDB";
 import { ResourceDB } from "./infrastructure/entities/ResourceDB";
 import { LessonDB } from "./infrastructure/entities/LessonDB";
-import { LessonResourcesDB } from "./infrastructure/entities/LessonResourcesDB";
-import { Multer } from "multer";
 
 const AppDataSource = new DataSource({
     type: "postgres",
@@ -20,7 +18,6 @@ const AppDataSource = new DataSource({
         UserDB,
         ResourceDB,
         LessonDB,
-        LessonResourcesDB,
         SubscriptionDB,
     ],
     migrations: [],

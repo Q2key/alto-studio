@@ -5,6 +5,7 @@ import { UserController } from './controllers/UserController';
 import { SubscriptionController } from "./controllers/SubscriptionController";
 import { ResourceController } from './controllers/ResourceController';
 import path from 'path';
+import { LessonController } from './controllers/LessonController';
 
 
 const uploadDirectory = 'static';
@@ -29,6 +30,7 @@ export const createRoutes = (app: Express, service: IServiceCradle): void => {
 
     const userController = new UserController(service);
     const resourceController = new ResourceController(service);
+    const lessonController = new LessonController(service);
     const subscriptionController = new SubscriptionController(service);
 
     /* users */
@@ -40,6 +42,10 @@ export const createRoutes = (app: Express, service: IServiceCradle): void => {
     /* subscriptions */
     app.get('/resources', resourceController.FindAll);
     app.post('/resource', upload.single('file'), resourceController.Upload);
+
+    /* lessons */
+    app.get('/lessons', lessonController.FindAll);
+    app.post('/lesson', lessonController.Create);
 
     /* subscriptions */
     app.get('/subscriptions', subscriptionController.FindAll);

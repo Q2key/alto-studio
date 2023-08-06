@@ -17,6 +17,9 @@ export class ResourceDB extends BaseDBEntity implements IResource {
   @Column("varchar")
   type: string;
 
+  @Column("varchar")
+  mimeType: string;
+
   @Column("numeric")
   size: number;
 

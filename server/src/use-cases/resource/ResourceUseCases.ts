@@ -2,7 +2,6 @@ import { IServiceCradle } from '../../abstractions/IServiceCradle';
 import { IResource } from '../../domain/entities/Resource/IResource';
 import { IResourceMapper } from '../../domain/mappers/IResourceMapper';
 import { IResourceRepository } from '../../domain/repository/IResourceRepo';
-import { ICreateResourceDto } from '../../dto/resource/ICreateResourceDto';
 import { IResourceResponseDto } from '../../dto/resource/IResourceResponseDto';
 import { IUploadResourceInput } from './IUploadResourceInput';
 
@@ -27,6 +26,7 @@ export class ResourceUseCases {
         path,
         size,
     }: IUploadResourceInput): Promise<IResourceResponseDto> {
+        
         const resource = await this.repo.save({
             name: filename,
             originalName: originalname,

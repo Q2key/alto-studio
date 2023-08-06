@@ -1,0 +1,39 @@
+import { NextFunction } from 'express';
+import { IServiceCradle } from '../../abstractions';
+import { BaseController, TRequestBody, TResponse } from './BaseController';
+import { IUserResponseDto } from '../../dto/user/IUserResponseDto';
+import { IResourceResponseDto } from '../../dto/resource/IResourceResponseDto';
+import { ILessonResponseDto } from '../../dto/lesson/ILessonResponseDto';
+
+export class LessonController extends BaseController {
+    public readonly service: IServiceCradle;
+
+    constructor(service: IServiceCradle) {
+        super();
+        this.service = service;
+    }
+
+    public FindAll = async (
+        req: TRequestBody<{}>,
+        res: TResponse<{
+            lessons: ILessonResponseDto[];
+        }>,
+        next: NextFunction
+    ): Promise<TResponse<{ lessons: ILessonResponseDto[] }>> => {
+        return this.wrap(async () => {
+            const lessons = await this.service.resourceUseCases.GetAll();
+            return res.json({ lessons });
+        }, next);
+    };
+
+    public Create = async (
+        req: TRequestBody<{}>,
+        res: TResponse<{response: ILessonResponseDto }>,
+        next: NextFunction
+    ): Promise<TResponse<{ response: ILessonResponseDto }>> => {
+        return this.wrap(async () => {
+            const response = await this.service.resourceUseCases.Upload(req.file);
+            return res.json({ response });
+        }, next);
+    };
+}

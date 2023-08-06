@@ -1,9 +1,11 @@
 import { LessonResources } from "../LessonResources/LessonResources";
-import { ILesson } from "./ILesson";
+import { ILesson, ILessonStructure, LessonStructureType } from "./ILesson";
+
 
 export class Lesson implements ILesson {
     id?: string;
     name: string;
     description: string;
-    mediaResource: LessonResources[]
+    structure: ILessonStructure;
+    structureType: LessonStructureType;
 }
