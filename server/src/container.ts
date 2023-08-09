@@ -13,6 +13,9 @@ import { ResourceMapper } from './infrastructure/mappers/ResourceMapper';
 import { LessonRepository } from './infrastructure/repositories/LessonRepository';
 import { LessonUseCases } from './use-cases/lesson/LessonUseCases';
 import { LessonMapper } from './infrastructure/mappers/LessonMapper';
+import { UnitRepository } from './infrastructure/repositories/UnitRepository';
+import { UnitUseCases } from './use-cases/unit/UnitUseCases';
+import { UnitMapper } from './infrastructure/mappers/UnitMapper';
 
 export const createServiceContainer = (dataSource: DataSource): AwilixContainer<IServiceCradle> => {
     const container = createContainer<IServiceCradle>({
@@ -23,6 +26,7 @@ export const createServiceContainer = (dataSource: DataSource): AwilixContainer<
         userRepository: asClass(UserRepository).singleton(),
         resourceRepository: asClass(ResourceRepository).singleton(),
         lessonRepository: asClass(LessonRepository).singleton(),
+        unitRepository: asClass(UnitRepository).singleton(),
         subscriptionRepository: asClass(SubscriptionRepository).singleton(),
     });
 
@@ -30,6 +34,7 @@ export const createServiceContainer = (dataSource: DataSource): AwilixContainer<
         userUseCases: asClass(UserUseCases).singleton(),
         resourceUseCases: asClass(ResourceUseCases).singleton(),
         lessonUseCases: asClass(LessonUseCases).singleton(),
+        unitUseCases: asClass(UnitUseCases).singleton(),
         subscriptionUseCases: asClass(SubscriptionUseCases).singleton(),
     });
 
@@ -37,6 +42,7 @@ export const createServiceContainer = (dataSource: DataSource): AwilixContainer<
         userMapper: asClass(UserMapper).singleton(),
         resourceMapper: asClass(ResourceMapper).singleton(),
         lessonMapper: asClass(LessonMapper).singleton(),
+        unitMapper: asClass(UnitMapper).singleton(),
         subscriptionMapper: asClass(SubscriptionMapper).singleton(),
     });
 

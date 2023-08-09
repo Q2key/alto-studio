@@ -26,12 +26,12 @@ export class ResourceController extends BaseController {
     };
 
     public Upload = async (
-        req: TRequestBody<{}>,
+        req: TRequestBody<{type: string}>,
         res: TResponse<{response: IResourceResponseDto }>,
         next: NextFunction
     ): Promise<TResponse<{ response: IResourceResponseDto }>> => {
         return this.wrap(async () => {
-            const response = await this.service.resourceUseCases.Upload(req.file);
+            const response = await this.service.resourceUseCases.Upload(req.file, req.body.type);
             return res.json({ response });
         }, next);
     };

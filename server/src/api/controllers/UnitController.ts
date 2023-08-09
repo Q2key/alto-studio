@@ -1,10 +1,10 @@
 import { NextFunction } from 'express';
 import { IServiceCradle } from '../../abstractions';
-import { BaseController, TRequestBody, TResponse } from './BaseController';
-import { ILessonResponseDto } from '../../dto/lesson/ILessonResponseDto';
 import { ICreateLessonDto } from '../../dto/lesson/ICreateLessonDto';
+import { IUnitResponseDto } from '../../dto/unit/IUnitResponseDto';
+import { BaseController, TRequestBody, TResponse } from './BaseController';
 
-export class LessonController extends BaseController {
+export class UnitController extends BaseController {
     public readonly service: IServiceCradle;
 
     constructor(service: IServiceCradle) {
@@ -15,23 +15,23 @@ export class LessonController extends BaseController {
     public FindAll = async (
         req: TRequestBody<{}>,
         res: TResponse<{
-            lessons: ILessonResponseDto[];
+            units: IUnitResponseDto[];
         }>,
         next: NextFunction
-    ): Promise<TResponse<{ lessons: ILessonResponseDto[] }>> => {
+    ): Promise<TResponse<{ units: IUnitResponseDto[] }>> => {
         return this.wrap(async () => {
-            const lessons = await this.service.lessonUseCases.GetAll();
-            return res.json({ lessons });
+            const units = await this.service.unitUseCases.GetAll();
+            return res.json({ units });
         }, next);
     };
 
     public Create = async (
         req: TRequestBody<ICreateLessonDto>,
-        res: TResponse<{response: ILessonResponseDto }>,
+        res: TResponse<{response: IUnitResponseDto }>,
         next: NextFunction
-    ): Promise<TResponse<{ response: ILessonResponseDto }>> => {
+    ): Promise<TResponse<{ response: IUnitResponseDto }>> => {
         return this.wrap(async () => {
-            const response = await this.service.lessonUseCases.Create(req.body);
+            const response = await this.service.unitUseCases.Create(req.body);
             return res.json({ response });
         }, next);
     };

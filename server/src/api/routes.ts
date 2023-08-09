@@ -4,24 +4,12 @@ import { IServiceCradle } from '../abstractions';
 import { UserController } from './controllers/UserController';
 import { SubscriptionController } from "./controllers/SubscriptionController";
 import { ResourceController } from './controllers/ResourceController';
-import path from 'path';
 import { LessonController } from './controllers/LessonController';
-
+import { UnitController } from './controllers/UnitController';
 
 const uploadDirectory = 'static';
 
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//       cb(null, uploadDirectory )
-//     },
-//     filename: function (req, file, cb) {
-//       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-//       cb(null, file.fieldname + '-' + uniqueSuffix)
-//     }
-//   })
-
 const upload = multer({ dest: uploadDirectory })
-
 
 export const createRoutes = (app: Express, service: IServiceCradle): void => {
 
@@ -31,6 +19,7 @@ export const createRoutes = (app: Express, service: IServiceCradle): void => {
     const userController = new UserController(service);
     const resourceController = new ResourceController(service);
     const lessonController = new LessonController(service);
+    const unitController = new UnitController(service);
     const subscriptionController = new SubscriptionController(service);
 
     /* users */
@@ -47,11 +36,11 @@ export const createRoutes = (app: Express, service: IServiceCradle): void => {
     app.get('/lessons', lessonController.FindAll);
     app.post('/lesson', lessonController.Create);
 
+    /* units */
+    app.get('/units', unitController.FindAll);
+    app.post('/unit', unitController.Create);
+
     /* subscriptions */
     app.get('/subscriptions', subscriptionController.FindAll);
     app.post('/subscription', subscriptionController.Create);
-}
-
-function cors(): any {
-    throw new Error('Function not implemented.');
 }
