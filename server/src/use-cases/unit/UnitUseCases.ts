@@ -1,11 +1,6 @@
 import { IServiceCradle } from '../../abstractions/IServiceCradle';
-import { ILessonMapper } from '../../domain/mappers/ILessonMapper';
 import { IUnitMapper } from '../../domain/mappers/IUnitMapper';
-import { ILessonRepository } from '../../domain/repository/ILessonRepo';
-import { IResourceRepository } from '../../domain/repository/IResourceRepo';
 import { IUnitRepository } from '../../domain/repository/IUnitRepo';
-import { ICreateLessonDto } from '../../dto/lesson/ICreateLessonDto';
-import { ILessonResponseDto } from '../../dto/lesson/ILessonResponseDto';
 import { ICreateUnitDto } from '../../dto/unit/ICreateUnitDto';
 import { IUnitResponseDto } from '../../dto/unit/IUnitResponseDto';
 
@@ -14,8 +9,8 @@ export class UnitUseCases {
     private readonly mapper: IUnitMapper;
 
     constructor(cradle: IServiceCradle) {
-        this.repo = cradle.lessonRepository;
-        this.mapper = cradle.lessonMapper;
+        this.repo = cradle.unitRepository;
+        this.mapper = cradle.unitMapper;
     }
 
     public async GetAll(): Promise<IUnitResponseDto[]> {
@@ -23,13 +18,15 @@ export class UnitUseCases {
     }
 
     public async Create(dto: ICreateUnitDto): Promise<IUnitResponseDto> {
+        const created = await this.repo.save({
+            name: dto.name, 
+            description: dto.description, 
+            resources: [], 
+            text: ''
+        });
+        
         return Promise.resolve(
-            this.mapper.toDTO({
-                name: dto.name,
-                description: dto.description,
-                resources: [],
-                text: ''
-            })
+            this.mapper.toDTO(created)
         );
     }
 }
