@@ -1,10 +1,9 @@
-import { IResource } from "../Resource/IResource";
 import { IUnit } from "./IUnit";
 
 export class Unit implements IUnit {
-    resources: IResource[];
-    id: string | undefined;
+    id?: string;
     name: string;
+    lessonId: string;
     description: string;
     text: string;
 }

@@ -19,10 +19,10 @@ export class UnitUseCases {
 
     public async Create(dto: ICreateUnitDto): Promise<IUnitResponseDto> {
         const created = await this.repo.save({
-            name: dto.name, 
-            description: dto.description, 
-            resources: [], 
-            text: ''
+            name: dto.name,
+            description: dto.description,
+            text: '',
+            lessonId: ''
         });
         
         return Promise.resolve(

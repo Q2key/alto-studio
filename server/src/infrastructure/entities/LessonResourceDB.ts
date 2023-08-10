@@ -11,6 +11,9 @@ export class LessonResourceDB extends BaseDBEntity implements ILessonResource {
   @Column('uuid', {default: null})
   lessonId: string;
 
+  @Column('uuid', {default: null})
+  resourceId: string;
+
   @Column('varchar')
   type: string;
 }

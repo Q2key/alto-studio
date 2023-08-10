@@ -1,8 +1,8 @@
 import { NextFunction } from 'express';
 import { IServiceCradle } from '../../abstractions';
-import { ICreateLessonDto } from '../../dto/lesson/ICreateLessonDto';
 import { IUnitResponseDto } from '../../dto/unit/IUnitResponseDto';
 import { BaseController, TRequestBody, TResponse } from './BaseController';
+import { ICreateUnitDto } from '../../dto/unit/ICreateUnitDto';
 
 export class UnitController extends BaseController {
     public readonly service: IServiceCradle;
@@ -26,7 +26,7 @@ export class UnitController extends BaseController {
     };
 
     public Create = async (
-        req: TRequestBody<ICreateLessonDto>,
+        req: TRequestBody<ICreateUnitDto>,
         res: TResponse<{response: IUnitResponseDto }>,
         next: NextFunction
     ): Promise<TResponse<{ response: IUnitResponseDto }>> => {

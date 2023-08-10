@@ -1,6 +1,6 @@
 import { Entity, Column, JoinColumn } from "typeorm";
 import { BaseDBEntity } from "./BaseDBEntity";
-import { ILesson, ILessonStructure, LessonStructureType } from "../../domain/entities/Lesson/ILesson";
+import { ILesson } from "../../domain/entities/Lesson/ILesson";
 
 @Entity("lessons")
 export class LessonDB extends BaseDBEntity implements ILesson {
@@ -13,10 +13,4 @@ export class LessonDB extends BaseDBEntity implements ILesson {
 
   @Column('varchar')
   description: string;
-
-  @Column('numeric')
-  structureType: LessonStructureType;
-
-  @Column('jsonb', {default: {}})
-  structure: ILessonStructure;
 }

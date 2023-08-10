@@ -9,15 +9,15 @@ export class UnitDB extends BaseDBEntity implements IUnit {
     super();
   }
 
-  @JoinColumn()
-  resources: IResource[];
-
-  @Column('varchar')
-  text: string;
-
   @Column('varchar')
   name: string;
 
+  @Column('uuid')
+  lessonId: string;
+
   @Column('varchar')
   description: string;
+
+  @Column('varchar')
+  text: string;
 }
