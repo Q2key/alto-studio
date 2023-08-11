@@ -1,41 +1,25 @@
 import { IServiceCradle } from '../../abstractions/IServiceCradle';
-import { ILessonMapper } from '../../domain/mappers/ILessonMapper';
-import { ILessonRepository } from '../../domain/repository/ILessonRepo';
-import { ICreateLessonDto } from '../../dto/lesson/ICreateLessonDto';
+import { ILessonResourceMapper } from '../../domain/mappers/ILessonResourceMapper';
+import { ILessonResourceRepository } from '../../domain/repository/ILessonResourceRepo';
 import { ILessonResponseDto } from '../../dto/lesson/ILessonResponseDto';
+import { ICreateLessonResourceDto } from '../../dto/lessonResource/ICreateLessonResourceDto';
 
 export class LessonResourcesUseCases {
-    private readonly repo: ILessonRepository;
-    private readonly mapper: ILessonMapper;
+    private readonly repo: ILessonResourceRepository;
+    private readonly mapper: ILessonResourceMapper;
 
     constructor(cradle: IServiceCradle) {
-        this.repo = cradle.lessonRepository;
-        this.mapper = cradle.lessonMapper;
+        this.repo = cradle.lessonResourceRepository;
+        this.mapper = cradle.lessonResourceMapper;
     }
 
     public async GetAll(): Promise<ILessonResponseDto[]> {
         return (await this.repo.find()).map(this.mapper.toDTO);
     }
 
-    public async Create(dto: ICreateLessonDto): Promise<ILessonResponseDto> {
-        const {
-            structure: { units },
-        } = dto;
-
+    public async Create({lessonId, resourceId, type}: ICreateLessonResourceDto): Promise<ILessonResponseDto> {
         return Promise.resolve(
-            this.mapper.toDTO({
-                name: '',
-                description: '',
-                structureType: 0,
-                structure: {
-                    name: '',
-                    description: '',
-                    content: {
-                        structureType: 0,
-                        sections: [],
-                    },
-                },
-            })
+            this.mapper.toDTO({ lessonId, resourceId, type })
         );
     }
 }

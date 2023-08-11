@@ -1,4 +1,5 @@
 export interface ICreateLessonResourceDto {
-    name:        string;
-    description: string;
+    lessonId: string;
+    resourceId: string;
+    type: string;
 }

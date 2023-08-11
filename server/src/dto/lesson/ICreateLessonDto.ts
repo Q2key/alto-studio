@@ -1,7 +1,7 @@
 export interface ICreateLessonDto {
     name:        string;
     description: string;
-    structure:   Structure;
+    unitIds?:   string[];
 }
 
 export interface Structure {

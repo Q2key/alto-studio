@@ -22,7 +22,6 @@ export class UnitUseCases {
             name: dto.name,
             description: dto.description,
             text: '',
-            lessonId: ''
         });
         
         return Promise.resolve(

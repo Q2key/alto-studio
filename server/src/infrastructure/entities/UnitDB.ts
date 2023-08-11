@@ -1,7 +1,8 @@
-import { Entity, Column, JoinColumn } from "typeorm";
+import { Entity, Column, JoinColumn, ManyToOne } from "typeorm";
 import { BaseDBEntity } from "./BaseDBEntity";
 import { IUnit } from "../../domain/entities/Unit/IUnit";
-import { IResource } from "../../domain/entities/Resource/IResource";
+import { LessonDB } from "./LessonDB";
+import { ILesson } from "../../domain/entities/Lesson/ILesson";
 
 @Entity("units")
 export class UnitDB extends BaseDBEntity implements IUnit {
@@ -12,12 +13,13 @@ export class UnitDB extends BaseDBEntity implements IUnit {
   @Column('varchar')
   name: string;
 
-  @Column('uuid')
-  lessonId: string;
-
   @Column('varchar')
   description: string;
 
   @Column('varchar')
   text: string;
+
+  @JoinColumn()
+  @ManyToOne(() => LessonDB, (lesson) => lesson.units)
+  lesson: ILesson;
 }
