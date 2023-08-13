@@ -20,8 +20,9 @@ export class ResourceRepository implements IResourceRepository {
         return Promise.resolve(created);
     }
 
-    async findOne(id: number): Promise<IResource> {
-        throw 'not implemented';
+    async findOne(id: string): Promise<IResource> {
+        const resource = await this.repo.findOne({where: {id}});
+        return resource;
     }
 
     async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IResource[]> {

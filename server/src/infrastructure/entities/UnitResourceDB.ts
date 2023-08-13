@@ -1,4 +1,4 @@
-import { Entity, Column, ManyToOne } from "typeorm";
+import { Entity, Column, ManyToOne, JoinColumn } from "typeorm";
 import { BaseDBEntity } from "./BaseDBEntity";
 import { IUnitResource } from "../../domain/entities/UnitResource/IUnitResource";
 import { UnitDB } from "./UnitDB";
@@ -19,10 +19,10 @@ export class UnitResourceDB extends BaseDBEntity implements IUnitResource {
   @Column('uuid')
   unitId: string;
 
-  
-  @ManyToOne(() => ResourceDB, r => r.UnitResources)
+
+  @ManyToOne(() => ResourceDB, r => r.unitResources)
   resource: ResourceDB
 
-  @ManyToOne(() => UnitDB, u => u.UnitResources)
+  @ManyToOne(() => UnitDB, u => u.unitResources)
   unit: UnitDB
 }

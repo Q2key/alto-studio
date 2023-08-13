@@ -34,6 +34,6 @@ export class ResourceDB extends BaseDBEntity implements IResource {
     available: boolean;
 
     /* Relationships */
-    @ManyToMany(() => UnitResourceDB, res => res.unit)
-    UnitResources: IUnitResource[]
+    @OneToMany(() => UnitResourceDB, res => res.resource)
+    unitResources: IUnitResource[]
 }

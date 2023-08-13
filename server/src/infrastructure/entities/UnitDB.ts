@@ -1,4 +1,4 @@
-import { Entity, Column, JoinColumn, ManyToOne, JoinTable, ManyToMany } from "typeorm";
+import { Entity, Column, JoinColumn, ManyToOne, JoinTable, ManyToMany, OneToMany } from "typeorm";
 import { BaseDBEntity } from "./BaseDBEntity";
 import { IUnit } from "../../domain/entities/Unit/IUnit";
 import { LessonDB } from "./LessonDB";
@@ -27,6 +27,6 @@ export class UnitDB extends BaseDBEntity implements IUnit {
   @ManyToOne(() => LessonDB, e => e.units)
   lesson: ILesson;
 
-  @ManyToMany(() => UnitResourceDB, e => e.unit)
-  UnitResources: IUnitResource[]
+  @OneToMany(() => UnitResourceDB, e => e.unit)
+  unitResources: IUnitResource[]
 }
