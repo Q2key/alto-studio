@@ -4,7 +4,7 @@ import { IUnitResource } from "../../domain/entities/UnitResource/IUnitResource"
 import { UnitDB } from "./UnitDB";
 import { ResourceDB } from "./ResourceDB";
 
-@Entity("lesson_resources")
+@Entity("unit_resources")
 export class UnitResourceDB extends BaseDBEntity implements IUnitResource {
   constructor() {
     super();
