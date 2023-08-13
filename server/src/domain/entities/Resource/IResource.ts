@@ -1,3 +1,5 @@
+import { IUnit } from "../Unit/IUnit";
+
 export interface IResource {
     id?: string;
     name: string;
@@ -7,4 +9,5 @@ export interface IResource {
     size: number;
     src: string;
     available: boolean;
+    units?: IUnit[];
 }

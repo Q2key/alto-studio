@@ -5,7 +5,7 @@ import { UserDB } from "./infrastructure/entities/UserDB";
 import { ResourceDB } from "./infrastructure/entities/ResourceDB";
 import { LessonDB } from "./infrastructure/entities/LessonDB";
 import { UnitDB } from "./infrastructure/entities/UnitDB";
-import { LessonResourceDB } from "./infrastructure/entities/LessonResourceDB";
+import { UnitResourceDB } from "./infrastructure/entities/UnitResourceDB";
 
 const AppDataSource = new DataSource({
     type: "postgres",
@@ -20,7 +20,7 @@ const AppDataSource = new DataSource({
         UserDB,
         ResourceDB,
         LessonDB,
-        LessonResourceDB,
+        UnitResourceDB,
         UnitDB,
         SubscriptionDB,
     ],

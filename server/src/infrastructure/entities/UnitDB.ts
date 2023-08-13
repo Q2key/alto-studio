@@ -1,8 +1,12 @@
-import { Entity, Column, JoinColumn, ManyToOne } from "typeorm";
+import { Entity, Column, JoinColumn, ManyToOne, JoinTable, ManyToMany } from "typeorm";
 import { BaseDBEntity } from "./BaseDBEntity";
 import { IUnit } from "../../domain/entities/Unit/IUnit";
 import { LessonDB } from "./LessonDB";
 import { ILesson } from "../../domain/entities/Lesson/ILesson";
+import { IResource } from "../../domain/entities/Resource/IResource";
+import { ResourceDB } from "./ResourceDB";
+import { IUnitResource } from "../../domain/entities/UnitResource/IUnitResource";
+import { UnitResourceDB } from "./UnitResourceDB";
 
 @Entity("units")
 export class UnitDB extends BaseDBEntity implements IUnit {
@@ -20,6 +24,9 @@ export class UnitDB extends BaseDBEntity implements IUnit {
   text: string;
 
   @JoinColumn()
-  @ManyToOne(() => LessonDB, (lesson) => lesson.units)
+  @ManyToOne(() => LessonDB, e => e.units)
   lesson: ILesson;
+
+  @ManyToMany(() => UnitResourceDB, e => e.unit)
+  UnitResources: IUnitResource[]
 }

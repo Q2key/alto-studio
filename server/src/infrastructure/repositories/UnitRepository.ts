@@ -25,7 +25,7 @@ export class UnitRepository implements IUnitRepository {
     }
 
     async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IUnit[]> {
-        const entities = await this.repo.find();
+        const entities = await this.repo.find({relations: { lesson: true }});
         return Promise.resolve(entities);
     }
 }

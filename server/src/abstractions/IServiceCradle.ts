@@ -1,19 +1,19 @@
 import { Multer } from 'multer';
 import { DataSource } from 'typeorm';
 import { ILessonMapper } from '../domain/mappers/ILessonMapper';
-import { ILessonResourceMapper } from '../domain/mappers/ILessonResourceMapper';
+import { IUnitResourceMapper } from '../domain/mappers/IUnitResourceMapper';
 import { IResourceMapper } from '../domain/mappers/IResourceMapper';
 import { ISubscriptionMapper } from '../domain/mappers/ISubscriptionMapper';
 import { IUnitMapper } from '../domain/mappers/IUnitMapper';
 import { IUserMapper } from '../domain/mappers/IUserMapper';
 import { ILessonRepository } from '../domain/repository/ILessonRepo';
-import { ILessonResourceRepository } from '../domain/repository/ILessonResourceRepo';
+import { IUnitResourceRepository } from '../domain/repository/IUnitResourceRepo';
 import { IResourceRepository } from '../domain/repository/IResourceRepo';
 import { ISubscriptionRepo } from '../domain/repository/ISubscriptionRepo';
 import { IUnitRepository } from '../domain/repository/IUnitRepo';
 import { IUserRepo } from '../domain/repository/IUserRepo';
 import { LessonUseCases } from '../use-cases/lesson/LessonUseCases';
-import { LessonResourcesUseCases } from '../use-cases/lessonResources/LessonResourcesUseCases';
+import { UnitResourcesUseCases } from '../use-cases/unitResources/UnitResourcesUseCases';
 import { ResourceUseCases } from '../use-cases/resource/ResourceUseCases';
 import { SubscriptionUseCases } from '../use-cases/subscription/SubscriptionUseCases';
 import { UnitUseCases } from '../use-cases/unit/UnitUseCases';
@@ -24,7 +24,7 @@ export interface IServiceCradle {
     userRepository: IUserRepo;
     resourceRepository: IResourceRepository;
     lessonRepository: ILessonRepository;
-    lessonResourceRepository: ILessonResourceRepository;
+    UnitResourceRepository: IUnitResourceRepository;
     unitRepository: IUnitRepository;
     subscriptionRepository: ISubscriptionRepo;
 
@@ -32,7 +32,7 @@ export interface IServiceCradle {
     userUseCases: UserUseCases;
     resourceUseCases: ResourceUseCases;
     lessonUseCases: LessonUseCases;
-    lessonResourceUseCases: LessonResourcesUseCases;
+    UnitResourceUseCases: UnitResourcesUseCases;
     unitUseCases: UnitUseCases;
     subscriptionUseCases: SubscriptionUseCases;
 
@@ -40,7 +40,7 @@ export interface IServiceCradle {
     userMapper: IUserMapper;
     resourceMapper: IResourceMapper;
     lessonMapper: ILessonMapper;
-    lessonResourceMapper: ILessonResourceMapper;
+    UnitResourceMapper: IUnitResourceMapper;
     unitMapper: IUnitMapper;
     subscriptionMapper: ISubscriptionMapper;
 

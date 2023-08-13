@@ -1,6 +1,7 @@
 export interface ICreateUnitDto {
-    name:        string;
+    name: string;
     description: string;
-    resourceIds:   string[]
+    text: string;
+    lessonId: string;
+    resourceIds: string[]
 }
-

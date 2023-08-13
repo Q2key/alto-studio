@@ -1,6 +1,6 @@
-export interface ILessonResource {
+export interface IUnitResource {
     id?: string;
-    lessonId: string;
+    unitId: string;
     resourceId: string;
     type: string;
 }
