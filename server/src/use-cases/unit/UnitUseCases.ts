@@ -1,8 +1,8 @@
 import { IServiceCradle } from '../../abstractions/IServiceCradle';
 import { IUnitMapper } from '../../domain/mappers/IUnitMapper';
 import { ILessonRepository } from '../../domain/repository/ILessonRepo';
-import { IUnitResourceRepository } from '../../domain/repository/IUnitResourceRepo';
 import { IUnitRepository } from '../../domain/repository/IUnitRepo';
+import { IUnitResourceRepository } from '../../domain/repository/IUnitResourceRepository';
 import { ICreateUnitDto } from '../../dto/unit/ICreateUnitDto';
 import { IUnitResponseDto } from '../../dto/unit/IUnitResponseDto';
 
