@@ -29,22 +29,15 @@ export class UnitUseCases {
 
     public async Create({name, description, text, lessonId, resourceIds}: ICreateUnitDto): Promise<IUnitResponseDto> {
         const lesson = await this.lessonRepo.findOne(lessonId);
-        
-
         const created = await this.repo.save({
             name, description, text, lesson: lesson,
         });
 
-        const resources = [];
         for (const resourceId of resourceIds){
-            const lr = await this.resourcesRepo.findOne(resourceId)
-
+            await this.resourcesRepo.findOne(resourceId)
             await this.unitResourceRepo.save({unitId: created.id, resourceId, type: ''})
-            resources.push(lr);
         }
 
-
-         
         return Promise.resolve(
             this.mapper.toDTO(created)
         );

@@ -24,12 +24,12 @@ export class LessonRepository implements ILessonRepository {
     }
 
     async findOne(id: string): Promise<ILesson> {
-        const lesson = await this.repo.findOne({where: {id}});
+        const lesson = await this.repo.findOne({ where: { id } });
         return Promise.resolve(lesson);
     }
 
     async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<ILesson[]> {
-        const entities = await this.repo.find({relations: {units: true}});
+        const entities = await this.repo.find({ relations: { units: true } });
         return Promise.resolve(entities);
     }
 }
