@@ -1,8 +1,10 @@
-import { ILesson } from "../entities/Lesson/ILesson";
+import { ICourse } from '../entities/Course/ICourse';
 
-export interface ILessonRepository {
-  save(user: ILesson): Promise<ILesson>;
-  findOne(id: string): Promise<ILesson>;
-  find: (fromIndex?: number, count?: number) => Promise<ILesson[]>;
-  deleteOne: (id: string) => Promise<boolean>;
+export interface ICourseRepository {
+    save(user: ICourse): Promise<ICourse>;
+
+    findOne(id: string): Promise<ICourse>;
+
+    find: (fromIndex?: number, count?: number) => Promise<ICourse[]>;
+    deleteOne: (id: string) => Promise<boolean>;
 }

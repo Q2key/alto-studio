@@ -1,30 +1,40 @@
 import { IServiceCradle } from '../../abstractions/IServiceCradle';
-import { ILessonMapper } from '../../domain/mappers/ILessonMapper';
+import { ICourseRepository } from '../../domain/repository/ICourseRepo';
+import { ICourseMapper } from '../../domain/mappers/ICourseMapper';
+import { ICourseResponseDto } from '../../dto/course/ICourseResponseDto';
+import { ICreateCourseDto } from '../../dto/course/ICreateCourseDto';
 import { ILessonRepository } from '../../domain/repository/ILessonRepo';
-import { ICreateLessonDto } from '../../dto/lesson/ICreateLessonDto';
-import { ILessonResponseDto } from '../../dto/lesson/ILessonResponseDto';
 
-export class LessonUseCases {
-    private readonly repo: ILessonRepository; 
-    private readonly mapper: ILessonMapper;
+export class CourseUseCases {
+    private readonly repo: ICourseRepository;
+    private readonly lessonRepo: ILessonRepository;
+    private readonly mapper: ICourseMapper;
 
     constructor(cradle: IServiceCradle) {
-        this.repo = cradle.lessonRepository;
-        this.mapper = cradle.lessonMapper;
+        this.repo = cradle.courseRepository;
+        this.lessonRepo = cradle.lessonRepository;
+        this.mapper = cradle.courseMapper;
     }
 
-    public async GetAll(): Promise<ILessonResponseDto[]> {
+    public async GetAll(): Promise<ICourseResponseDto[]> {
         return (await this.repo.find()).map(this.mapper.toDTO);
     }
 
-    public async Create(dto: ICreateLessonDto): Promise<ILessonResponseDto> {
-        const created = await this.repo.save({name: dto.name, description: dto.description, units: []});
+    public async Create(dto: ICreateCourseDto): Promise<ICourseResponseDto> {
+
+        const lessons = [];
+        for (const lessonId of dto.lessonIds) {
+            const lesson = await this.lessonRepo.findOne(lessonId);
+            lessons.push(lesson);
+        }
+
+        const created = await this.repo.save(
+            {
+                name: dto.name,
+                description: dto.description,
+                lessons });
         return Promise.resolve(
-            this.mapper.toDTO({
-                name: created.name,
-                units: [],
-                description: created.description,
-            })
+            this.mapper.toDTO(created),
         );
     }
 }

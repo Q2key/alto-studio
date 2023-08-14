@@ -1,4 +1,4 @@
-export interface IResourceResponseDto {
+export interface ICourseResponseDto {
     id: string,
     name: string,
     originalName: string,

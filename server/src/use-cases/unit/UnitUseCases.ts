@@ -19,7 +19,7 @@ export class UnitUseCases {
         this.repo = cradle.unitRepository;
         this.lessonRepo = cradle.lessonRepository;
         this.resourcesRepo = cradle.resourceRepository;
-        this.unitResourceRepo = cradle.UnitResourceRepository;
+        this.unitResourceRepo = cradle.unitResourceRepository;
         this.mapper = cradle.unitMapper;
     }
 

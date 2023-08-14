@@ -1,3 +1,3 @@
-export interface IDeleteResourceDto {
+export interface IDeleteCourseDto {
     
 }

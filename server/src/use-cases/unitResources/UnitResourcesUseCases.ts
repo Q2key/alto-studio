@@ -9,8 +9,8 @@ export class UnitResourcesUseCases {
     private readonly mapper: IUnitResourceMapper;
 
     constructor(cradle: IServiceCradle) {
-        this.repo = cradle.UnitResourceRepository;
-        this.mapper = cradle.UnitResourceMapper;
+        this.repo = cradle.unitResourceRepository;
+        this.mapper = cradle.unitResourceMapper;
     }
 
     public async GetAll(): Promise<ILessonResponseDto[]> {

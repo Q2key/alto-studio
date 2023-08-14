@@ -1,3 +1,3 @@
-export interface ICreateResourceDto {
+export interface ICreateCourseDto {
 
 }

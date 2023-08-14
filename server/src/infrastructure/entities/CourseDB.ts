@@ -3,21 +3,23 @@ import { BaseDBEntity } from "./BaseDBEntity";
 import { ILesson } from "../../domain/entities/Lesson/ILesson";
 import { UnitDB } from "./UnitDB";
 import { IUnit } from "../../domain/entities/Unit/IUnit";
+import { ICourse } from '../../domain/entities/Course/ICourse';
+import { LessonDB } from './LessonDB';
 
 
-@Entity("lessons")
-export class LessonDB extends BaseDBEntity implements ILesson {
+@Entity("courses")
+export class CourseDB extends BaseDBEntity implements ICourse {
   constructor() {
     super();
   }
 
   @Column('varchar')
-  name: string;
-
-  @Column('varchar')
   description: string;
 
+  @Column('varchar')
+  name: string;
+
   @JoinColumn()
-  @OneToMany(() => UnitDB, (unit) => unit.lesson)
-  units: IUnit[]
+  @OneToMany(() => LessonDB, lesson => lesson.course)
+  lessons: ILesson[];
 }

@@ -1,3 +1,5 @@
-export interface ICreateCourceDto {
-
+export interface ICreateCourseDto {
+    name: string;
+    description: string;
+    lessonIds: string[]
 }

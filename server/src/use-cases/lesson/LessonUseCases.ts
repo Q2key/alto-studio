@@ -5,7 +5,7 @@ import { ICreateLessonDto } from '../../dto/lesson/ICreateLessonDto';
 import { ILessonResponseDto } from '../../dto/lesson/ILessonResponseDto';
 
 export class LessonUseCases {
-    private readonly repo: ILessonRepository; 
+    private readonly repo: ILessonRepository;
     private readonly mapper: ILessonMapper;
 
     constructor(cradle: IServiceCradle) {
@@ -18,13 +18,13 @@ export class LessonUseCases {
     }
 
     public async Create(dto: ICreateLessonDto): Promise<ILessonResponseDto> {
-        const created = await this.repo.save({name: dto.name, description: dto.description, units: []});
+        const created = await this.repo.save({ name: dto.name, description: dto.description, units: [] });
         return Promise.resolve(
             this.mapper.toDTO({
                 name: created.name,
                 units: [],
                 description: created.description,
-            })
+            }),
         );
     }
 }

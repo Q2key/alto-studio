@@ -1,10 +1,10 @@
-import { ILesson } from "../../domain/entities/Lesson/ILesson";
-import { ILessonMapper } from "../../domain/mappers/ILessonMapper";
-import { ILessonResponseDto } from "../../dto/lesson/ILessonResponseDto";
+import {ICourseMapper} from "../../domain/mappers/ICourseMapper";
+import {ICourseResponseDto} from "../../dto/course/ICourseResponseDto";
+import {ICourse} from "../../domain/entities/Course/ICourse";
 
-export class LessonMapper implements ILessonMapper
+export class CourseMapper implements ICourseMapper
  {
-    toDTO(entity: ILesson): ILessonResponseDto {
-        return entity as ILessonResponseDto
+    toDTO(entity: ICourse): ICourseResponseDto {
+        return entity as ICourseResponseDto
     }
 }

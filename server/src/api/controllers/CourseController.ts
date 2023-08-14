@@ -3,8 +3,10 @@ import { IServiceCradle } from '../../abstractions';
 import { BaseController, TRequestBody, TResponse } from './BaseController';
 import { ILessonResponseDto } from '../../dto/lesson/ILessonResponseDto';
 import { ICreateLessonDto } from '../../dto/lesson/ICreateLessonDto';
+import { ICreateCourseDto } from '../../dto/course/ICreateCourseDto';
+import { ICourseResponseDto } from '../../dto/course/ICourseResponseDto';
 
-export class LessonController extends BaseController {
+export class CourseController extends BaseController {
     public readonly service: IServiceCradle;
 
     constructor(service: IServiceCradle) {
@@ -15,24 +17,24 @@ export class LessonController extends BaseController {
     public FindAll = async (
         req: TRequestBody<{}>,
         res: TResponse<{
-            lessons: ILessonResponseDto[];
+            courses: ICourseResponseDto[];
         }>,
         next: NextFunction
-    ): Promise<TResponse<{ lessons: ILessonResponseDto[] }>> => {
+    ): Promise<TResponse<{ courses: ICourseResponseDto[] }>> => {
         return this.wrap(async () => {
-            const lessons = await this.service.lessonUseCases.GetAll();
-            return res.json({ lessons });
+            const courses = await this.service.courseUseCases.GetAll();
+            return res.json({ courses });
         }, next);
     };
 
     public Create = async (
-        req: TRequestBody<ICreateLessonDto>,
-        res: TResponse<{response: ILessonResponseDto }>,
+        req: TRequestBody<ICreateCourseDto>,
+        res: TResponse<{courses: ICourseResponseDto }>,
         next: NextFunction
-    ): Promise<TResponse<{ response: ILessonResponseDto }>> => {
+    ): Promise<TResponse<{ courses: ILessonResponseDto }>> => {
         return this.wrap(async () => {
-            const response = await this.service.lessonUseCases.Create(req.body);
-            return res.json({ response });
+            const courses = await this.service.courseUseCases.Create(req.body);
+            return res.json({ courses });
         }, next);
     };
 }

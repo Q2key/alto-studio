@@ -1,3 +1,3 @@
-export interface IUpdateResourceDto {
+export interface IUpdateCourseDto {
     
 }
