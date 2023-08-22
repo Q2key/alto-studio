@@ -4,8 +4,8 @@ import { ILessonRepository } from '../../repository/ILessonRepo';
 import { IResourceRepository } from '../../repository/IResourceRepo';
 import { IUnitRepository } from '../../repository/IUnitRepo';
 import { IUnitResourceRepository } from '../../repository/IUnitResourceRepository';
-import { ICreateUnitDto } from '../../../dto/unit/ICreateUnitDto';
-import { IUnitResponseDto } from '../../../dto/unit/IUnitResponseDto';
+import { ICreateUnitDto } from '../../../interface-adapters/dto/unit/ICreateUnitDto';
+import { IUnitResponseDto } from '../../../interface-adapters/dto/unit/IUnitResponseDto';
 
 export class UnitUseCases {
     private readonly repo: IUnitRepository;

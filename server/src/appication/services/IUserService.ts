@@ -1,5 +1,5 @@
 import { IUser } from "../../domain/User/IUser";
-import { ICreateUserDto } from "../../dto/user/ICreateUserDto";
+import { ICreateUserDto } from "../../interface-adapters/dto/user/ICreateUserDto";
 import { ICryptoService } from "./ICryptoService";
 
 export interface IUSerService {

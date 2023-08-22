@@ -2,7 +2,7 @@ import { IServiceCradle } from '../../abstractions/IServiceCradle';
 import { IResource } from '../../../domain/Resource/IResource';
 import { IResourceMapper } from '../../mappers/IResourceMapper';
 import { IResourceRepository } from '../../repository/IResourceRepo';
-import { IResourceResponseDto } from '../../../dto/resource/IResourceResponseDto';
+import { IResourceResponseDto } from '../../../interface-adapters/dto/resource/IResourceResponseDto';
 import { IUploadResourceInput } from './IUploadResourceInput';
 
 export class ResourceUseCases {

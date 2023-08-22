@@ -1,8 +1,8 @@
 import { NextFunction } from 'express';
 import { IServiceCradle } from '../../../appication/abstractions';
 import { BaseController, TRequestBody, TResponse } from './BaseController';
-import { IUserResponseDto } from '../../../dto/user/IUserResponseDto';
-import { IResourceResponseDto } from '../../../dto/resource/IResourceResponseDto';
+import { IUserResponseDto } from '../../dto/user/IUserResponseDto';
+import { IResourceResponseDto } from '../../dto/resource/IResourceResponseDto';
 
 export class ResourceController extends BaseController {
     public readonly service: IServiceCradle;

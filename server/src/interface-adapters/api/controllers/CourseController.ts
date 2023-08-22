@@ -1,10 +1,10 @@
 import { NextFunction } from 'express';
 import { IServiceCradle } from '../../../appication/abstractions';
 import { BaseController, TRequestBody, TResponse } from './BaseController';
-import { ILessonResponseDto } from '../../../dto/lesson/ILessonResponseDto';
-import { ICreateLessonDto } from '../../../dto/lesson/ICreateLessonDto';
-import { ICreateCourseDto } from '../../../dto/course/ICreateCourseDto';
-import { ICourseResponseDto } from '../../../dto/course/ICourseResponseDto';
+import { ILessonResponseDto } from '../../dto/lesson/ILessonResponseDto';
+import { ICreateLessonDto } from '../../dto/lesson/ICreateLessonDto';
+import { ICreateCourseDto } from '../../dto/course/ICreateCourseDto';
+import { ICourseResponseDto } from '../../dto/course/ICourseResponseDto';
 
 export class CourseController extends BaseController {
     public readonly service: IServiceCradle;

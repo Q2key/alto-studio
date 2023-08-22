@@ -1,6 +1,6 @@
 import { User } from "../../domain/User/User";
 import { ICryptoService } from "./ICryptoService";
-import { ICreateUserDto } from "../../dto/user/ICreateUserDto";
+import { ICreateUserDto } from "../../interface-adapters/dto/user/ICreateUserDto";
 import { IUSerService } from "./IUserService";
 import { CryptoService } from "../../frameworks/external-services/ArgonCryptoService";
 

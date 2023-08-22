@@ -1,8 +1,8 @@
 import { NextFunction } from 'express';
 import { IServiceCradle } from '../../../appication/abstractions';
 import { BaseController, TRequestBody, TResponse } from './BaseController';
-import { ILessonResponseDto } from '../../../dto/lesson/ILessonResponseDto';
-import { ICreateLessonDto } from '../../../dto/lesson/ICreateLessonDto';
+import { ILessonResponseDto } from '../../dto/lesson/ILessonResponseDto';
+import { ICreateLessonDto } from '../../dto/lesson/ICreateLessonDto';
 
 export class LessonController extends BaseController {
     public readonly service: IServiceCradle;

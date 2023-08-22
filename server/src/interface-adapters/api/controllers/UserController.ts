@@ -1,10 +1,10 @@
 import {NextFunction} from "express";
-import {ICreateUserDto} from "../../../dto/user/ICreateUserDto";
+import {ICreateUserDto} from "../../dto/user/ICreateUserDto";
 import {IServiceCradle} from "../../../appication/abstractions";
 import {BaseController, TRequestBody, TResponse} from "./BaseController";
-import { IUserResponseDto } from "../../../dto/user/IUserResponseDto";
-import { IDeleteUserDto } from "../../../dto/user/IDeleteUserDto";
-import { IUpdateUserDto } from "../../../dto/user/IUpdateUserDto";
+import { IUserResponseDto } from "../../dto/user/IUserResponseDto";
+import { IDeleteUserDto } from "../../dto/user/IDeleteUserDto";
+import { IUpdateUserDto } from "../../dto/user/IUpdateUserDto";
 
 export class UserController extends BaseController {
     public readonly service: IServiceCradle;

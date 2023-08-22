@@ -1,10 +1,10 @@
 import { IServiceCradle } from "../../abstractions";
-import { ICreateUserDto } from "../../../dto/user/ICreateUserDto";
-import { IUserResponseDto } from "../../../dto/user/IUserResponseDto";
+import { ICreateUserDto } from "../../../interface-adapters/dto/user/ICreateUserDto";
+import { IUserResponseDto } from "../../../interface-adapters/dto/user/IUserResponseDto";
 import { IUserRepo } from "../../repository/IUserRepo";
 import { IUserMapper } from "../../mappers/IUserMapper";
-import { IDeleteUserDto } from "../../../dto/user/IDeleteUserDto";
-import { IUpdateUserDto } from "../../../dto/user/IUpdateUserDto";
+import { IDeleteUserDto } from "../../../interface-adapters/dto/user/IDeleteUserDto";
+import { IUpdateUserDto } from "../../../interface-adapters/dto/user/IUpdateUserDto";
 import { IUser } from "../../../domain/User/IUser";
 import { UserService } from "../../services/UserService";
 

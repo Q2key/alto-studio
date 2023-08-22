@@ -1,7 +1,7 @@
 
 import { User } from "../../domain/User/User";
 import { IUserMapper } from "../../appication/mappers/IUserMapper";
-import { IUserResponseDto } from "../../dto/user/IUserResponseDto";
+import { IUserResponseDto } from "../dto/user/IUserResponseDto";
 
 export class UserMapper implements IUserMapper {
     toDTO(domain: User): IUserResponseDto {

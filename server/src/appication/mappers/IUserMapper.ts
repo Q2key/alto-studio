@@ -1,4 +1,4 @@
-import { IUserResponseDto } from "../../dto/user/IUserResponseDto";
+import { IUserResponseDto } from "../../interface-adapters/dto/user/IUserResponseDto";
 import {IMapper} from "../abstractions/IMapper";
 import {IUser} from "../../domain/User/IUser";
 

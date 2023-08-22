@@ -1,9 +1,9 @@
 import { NextFunction } from "express";
 import { IServiceCradle } from "../../../appication/abstractions";
-import { ICreateSubscriptionDto } from "../../../dto/subscription/ICreateSubscriptionDto";
-import { IDeleteSubscriptionDto } from "../../../dto/subscription/IDeleteSubscriptionDto";
-import { ISubscriptionDto } from "../../../dto/subscription/ISubscriptionDto";
-import { IUpdateSubscriptionDto } from "../../../dto/subscription/IUpdateSubscriptionDto";
+import { ICreateSubscriptionDto } from "../../dto/subscription/ICreateSubscriptionDto";
+import { IDeleteSubscriptionDto } from "../../dto/subscription/IDeleteSubscriptionDto";
+import { ISubscriptionDto } from "../../dto/subscription/ISubscriptionDto";
+import { IUpdateSubscriptionDto } from "../../dto/subscription/IUpdateSubscriptionDto";
 import { BaseController, TRequestBody, TResponse } from "./BaseController";
 
 export class SubscriptionController extends BaseController {

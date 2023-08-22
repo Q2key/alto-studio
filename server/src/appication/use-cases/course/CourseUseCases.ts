@@ -1,8 +1,8 @@
 import { IServiceCradle } from '../../abstractions/IServiceCradle';
 import { ICourseRepository } from '../../repository/ICourseRepo';
 import { ICourseMapper } from '../../mappers/ICourseMapper';
-import { ICourseResponseDto } from '../../../dto/course/ICourseResponseDto';
-import { ICreateCourseDto } from '../../../dto/course/ICreateCourseDto';
+import { ICourseResponseDto } from '../../../interface-adapters/dto/course/ICourseResponseDto';
+import { ICreateCourseDto } from '../../../interface-adapters/dto/course/ICreateCourseDto';
 import { ILessonRepository } from '../../repository/ILessonRepo';
 
 export class CourseUseCases {

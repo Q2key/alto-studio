@@ -1,8 +1,8 @@
 import { IServiceCradle } from '../../abstractions/IServiceCradle';
 import { ILessonMapper } from '../../mappers/ILessonMapper';
 import { ILessonRepository } from '../../repository/ILessonRepo';
-import { ICreateLessonDto } from '../../../dto/lesson/ICreateLessonDto';
-import { ILessonResponseDto } from '../../../dto/lesson/ILessonResponseDto';
+import { ICreateLessonDto } from '../../../interface-adapters/dto/lesson/ICreateLessonDto';
+import { ILessonResponseDto } from '../../../interface-adapters/dto/lesson/ILessonResponseDto';
 
 export class LessonUseCases {
     private readonly repo: ILessonRepository;

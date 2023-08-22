@@ -1,4 +1,4 @@
-import { UserRoles } from "../../dto/types/UserRoles";
+import { UserRoles } from "../../interface-adapters/dto/types/UserRoles";
 import { IUser } from "./IUser";
 
 export class User implements IUser {

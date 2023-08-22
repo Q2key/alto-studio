@@ -1,5 +1,5 @@
 import { IMapper } from "../abstractions/IMapper";
-import { IUnitResponseDto } from "../../dto/unit/IUnitResponseDto";
+import { IUnitResponseDto } from "../../interface-adapters/dto/unit/IUnitResponseDto";
 import { IUnit } from "../../domain/Unit/IUnit";
 
 export interface IUnitMapper extends IMapper<IUnit, IUnitResponseDto> {

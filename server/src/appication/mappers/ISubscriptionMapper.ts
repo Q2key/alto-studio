@@ -1,5 +1,5 @@
 import { IMapper } from "../abstractions/IMapper";
-import { ISubscriptionDto } from "../../dto/subscription/ISubscriptionDto";
+import { ISubscriptionDto } from "../../interface-adapters/dto/subscription/ISubscriptionDto";
 import { ISubscription } from "../../domain/Subscription/ISubscription";
 
 

@@ -1,10 +1,10 @@
 import { ISubscriptionRepo } from "../../repository/ISubscriptionRepo";
 import { ISubscriptionMapper } from "../../mappers/ISubscriptionMapper";
 import { IServiceCradle } from "../../abstractions";
-import { ISubscriptionDto } from "../../../dto/subscription/ISubscriptionDto";
-import { ICreateSubscriptionDto } from "../../../dto/subscription/ICreateSubscriptionDto";
-import { IUpdateSubscriptionDto } from "../../../dto/subscription/IUpdateSubscriptionDto";
-import { IDeleteSubscriptionDto } from "../../../dto/subscription/IDeleteSubscriptionDto";
+import { ISubscriptionDto } from "../../../interface-adapters/dto/subscription/ISubscriptionDto";
+import { ICreateSubscriptionDto } from "../../../interface-adapters/dto/subscription/ICreateSubscriptionDto";
+import { IUpdateSubscriptionDto } from "../../../interface-adapters/dto/subscription/IUpdateSubscriptionDto";
+import { IDeleteSubscriptionDto } from "../../../interface-adapters/dto/subscription/IDeleteSubscriptionDto";
 import { IUserRepo } from "../../repository/IUserRepo";
 import { Subscription } from "../../../domain/Subscription/Subscription";
 
