@@ -21,20 +21,18 @@ export class CourseUseCases {
     }
 
     public async Create(dto: ICreateCourseDto): Promise<ICourseResponseDto> {
-
         const lessons = [];
         for (const lessonId of dto.lessonIds) {
             const lesson = await this.lessonRepo.findOne(lessonId);
             lessons.push(lesson);
         }
 
-        const created = await this.repo.save(
-            {
-                name: dto.name,
-                description: dto.description,
-                lessons });
-        return Promise.resolve(
-            this.mapper.toDTO(created),
-        );
+        const created = await this.repo.save({
+            name: dto.name,
+            description: dto.description,
+            lessons,
+        });
+
+        return Promise.resolve(this.mapper.toDTO(created));
     }
 }

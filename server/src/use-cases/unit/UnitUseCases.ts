@@ -31,6 +31,7 @@ export class UnitUseCases {
         const lesson = await this.lessonRepo.findOne(lessonId);
         const created = await this.repo.save({
             name, description, text, lesson: lesson,
+            unitResources: []
         });
 
         for (const resourceId of resourceIds){

@@ -5,13 +5,17 @@ import { ISubscriptionDto } from "../../dto/subscription/ISubscriptionDto";
 import { ICreateSubscriptionDto } from "../../dto/subscription/ICreateSubscriptionDto";
 import { IUpdateSubscriptionDto } from "../../dto/subscription/IUpdateSubscriptionDto";
 import { IDeleteSubscriptionDto } from "../../dto/subscription/IDeleteSubscriptionDto";
+import { IUserRepo } from "../../domain/repository/IUserRepo";
+import { Subscription } from "../../domain/entities/Subscription/Subscription";
 
 export class SubscriptionUseCases {
     private readonly repo: ISubscriptionRepo;
+    private readonly userRepo: IUserRepo;
     private readonly mapper: ISubscriptionMapper;
 
     constructor(cradle: IServiceCradle) {
         this.repo = cradle.subscriptionRepository;
+        this.userRepo = cradle.userRepository;
         this.mapper = cradle.subscriptionMapper;
     }
 
@@ -21,12 +25,29 @@ export class SubscriptionUseCases {
     }
 
     public async create(dto: ICreateSubscriptionDto): Promise<ISubscriptionDto> {
-        const UserDB = await this.repo.save({...dto});
+
+        const user = await this.userRepo.findOne(dto.userId);
+
+        const subscription = new Subscription(
+           dto.name,
+            user,
+            dto.description,
+            dto.available,
+            dto.expiredAt,
+            dto.startedAt,
+            dto.price,
+            dto.features,
+            dto.durationKind,
+            dto.billingCycleKind,
+        )
+
+        const UserDB = await this.repo.save(subscription);
         return Promise.resolve(this.mapper.toDTO(UserDB));
     }
 
     public async update({ id, subscription }: IUpdateSubscriptionDto): Promise<boolean> {
-        const updated = await this.repo.update(id, subscription);
+        const subscriptionToUpdate = await this.repo.findOne(id);
+        const updated = await this.repo.update(id, {...subscriptionToUpdate, ...subscription});
         return Promise.resolve(updated);
     }
 

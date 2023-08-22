@@ -1,19 +1,23 @@
+import { IUser } from '../User/IUser';
+
 export enum DurationKind {
-    Daily,
-    Monthly,
-    Early,
+    Daily= 'Daily',
+    Monthly = 'Monthly',
+    Early = 'Early',
 }
 
 export enum BillingCycleKind {
-    Daily,
-    Monthly,
-    Early,
-    Instant,
-    Free,
+    Daily = 'Daily',
+    Monthly = 'Monthly',
+    Early = 'Early',
+    Instant = 'Instant',
+    Free = 'Free',
 };
 
 export interface ISubscription {
     readonly id?: string;
+    userId?: string;
+    user: IUser;
     name: string;
     description: string;
     available: boolean;

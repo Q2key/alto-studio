@@ -1,3 +1,5 @@
+import { IUser } from "../../domain/entities/User/IUser";
+
 export enum DurationKind {
     Daily,
     Monthly,
@@ -15,6 +17,7 @@ export enum BillingCycleKind {
 export interface ISubscriptionDto {
     readonly id?: string;
     name: string;
+    user: IUser;
     description: string;
     available: boolean;
     startedAt: string;

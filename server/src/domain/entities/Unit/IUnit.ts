@@ -6,7 +6,7 @@ export interface IUnit {
     id?: string;
     name: string;
     lesson?: ILesson;
-    resources?: IResource[];
+    unitResources: IUnitResource[];
     description: string;
     text: string;
 }
