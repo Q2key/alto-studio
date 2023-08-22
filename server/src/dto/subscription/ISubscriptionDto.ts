@@ -1,4 +1,4 @@
-import { IUser } from "../../domain/entities/User/IUser";
+import { IUser } from "../../domain/User/IUser";
 
 export enum DurationKind {
     Daily,

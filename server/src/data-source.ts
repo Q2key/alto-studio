@@ -1,12 +1,12 @@
 import "reflect-metadata";
 import { DataSource } from 'typeorm';
-import { SubscriptionDB } from "./infrastructure/entities/SubscriptionDB";
-import { UserDB } from "./infrastructure/entities/UserDB";
-import { ResourceDB } from "./infrastructure/entities/ResourceDB";
-import { LessonDB } from "./infrastructure/entities/LessonDB";
-import { UnitDB } from "./infrastructure/entities/UnitDB";
-import { UnitResourceDB } from "./infrastructure/entities/UnitResourceDB";
-import { CourseDB } from './infrastructure/entities/CourseDB';
+import { SubscriptionDB } from "./frameworks/typeorm-entities/SubscriptionDB";
+import { UserDB } from "./frameworks/typeorm-entities/UserDB";
+import { ResourceDB } from "./frameworks/typeorm-entities/ResourceDB";
+import { LessonDB } from "./frameworks/typeorm-entities/LessonDB";
+import { UnitDB } from "./frameworks/typeorm-entities/UnitDB";
+import { UnitResourceDB } from "./frameworks/typeorm-entities/UnitResourceDB";
+import { CourseDB } from './frameworks/typeorm-entities/CourseDB';
 
 const AppDataSource = new DataSource({
     type: "postgres",
