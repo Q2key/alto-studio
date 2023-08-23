@@ -1,6 +1,6 @@
 import { DataSource, Repository } from "typeorm";
-import { IUserRepo } from "../../appication/repository/IUserRepo";
-import { IServiceCradle } from "../../appication/abstractions";
+import { IUserRepo } from "../../application/repository/IUserRepo";
+import { IServiceCradle } from "../../application/abstractions";
 import { UserDB } from "../../frameworks/typeorm-entities/UserDB";
 import { User } from "../../domain/user/User";
 

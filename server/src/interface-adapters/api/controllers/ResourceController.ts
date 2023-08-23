@@ -1,5 +1,5 @@
 import { NextFunction } from 'express';
-import { IServiceCradle } from '../../../appication/abstractions';
+import { IServiceCradle } from '../../../application/abstractions';
 import { BaseController, TRequestBody, TResponse } from './BaseController';
 import { IUserResponseDto } from '../../dto/user/IUserResponseDto';
 import { IResourceResponseDto } from '../../dto/resource/IResourceResponseDto';

@@ -1,5 +1,5 @@
 import { NextFunction } from "express";
-import { IServiceCradle } from "../../../appication/abstractions";
+import { IServiceCradle } from "../../../application/abstractions";
 import { ICreateSubscriptionDto } from "../../dto/subscription/ICreateSubscriptionDto";
 import { IDeleteSubscriptionDto } from "../../dto/subscription/IDeleteSubscriptionDto";
 import { ISubscriptionDto } from "../../dto/subscription/ISubscriptionDto";

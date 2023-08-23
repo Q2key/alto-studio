@@ -1,6 +1,6 @@
 
 import { User } from "../../domain/user/User";
-import { IUserMapper } from "../../appication/mappers/IUserMapper";
+import { IUserMapper } from "../../application/mappers/IUserMapper";
 import { IUserResponseDto } from "../dto/user/IUserResponseDto";
 
 export class UserMapper implements IUserMapper {

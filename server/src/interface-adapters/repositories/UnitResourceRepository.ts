@@ -1,8 +1,8 @@
 import { DataSource, Repository } from 'typeorm';
-import { IServiceCradle } from '../../appication/abstractions';
+import { IServiceCradle } from '../../application/abstractions';
 import { IUnitResource } from '../../domain/unit-resource/IUnitResource';
 import { UnitResourceDB } from '../../frameworks/typeorm-entities/UnitResourceDB';
-import { IUnitResourceRepository } from '../../appication/repository/IUnitResourceRepository';
+import { IUnitResourceRepository } from '../../application/repository/IUnitResourceRepository';
 
 export class UnitResourceRepository implements IUnitResourceRepository {
     private readonly ds: DataSource;

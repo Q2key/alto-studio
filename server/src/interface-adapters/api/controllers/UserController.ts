@@ -1,6 +1,6 @@
 import {NextFunction} from "express";
 import {ICreateUserDto} from "../../dto/user/ICreateUserDto";
-import {IServiceCradle} from "../../../appication/abstractions";
+import {IServiceCradle} from "../../../application/abstractions";
 import {BaseController, TRequestBody, TResponse} from "./BaseController";
 import { IUserResponseDto } from "../../dto/user/IUserResponseDto";
 import { IDeleteUserDto } from "../../dto/user/IDeleteUserDto";

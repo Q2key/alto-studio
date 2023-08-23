@@ -1,6 +1,6 @@
 import express, { Express } from 'express';
 import { createRoutes } from './routes';
-import { IServiceCradle } from '../../appication/abstractions';
+import { IServiceCradle } from '../../application/abstractions';
 import cors from 'cors';
 
 export const createExpressServer = (service: IServiceCradle): Express => {

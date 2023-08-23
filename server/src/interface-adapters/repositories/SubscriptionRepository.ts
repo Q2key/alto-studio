@@ -1,6 +1,6 @@
 import { DataSource, Repository } from "typeorm";
-import { IServiceCradle } from "../../appication/abstractions";
-import { ISubscriptionRepo } from "../../appication/repository/ISubscriptionRepo";
+import { IServiceCradle } from "../../application/abstractions";
+import { ISubscriptionRepo } from "../../application/repository/ISubscriptionRepo";
 import { SubscriptionDB } from "../../frameworks/typeorm-entities/SubscriptionDB";
 import { Subscription } from "../../domain/subscription/Subscription";
 

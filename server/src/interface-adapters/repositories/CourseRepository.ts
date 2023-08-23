@@ -1,6 +1,6 @@
 import { DataSource, Repository } from 'typeorm';
-import { IServiceCradle } from '../../appication/abstractions';
-import { ICourseRepository } from '../../appication/repository/ICourseRepo';
+import { IServiceCradle } from '../../application/abstractions';
+import { ICourseRepository } from '../../application/repository/ICourseRepo';
 import { ICourse } from '../../domain/course/ICourse';
 import { CourseDB } from '../../frameworks/typeorm-entities/CourseDB';
 

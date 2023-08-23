@@ -1,6 +1,6 @@
 import express, { Express } from 'express';
 import multer from 'multer';
-import { IServiceCradle } from '../../appication/abstractions';
+import { IServiceCradle } from '../../application/abstractions';
 import { UserController } from './controllers/UserController';
 import { SubscriptionController } from './controllers/SubscriptionController';
 import { ResourceController } from './controllers/ResourceController';

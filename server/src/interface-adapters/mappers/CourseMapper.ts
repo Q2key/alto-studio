@@ -1,4 +1,4 @@
-import {ICourseMapper} from "../../appication/mappers/ICourseMapper";
+import {ICourseMapper} from "../../application/mappers/ICourseMapper";
 import {ICourseResponseDto} from "../dto/course/ICourseResponseDto";
 import {ICourse} from "../../domain/course/ICourse";
 

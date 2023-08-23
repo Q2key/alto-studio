@@ -16,7 +16,6 @@ export class UserUseCases {
   constructor(cradle: IServiceCradle) {
     this.repo = cradle.userRepository;
     this.mapper = cradle.userMapper;
-
     this.userService = new UserService();
   }
 

@@ -1,9 +1,9 @@
 import { DataSource, Repository } from 'typeorm';
-import { IServiceCradle } from '../../appication/abstractions';
-import { IResourceRepository } from '../../appication/repository/IResourceRepo';
+import { IServiceCradle } from '../../application/abstractions';
+import { IResourceRepository } from '../../application/repository/IResourceRepo';
 import { ResourceDB } from '../../frameworks/typeorm-entities/ResourceDB';
 import { IResource } from '../../domain/resource/IResource';
-import { ILessonRepository } from '../../appication/repository/ILessonRepo';
+import { ILessonRepository } from '../../application/repository/ILessonRepo';
 import { LessonDB } from '../../frameworks/typeorm-entities/LessonDB';
 import { ILesson } from '../../domain/lesson/ILesson';
 

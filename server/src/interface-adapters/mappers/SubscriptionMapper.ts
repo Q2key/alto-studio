@@ -1,4 +1,4 @@
-import { ISubscriptionMapper } from "../../appication/mappers/ISubscriptionMapper";
+import { ISubscriptionMapper } from "../../application/mappers/ISubscriptionMapper";
 import { ISubscriptionDto } from "../dto/subscription/ISubscriptionDto";
 import { Subscription } from "../../domain/subscription/Subscription";
 
