@@ -1,6 +1,6 @@
 
 import {SubscriptionDB} from "../../frameworks/typeorm-entities/SubscriptionDB";
-import { Subscription } from "../../domain/Subscription/Subscription";
+import { Subscription } from "../../domain/subscription/Subscription";
 
 export interface ISubscriptionRepo {
     save(subscription: Subscription): Promise<SubscriptionDB>;

@@ -1,9 +1,9 @@
 import { Entity, Column, JoinColumn, OneToMany, JoinTable, ManyToMany, ManyToOne } from 'typeorm';
 import { BaseDBEntity } from "./BaseDBEntity";
-import { ILesson } from "../../domain/Lesson/ILesson";
+import { ILesson } from "../../domain/lesson/ILesson";
 import { UnitDB } from "./UnitDB";
-import { IUnit } from "../../domain/Unit/IUnit";
-import { ICourse } from '../../domain/Course/ICourse';
+import { IUnit } from "../../domain/unit/IUnit";
+import { ICourse } from '../../domain/course/ICourse';
 import { CourseDB } from './CourseDB';
 
 

@@ -1,4 +1,4 @@
-import { IResource } from "../../domain/Resource/IResource";
+import { IResource } from "../../domain/resource/IResource";
 
 export interface IResourceRepository {
   save(user: IResource): Promise<IResource>;

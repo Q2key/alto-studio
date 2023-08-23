@@ -2,7 +2,7 @@ import { DataSource, Repository } from "typeorm";
 import { IServiceCradle } from "../../appication/abstractions";
 import { ISubscriptionRepo } from "../../appication/repository/ISubscriptionRepo";
 import { SubscriptionDB } from "../../frameworks/typeorm-entities/SubscriptionDB";
-import { Subscription } from "../../domain/Subscription/Subscription";
+import { Subscription } from "../../domain/subscription/Subscription";
 
 export class SubscriptionRepository implements ISubscriptionRepo {
     private readonly ds: DataSource;

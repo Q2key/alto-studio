@@ -1,6 +1,6 @@
 import { Entity, Column, ManyToOne, JoinColumn } from "typeorm";
 import { BaseDBEntity } from "./BaseDBEntity";
-import { IUnitResource } from "../../domain/UnitResource/IUnitResource";
+import { IUnitResource } from "../../domain/unit-resource/IUnitResource";
 import { UnitDB } from "./UnitDB";
 import { ResourceDB } from "./ResourceDB";
 

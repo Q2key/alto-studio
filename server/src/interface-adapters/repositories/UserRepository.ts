@@ -2,7 +2,7 @@ import { DataSource, Repository } from "typeorm";
 import { IUserRepo } from "../../appication/repository/IUserRepo";
 import { IServiceCradle } from "../../appication/abstractions";
 import { UserDB } from "../../frameworks/typeorm-entities/UserDB";
-import { User } from "../../domain/User/User";
+import { User } from "../../domain/user/User";
 
 export class UserRepository implements IUserRepo {
     private readonly ds: DataSource;

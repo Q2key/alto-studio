@@ -1,11 +1,11 @@
 import { Entity, Column, JoinColumn, ManyToOne, JoinTable, ManyToMany, OneToMany } from "typeorm";
 import { BaseDBEntity } from "./BaseDBEntity";
-import { IUnit } from "../../domain/Unit/IUnit";
+import { IUnit } from "../../domain/unit/IUnit";
 import { LessonDB } from "./LessonDB";
-import { ILesson } from "../../domain/Lesson/ILesson";
-import { IResource } from "../../domain/Resource/IResource";
+import { ILesson } from "../../domain/lesson/ILesson";
+import { IResource } from "../../domain/resource/IResource";
 import { ResourceDB } from "./ResourceDB";
-import { IUnitResource } from "../../domain/UnitResource/IUnitResource";
+import { IUnitResource } from "../../domain/unit-resource/IUnitResource";
 import { UnitResourceDB } from "./UnitResourceDB";
 
 @Entity("units")

@@ -1,4 +1,4 @@
-import { ILesson } from "../../domain/Lesson/ILesson";
+import { ILesson } from "../../domain/lesson/ILesson";
 
 export interface ILessonRepository {
   save(user: ILesson): Promise<ILesson>;

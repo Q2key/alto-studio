@@ -1,4 +1,4 @@
-import { ILesson } from "../Lesson/ILesson";
+import { ILesson } from "../lesson/ILesson";
 
 export interface ICourse {
     id?: string;

@@ -1,5 +1,5 @@
 
-import { User } from "../../domain/User/User";
+import { User } from "../../domain/user/User";
 import { IUserMapper } from "../../appication/mappers/IUserMapper";
 import { IUserResponseDto } from "../dto/user/IUserResponseDto";
 

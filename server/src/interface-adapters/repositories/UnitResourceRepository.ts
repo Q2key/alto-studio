@@ -1,6 +1,6 @@
 import { DataSource, Repository } from 'typeorm';
 import { IServiceCradle } from '../../appication/abstractions';
-import { IUnitResource } from '../../domain/UnitResource/IUnitResource';
+import { IUnitResource } from '../../domain/unit-resource/IUnitResource';
 import { UnitResourceDB } from '../../frameworks/typeorm-entities/UnitResourceDB';
 import { IUnitResourceRepository } from '../../appication/repository/IUnitResourceRepository';
 

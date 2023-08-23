@@ -1,6 +1,6 @@
 import { IUnit } from "./IUnit";
-import { IUnitResource } from '../UnitResource/IUnitResource';
-import { ILesson } from '../Lesson/ILesson';
+import { IUnitResource } from '../unit-resource/IUnitResource';
+import { ILesson } from '../lesson/ILesson';
 
 export class Unit implements IUnit {
     id?: string;

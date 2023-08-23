@@ -12,7 +12,7 @@ import { ISubscriptionRepo } from '../repository/ISubscriptionRepo';
 import { IUnitRepository } from '../repository/IUnitRepo';
 import { IUserRepo } from '../repository/IUserRepo';
 import { LessonUseCases } from '../use-cases/lesson/LessonUseCases';
-import { UnitResourcesUseCases } from '../use-cases/unitResources/UnitResourcesUseCases';
+import { UnitResourcesUseCases } from '../use-cases/unit-resources/UnitResourcesUseCases';
 import { ResourceUseCases } from '../use-cases/resource/ResourceUseCases';
 import { SubscriptionUseCases } from '../use-cases/subscription/SubscriptionUseCases';
 import { UnitUseCases } from '../use-cases/unit/UnitUseCases';

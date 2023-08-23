@@ -1,4 +1,4 @@
-import { Subscription } from "../Subscription/Subscription";
+import { Subscription } from "../subscription/Subscription";
 
 export interface ITariffPlan {
     readonly id?: string;

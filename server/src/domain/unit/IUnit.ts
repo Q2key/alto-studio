@@ -1,6 +1,6 @@
-import { ILesson } from "../Lesson/ILesson";
-import { IUnitResource } from "../UnitResource/IUnitResource";
-import { IResource } from "../Resource/IResource";
+import { ILesson } from "../lesson/ILesson";
+import { IUnitResource } from "../unit-resource/IUnitResource";
+import { IResource } from "../resource/IResource";
 
 export interface IUnit {
     id?: string;

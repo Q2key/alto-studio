@@ -1,4 +1,4 @@
-import { ICourse } from '../../domain/Course/ICourse';
+import { ICourse } from '../../domain/course/ICourse';
 
 export interface ICourseRepository {
     save(user: ICourse): Promise<ICourse>;

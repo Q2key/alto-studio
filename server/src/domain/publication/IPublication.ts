@@ -1,4 +1,4 @@
-import { IResource } from "../Resource/IResource";
+import { IResource } from "../resource/IResource";
 
 export enum PublicationIconKind {
     NA,

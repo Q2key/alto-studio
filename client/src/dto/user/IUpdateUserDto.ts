@@ -1,4 +1,4 @@
-import { IUser } from "../../domain/typeorm-entities/User/IUser";
+import { IUser } from "../../domain/typeorm-entities/user/IUser";
 import { ICreateUserDto } from "./ICreateUserDto";
 
 export interface IUpdateUserDto {

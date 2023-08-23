@@ -1,5 +1,5 @@
 import { IServiceCradle } from '../../abstractions/IServiceCradle';
-import { IResource } from '../../../domain/Resource/IResource';
+import { IResource } from '../../../domain/resource/IResource';
 import { IResourceMapper } from '../../mappers/IResourceMapper';
 import { IResourceRepository } from '../../repository/IResourceRepo';
 import { IResourceResponseDto } from '../../../interface-adapters/dto/resource/IResourceResponseDto';

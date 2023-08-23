@@ -1,7 +1,7 @@
 import { DataSource, Repository } from 'typeorm';
 import { IServiceCradle } from '../../appication/abstractions';
 import { IUnitRepository } from '../../appication/repository/IUnitRepo';
-import { IUnit } from '../../domain/Unit/IUnit';
+import { IUnit } from '../../domain/unit/IUnit';
 import { UnitDB } from '../../frameworks/typeorm-entities/UnitDB';
 
 export class UnitRepository implements IUnitRepository {
@@ -25,7 +25,7 @@ export class UnitRepository implements IUnitRepository {
     }
 
     async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<IUnit[]> {
-        const entities = await this.repo.find({relations: ['unitResources.resource']});
+        const entities = await this.repo.find({relations: ['unit-resources.resource']});
         return Promise.resolve(entities);
     }
 }

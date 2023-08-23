@@ -1,4 +1,4 @@
-import { UserRoles} from "../UserRole/IUserRole";
+import { UserRoles} from "../user-role/IUserRole";
 
 export interface IUser  {
     readonly id: string | undefined;

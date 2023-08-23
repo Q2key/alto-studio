@@ -2,7 +2,7 @@ import { IServiceCradle } from '../../abstractions/IServiceCradle';
 import { IUnitResourceMapper } from '../../mappers/IUnitResourceMapper';
 import { IUnitResourceRepository } from '../../repository/IUnitResourceRepository';
 import { ILessonResponseDto } from '../../../interface-adapters/dto/lesson/ILessonResponseDto';
-import { ICreateUnitResourceDto } from '../../../interface-adapters/dto/unitResource/ICreateUnitResourceDto';
+import { ICreateUnitResourceDto } from '../../../interface-adapters/dto/unit-resource/ICreateUnitResourceDto';
 
 export class UnitResourcesUseCases {
     private readonly repo: IUnitResourceRepository;

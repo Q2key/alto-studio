@@ -1,4 +1,4 @@
-import { Subscription } from "../Subscription/Subscription";
+import { Subscription } from "../subscription/Subscription";
 import { ITariffPlan } from "./ITariffPlan";
 
 export class TariffPlan implements ITariffPlan {

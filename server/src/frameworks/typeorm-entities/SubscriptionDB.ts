@@ -4,8 +4,8 @@ import {
   BillingCycleKind,
   DurationKind,
   ISubscription,
-} from "../../domain/Subscription/ISubscription";
-import { IUser } from "../../domain/User/IUser";
+} from "../../domain/subscription/ISubscription";
+import { IUser } from "../../domain/user/IUser";
 
 @Entity("subscriptions")
 export class SubscriptionDB extends BaseDBEntity implements ISubscription {

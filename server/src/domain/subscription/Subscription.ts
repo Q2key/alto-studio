@@ -1,5 +1,5 @@
 import { BillingCycleKind, DurationKind, ISubscription } from "./ISubscription";
-import { IUser } from '../User/IUser';
+import { IUser } from '../user/IUser';
 
 export class Subscription implements ISubscription {
     readonly id?: string;

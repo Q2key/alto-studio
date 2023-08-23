@@ -1,5 +1,5 @@
-import { IUnit } from "../Unit/IUnit";
-import { ICourse } from '../Course/ICourse';
+import { IUnit } from "../unit/IUnit";
+import { ICourse } from '../course/ICourse';
 
 export interface ILesson {
     id?: string;

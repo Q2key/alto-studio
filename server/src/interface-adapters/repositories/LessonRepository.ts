@@ -2,10 +2,10 @@ import { DataSource, Repository } from 'typeorm';
 import { IServiceCradle } from '../../appication/abstractions';
 import { IResourceRepository } from '../../appication/repository/IResourceRepo';
 import { ResourceDB } from '../../frameworks/typeorm-entities/ResourceDB';
-import { IResource } from '../../domain/Resource/IResource';
+import { IResource } from '../../domain/resource/IResource';
 import { ILessonRepository } from '../../appication/repository/ILessonRepo';
 import { LessonDB } from '../../frameworks/typeorm-entities/LessonDB';
-import { ILesson } from '../../domain/Lesson/ILesson';
+import { ILesson } from '../../domain/lesson/ILesson';
 
 export class LessonRepository implements ILessonRepository {
     private readonly ds: DataSource;

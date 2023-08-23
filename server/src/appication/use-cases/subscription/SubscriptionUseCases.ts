@@ -6,7 +6,7 @@ import { ICreateSubscriptionDto } from "../../../interface-adapters/dto/subscrip
 import { IUpdateSubscriptionDto } from "../../../interface-adapters/dto/subscription/IUpdateSubscriptionDto";
 import { IDeleteSubscriptionDto } from "../../../interface-adapters/dto/subscription/IDeleteSubscriptionDto";
 import { IUserRepo } from "../../repository/IUserRepo";
-import { Subscription } from "../../../domain/Subscription/Subscription";
+import { Subscription } from "../../../domain/subscription/Subscription";
 
 export class SubscriptionUseCases {
     private readonly repo: ISubscriptionRepo;

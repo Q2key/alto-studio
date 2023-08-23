@@ -1,7 +1,7 @@
 import { Entity, Column, OneToMany, JoinColumn } from "typeorm";
-import { IUser } from "../../domain/User/IUser";
+import { IUser } from "../../domain/user/IUser";
 import { BaseDBEntity } from "./BaseDBEntity";
-import { UserRoles } from "../../domain/UserRole/IUserRole";
+import { UserRoles } from "../../domain/user-role/IUserRole";
 
 @Entity("user")
 export class UserDB extends BaseDBEntity implements IUser {

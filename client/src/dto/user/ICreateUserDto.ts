@@ -1,4 +1,4 @@
-import { UserRoles } from "../../domain/typeorm-entities/UserRole/IUserRole";
+import { UserRoles } from "../../domain/typeorm-entities/user-role/IUserRole";
 
 export interface ICreateUserDto {
     id?: string;

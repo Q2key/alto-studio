@@ -1,4 +1,4 @@
-import { IUser } from '../User/IUser';
+import { IUser } from '../user/IUser';
 
 export enum DurationKind {
     Daily= 'Daily',

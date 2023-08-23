@@ -17,7 +17,7 @@ import { UnitRepository } from './interface-adapters/repositories/UnitRepository
 import { UnitUseCases } from './appication/use-cases/unit/UnitUseCases';
 import { UnitMapper } from './interface-adapters/mappers/UnitMapper';
 import { UnitResourceRepository } from './interface-adapters/repositories/UnitResourceRepository';
-import { UnitResourcesUseCases } from './appication/use-cases/unitResources/UnitResourcesUseCases';
+import { UnitResourcesUseCases } from './appication/use-cases/unit-resources/UnitResourcesUseCases';
 import { UnitResourceMapper } from './interface-adapters/mappers/UnitResourceMapper';
 import { CourseUseCases } from './appication/use-cases/course/CourseUseCases';
 import { CourseMapper } from './interface-adapters/mappers/CourseMapper';

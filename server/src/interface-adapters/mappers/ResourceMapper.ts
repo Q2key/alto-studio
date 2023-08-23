@@ -1,4 +1,4 @@
-import { IResource } from "../../domain/Resource/IResource";
+import { IResource } from "../../domain/resource/IResource";
 import { IResourceMapper } from "../../appication/mappers/IResourceMapper";
 import { IResourceResponseDto } from "../dto/resource/IResourceResponseDto";
 

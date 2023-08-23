@@ -1,6 +1,6 @@
 import {ICourseMapper} from "../../appication/mappers/ICourseMapper";
 import {ICourseResponseDto} from "../dto/course/ICourseResponseDto";
-import {ICourse} from "../../domain/Course/ICourse";
+import {ICourse} from "../../domain/course/ICourse";
 
 export class CourseMapper implements ICourseMapper
  {

@@ -1,4 +1,4 @@
-import { ILesson } from "../Lesson/ILesson";
+import { ILesson } from "../lesson/ILesson";
 import { ICourse } from "./ICourse";
 
 export class Course implements ICourse {

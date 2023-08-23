@@ -1,7 +1,7 @@
 import { DataSource, Repository } from 'typeorm';
 import { IServiceCradle } from '../../appication/abstractions';
 import { ICourseRepository } from '../../appication/repository/ICourseRepo';
-import { ICourse } from '../../domain/Course/ICourse';
+import { ICourse } from '../../domain/course/ICourse';
 import { CourseDB } from '../../frameworks/typeorm-entities/CourseDB';
 
 export class CourseRepository implements ICourseRepository {
@@ -26,7 +26,7 @@ export class CourseRepository implements ICourseRepository {
     }
 
     async find(fromIndex = 0, count = Number.MAX_VALUE): Promise<ICourse[]> {
-        const entities = await this.repo.find({relations: ['lessons.units.unitResources']});
+        const entities = await this.repo.find({relations: ['lessons.units.unit-resources']});
         return Promise.resolve(entities);
     }
 }

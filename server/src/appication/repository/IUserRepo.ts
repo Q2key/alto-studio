@@ -1,4 +1,4 @@
-import { IUser } from "../../domain/User/IUser";
+import { IUser } from "../../domain/user/IUser";
 
 export interface IUserRepo {
     save(user: IUser): Promise<IUser>;

@@ -1,4 +1,4 @@
-import { ILesson } from "../../domain/Lesson/ILesson";
+import { ILesson } from "../../domain/lesson/ILesson";
 import { ILessonMapper } from "../../appication/mappers/ILessonMapper";
 import { ILessonResponseDto } from "../dto/lesson/ILessonResponseDto";
 

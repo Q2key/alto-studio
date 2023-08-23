@@ -1,7 +1,7 @@
 import { Entity, Column, JoinColumn, OneToMany } from "typeorm";
 import { BaseDBEntity } from "./BaseDBEntity";
-import { ILesson } from "../../domain/Lesson/ILesson";
-import { ICourse } from '../../domain/Course/ICourse';
+import { ILesson } from "../../domain/lesson/ILesson";
+import { ICourse } from '../../domain/course/ICourse';
 import { LessonDB } from './LessonDB';
 
 

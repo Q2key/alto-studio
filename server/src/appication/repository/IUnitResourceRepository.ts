@@ -1,4 +1,4 @@
-import { IUnitResource } from "../../domain/UnitResource/IUnitResource";
+import { IUnitResource } from "../../domain/unit-resource/IUnitResource";
 
 export interface IUnitResourceRepository {
   save(user: IUnitResource): Promise<IUnitResource>;

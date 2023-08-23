@@ -5,7 +5,7 @@ import { IUserRepo } from "../../repository/IUserRepo";
 import { IUserMapper } from "../../mappers/IUserMapper";
 import { IDeleteUserDto } from "../../../interface-adapters/dto/user/IDeleteUserDto";
 import { IUpdateUserDto } from "../../../interface-adapters/dto/user/IUpdateUserDto";
-import { IUser } from "../../../domain/User/IUser";
+import { IUser } from "../../../domain/user/IUser";
 import { UserService } from "../../services/UserService";
 
 export class UserUseCases {

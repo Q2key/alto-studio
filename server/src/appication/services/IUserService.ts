@@ -1,4 +1,4 @@
-import { IUser } from "../../domain/User/IUser";
+import { IUser } from "../../domain/user/IUser";
 import { ICreateUserDto } from "../../interface-adapters/dto/user/ICreateUserDto";
 import { ICryptoService } from "./ICryptoService";
 

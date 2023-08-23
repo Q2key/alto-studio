@@ -1,4 +1,4 @@
-import { IUnit } from "../Unit/IUnit";
+import { IUnit } from "../unit/IUnit";
 import { ILesson } from "./ILesson";
 
 
