@@ -7,6 +7,7 @@ import { IDeleteUserDto } from "../../../interface-adapters/dto/user/IDeleteUser
 import { IUpdateUserDto } from "../../../interface-adapters/dto/user/IUpdateUserDto";
 import { IUser } from "../../../domain/user/IUser";
 import { UserService } from "../../services/UserService";
+import { IUserLoginDto } from '../../../interface-adapters/dto/user/IUserLoginDto';
 
 export class UserUseCases {
   private readonly repo: IUserRepo;
@@ -17,6 +18,10 @@ export class UserUseCases {
     this.repo = cradle.userRepository;
     this.mapper = cradle.userMapper;
     this.userService = new UserService();
+  }
+
+  public async login(dto: IUserLoginDto): Promise<boolean> {
+    return Promise.resolve(true);
   }
 
   public async getAll(): Promise<IUserResponseDto[]> {

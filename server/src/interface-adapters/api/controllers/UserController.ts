@@ -5,6 +5,7 @@ import {BaseController, TRequestBody, TResponse} from "./BaseController";
 import { IUserResponseDto } from "../../dto/user/IUserResponseDto";
 import { IDeleteUserDto } from "../../dto/user/IDeleteUserDto";
 import { IUpdateUserDto } from "../../dto/user/IUpdateUserDto";
+import { IUserLoginDto } from '../../dto/user/IUserLoginDto';
 
 export class UserController extends BaseController {
     public readonly service: IServiceCradle;
@@ -12,6 +13,15 @@ export class UserController extends BaseController {
     constructor(service: IServiceCradle) {
         super();
         this.service = service;
+    }
+
+    public Login = async (req: TRequestBody<IUserLoginDto>, res: TResponse<{
+        success: boolean
+    }>, next: NextFunction): Promise<TResponse<{ success: boolean }>> => {
+        return this.wrap(async () => {
+            const success = await this.service.userUseCases.login(req.body)
+            return res.json({success})
+        }, next);
     }
 
     public FindAll = async (req: TRequestBody<{}>, res: TResponse<{

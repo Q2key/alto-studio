@@ -29,7 +29,7 @@ export interface TResponse<TJSONBody> extends Response {
 }
 
 export abstract class BaseController {
-    protected wrap = async <T extends Response>(fn: () => Promise<T>, next: NextFunction): Promise<T> => {
+    protected wrap = async <T extends Response>(fn: (err?: Error) => Promise<T>, next: NextFunction): Promise<T> => {
         let value: T
 
         try {

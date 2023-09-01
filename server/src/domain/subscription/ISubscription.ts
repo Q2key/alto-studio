@@ -12,7 +12,7 @@ export enum BillingCycleKind {
     Early = 'Early',
     Instant = 'Instant',
     Free = 'Free',
-};
+}
 
 export interface ISubscription {
     readonly id?: string;

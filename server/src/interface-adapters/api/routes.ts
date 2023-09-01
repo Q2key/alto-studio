@@ -1,5 +1,4 @@
-import express, { Express } from 'express';
-import multer from 'multer';
+import { Express } from 'express';
 import { IServiceCradle } from '../../application/abstractions';
 import { UserController } from './controllers/UserController';
 import { SubscriptionController } from './controllers/SubscriptionController';
@@ -7,16 +6,9 @@ import { ResourceController } from './controllers/ResourceController';
 import { LessonController } from './controllers/LessonController';
 import { UnitController } from './controllers/UnitController';
 import { CourseController } from './controllers/CourseController';
+import { Multer } from 'multer';
 
-const uploadDirectory = 'static';
-
-const upload = multer({ dest: uploadDirectory });
-
-export const createRoutes = (app: Express, service: IServiceCradle): void => {
-
-    app.use(express.json({ strict: true }));
-    app.use('*/static', express.static('static'));
-
+export const createExpressRoutes = (app: Express, service: IServiceCradle, multer: Multer): void => {
     const userController = new UserController(service);
     const resourceController = new ResourceController(service);
     const courseController = new CourseController(service);
@@ -25,12 +17,13 @@ export const createRoutes = (app: Express, service: IServiceCradle): void => {
     const subscriptionController = new SubscriptionController(service);
 
     app.get('/users', userController.FindAll);
+    app.post('/user/login', userController.Login);
     app.post('/user', userController.Create);
-    app.post('/put', userController.Update);
-    app.delete('/user', userController.Delete);
+    app.put('/user', userController.Update);
+    app.delete(`/user`, userController.Delete);
 
     app.get('/resources', resourceController.FindAll);
-    app.post('/resource', upload.single('file'), resourceController.Upload);
+    app.post('/resource', multer.single('file'), resourceController.Upload);
 
     app.get('/courses', courseController.FindAll);
     app.post('/course', courseController.Create);
