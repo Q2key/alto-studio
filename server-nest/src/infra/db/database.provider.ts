@@ -17,7 +17,6 @@ export const DatabaseProvider = {
       migrations: [],
       subscribers: [],
     });
-
     return dataSource.initialize();
   },
 };
