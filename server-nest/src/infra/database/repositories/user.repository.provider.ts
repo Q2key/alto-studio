@@ -1,8 +1,9 @@
 import { DataSource } from 'typeorm';
 import { UserRepository } from './user.repository';
+import { Scope } from '../../../common/scope';
 
 export const UserRepositoryProvider = {
-  provide: 'USER_REPOSITORY',
+  provide: Scope.USER_REPOSITORY,
   useFactory: (dataSource: DataSource) => new UserRepository(dataSource),
-  inject: ['DATA_SOURCE'],
+  inject: [Scope.DATA_SOURCE],
 };

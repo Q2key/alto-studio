@@ -1,8 +1,13 @@
 import { IUser } from '../entity/user.interface';
 import { IRepository } from '../abstract/repository.abstract';
+import { Inject, Injectable } from '@nestjs/common';
+import { Scope } from '../../common/scope';
 
+@Injectable()
 export class UserUseCases {
-  constructor(private userRepository: IRepository<IUser>) {}
+  constructor(
+    @Inject(Scope.USER_REPOSITORY) private userRepository: IRepository<IUser>,
+  ) {}
 
   async findAll(): Promise<IUser[]> {
     return this.userRepository.FindAll();

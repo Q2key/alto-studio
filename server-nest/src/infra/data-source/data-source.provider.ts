@@ -1,9 +1,10 @@
 import { DataSource } from 'typeorm';
 import { UserEntity } from '../database/entities/user.entity';
 import { Provider } from '@nestjs/common';
+import { Scope } from '../../common/scope';
 
 export const DatabaseProvider: Provider = {
-  provide: 'DATA_SOURCE',
+  provide: Scope.DATA_SOURCE,
   useFactory: async () => {
     const dataSource = new DataSource({
       type: 'postgres',

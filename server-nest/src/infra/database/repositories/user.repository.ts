@@ -16,4 +16,16 @@ export class UserRepository implements IRepository<IUser> {
   async Save(user: IUser): Promise<IUser> {
     return await this.repo.save(user);
   }
+
+  async Delete(identity: string): Promise<IUser> {
+    return Promise.resolve(undefined);
+  }
+
+  async FindOne(params: unknown): Promise<IUser> {
+    return Promise.resolve(undefined);
+  }
+
+  async Update(update: IUser): Promise<IUser> {
+    return Promise.resolve(undefined);
+  }
 }
