@@ -1,7 +1,8 @@
 import { DataSource } from 'typeorm';
-import { UserEntity } from './entities/user.entity';
+import { UserEntity } from '../database/entities/user.entity';
+import { Provider } from '@nestjs/common';
 
-export const DatabaseProvider = {
+export const DatabaseProvider: Provider = {
   provide: 'DATA_SOURCE',
   useFactory: async () => {
     const dataSource = new DataSource({

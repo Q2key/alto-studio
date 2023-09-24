@@ -1,10 +1,10 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { UserUseCases } from '../core/use-cases/user/user.use-cases';
-import { IUser } from '../core/domain/user/user.interface';
+import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
+import { UserUseCases } from '../domain/user/user.use-cases';
+import { IUser } from '../domain/entity/user.interface';
 
 @Controller('user')
 export class UserController {
-  constructor(private useCases: UserUseCases) {}
+  constructor(@Inject('UserUseCases') private useCases: UserUseCases) {}
   @Get()
   async findAll(): Promise<IUser[]> {
     return await this.useCases.findAll();

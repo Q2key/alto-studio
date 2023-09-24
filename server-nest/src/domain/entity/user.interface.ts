@@ -1,4 +1,4 @@
-import { UserRoles } from './user.domain';
+import { UserRoles } from './user.entity';
 
 export interface IUser {
   readonly id: string | undefined;
