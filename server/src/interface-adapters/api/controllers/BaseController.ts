@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { ParamsDictionary, Query, Send } from 'express-serve-static-domains'
+import { ParamsDictionary, Query, Send } from 'express-serve-static-core'
 
 export interface TRequestBody<TBody> extends Request {
     body: TBody
