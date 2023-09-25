@@ -3,7 +3,7 @@ import { UserEntity } from '../entities/user.entity';
 import { Provider } from '@nestjs/common';
 import { Scope } from '../../../app/core/scope';
 
-export const DatabaseProvider: Provider = {
+export const DataSourceProvider: Provider = {
   provide: Scope.DATA_SOURCE,
   useFactory: async () => {
     const dataSource = new DataSource({

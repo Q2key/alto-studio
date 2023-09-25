@@ -2,11 +2,14 @@ import { DataSource, Repository } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { IUser } from '../../../domain/user/user.domain.interface';
 import { GenericRepository } from '../../../app/core/generic-repository';
+import { Inject, Injectable } from '@nestjs/common';
+import { Scope } from '../../../app/core/scope';
 
+@Injectable()
 export class UserRepository implements GenericRepository<IUser> {
   private repo: Repository<UserEntity>;
-  constructor(ds: DataSource) {
-    this.repo = ds.getRepository(UserEntity);
+  constructor(@Inject(Scope.DATA_SOURCE) private ds: DataSource) {
+    this.repo = this.ds.getRepository(UserEntity);
   }
 
   async FindAll(): Promise<UserEntity[]> {
