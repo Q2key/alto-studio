@@ -1,9 +1,9 @@
 import { DataSource, Repository } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { IUser } from '../../../domain/user/user.domain.interface';
-import { IRepository } from '../../../core/generic-repository';
+import { GenericRepository } from '../../../core/generic-repository';
 
-export class UserRepository implements IRepository<IUser> {
+export class UserRepository implements GenericRepository<IUser> {
   private repo: Repository<UserEntity>;
   constructor(ds: DataSource) {
     this.repo = ds.getRepository(UserEntity);

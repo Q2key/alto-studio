@@ -1,15 +1,17 @@
 import { IUser } from '../../domain/user/user.domain.interface';
-import { IRepository } from '../../core/generic-repository';
+import { GenericRepository } from '../../core/generic-repository';
 import { Inject, Injectable } from '@nestjs/common';
 import { Scope } from '../../core/scope';
-import { ArgonCryptoService } from '../../infra/crypto/argon-crypto';
+import { CryptoService } from '../../core/crypto-service';
 
 @Injectable()
 export class UserUseCases {
   constructor(
     @Inject(Scope.USER_REPOSITORY)
-    private userRepository: IRepository<IUser>,
-    private cryptoService: ArgonCryptoService,
+    private userRepository: GenericRepository<IUser>,
+
+    @Inject(Scope.CRYPTO_SERVICE)
+    private cryptoService: CryptoService,
   ) {}
 
   async findAll(): Promise<IUser[]> {
