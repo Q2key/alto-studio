@@ -8,3 +8,5 @@ server/static
 server-nest/node_modules
 server-nest/dist
 server-nest/static
+# Local Netlify folder
+.netlify

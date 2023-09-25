@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { UserRepositoryProvider } from '../infra/database/repositories/user.repository.provider';
 import { InfraModule } from '../infra/infra.module';
-import { UserUseCases } from './user.use-cases';
+import { UserUseCases } from './user/user.use-cases';
 
 @Module({
   imports: [InfraModule],

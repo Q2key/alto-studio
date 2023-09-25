@@ -1,4 +1,4 @@
-import { IUser } from './user.interface';
+import { IUser } from './user.domain.interface';
 
 export enum UserRoles {
   Admin,

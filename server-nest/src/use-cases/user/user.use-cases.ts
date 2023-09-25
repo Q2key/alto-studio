@@ -1,7 +1,7 @@
-import { IUser } from '../domains/entities/user.interface';
-import { IRepository } from '../common/generic-repository';
+import { IUser } from '../../domains/user/user.domain.interface';
+import { IRepository } from '../../common/generic-repository';
 import { Inject, Injectable } from '@nestjs/common';
-import { Scope } from '../common/scope';
+import { Scope } from '../../common/scope';
 
 @Injectable()
 export class UserUseCases {

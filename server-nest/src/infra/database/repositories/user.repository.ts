@@ -1,6 +1,6 @@
 import { DataSource, Repository } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
-import { IUser } from '../../../domains/entities/user.interface';
+import { IUser } from '../../../domains/user/user.domain.interface';
 import { IRepository } from '../../../common/generic-repository';
 
 export class UserRepository implements IRepository<IUser> {
