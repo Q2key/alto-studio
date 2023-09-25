@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { UserUseCases } from '../domain/use-cases/user.use-cases';
-import { IUser } from '../domain/entity/user.interface';
+import { UserUseCases } from '../../use-cases/user.use-cases';
+import { IUser } from '../../domains/entities/user.interface';
 
 @Controller('user')
 export class UserController {
