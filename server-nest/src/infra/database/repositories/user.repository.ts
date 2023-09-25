@@ -1,7 +1,7 @@
 import { DataSource, Repository } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { IUser } from '../../../domain/user/user.domain.interface';
-import { GenericRepository } from '../../../core/generic-repository';
+import { GenericRepository } from '../../../app/core/generic-repository';
 
 export class UserRepository implements GenericRepository<IUser> {
   private repo: Repository<UserEntity>;

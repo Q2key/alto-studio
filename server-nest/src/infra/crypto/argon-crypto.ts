@@ -1,5 +1,5 @@
 import argon2 from 'argon2';
-import { CryptoService } from '../../core/crypto-service';
+import { CryptoService } from '../../app/core/crypto-service';
 import { randomBytes } from 'crypto';
 import { Injectable } from '@nestjs/common';
 

@@ -1,4 +1,4 @@
-import { IUser } from '../../domain/user/user.domain.interface';
+import { IUser } from '../../../domain/user/user.domain.interface';
 import { GenericRepository } from '../../core/generic-repository';
 import { Inject, Injectable } from '@nestjs/common';
 import { Scope } from '../../core/scope';

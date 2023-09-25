@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { IUser } from '../domain/user/user.domain.interface';
+import { IUser } from '../../domain/user/user.domain.interface';
 import { UserUseCases } from '../use-cases/user/user.use-cases';
 
 @Controller('user')
