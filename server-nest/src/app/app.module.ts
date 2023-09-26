@@ -5,6 +5,5 @@ import { UseCasesModule } from './use-cases/use-cases.module';
 @Module({
   imports: [UseCasesModule],
   controllers: [UserController],
-  providers: [],
 })
 export class AppModule {}

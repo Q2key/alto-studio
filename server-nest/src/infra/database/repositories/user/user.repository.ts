@@ -1,9 +1,9 @@
 import { DataSource, Repository } from 'typeorm';
-import { UserEntity } from '../entities/user.entity';
-import { IUser } from '../../../domain/user/user.domain.interface';
-import { GenericRepository } from '../../../app/core/generic-repository';
+import { UserEntity } from '../../entities/user.entity';
+import { IUser } from '../../../../domain/user/user.domain.interface';
+import { GenericRepository } from '../../../../app/core/generic-repository';
 import { Inject, Injectable } from '@nestjs/common';
-import { Scope } from '../../../app/core/scope';
+import { Scope } from '../../../../app/core/scope';
 
 @Injectable()
 export class UserRepository implements GenericRepository<IUser> {

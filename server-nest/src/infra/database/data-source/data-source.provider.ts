@@ -19,6 +19,6 @@ export const DataSourceProvider: Provider = {
       migrations: [],
       subscribers: [],
     });
-    return dataSource.initialize();
+    return await dataSource.initialize();
   },
 };

@@ -17,6 +17,7 @@ export class UserDomain implements IUser {
   salt: string;
   active: boolean;
   blockedAt: string | undefined;
+
   constructor(
     firstName: string,
     middleName: string | undefined,

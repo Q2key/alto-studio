@@ -2,7 +2,8 @@ import { IUser } from '../../../domain/user/user.domain.interface';
 import { GenericRepository } from '../../core/generic-repository';
 import { Inject, Injectable } from '@nestjs/common';
 import { Scope } from '../../core/scope';
-import { CryptoService } from '../../core/crypto-service';
+import { CreateUserDto } from '../../../dto/user/create-user.dto';
+import { UserService } from './user.service';
 
 @Injectable()
 export class UserUseCases {
@@ -10,21 +11,16 @@ export class UserUseCases {
     @Inject(Scope.USER_REPOSITORY)
     private userRepository: GenericRepository<IUser>,
 
-    @Inject(Scope.CRYPTO_SERVICE)
-    private cryptoService: CryptoService,
+    @Inject(UserService)
+    private userFactory: UserService,
   ) {}
 
   async findAll(): Promise<IUser[]> {
     return this.userRepository.FindAll();
   }
 
-  async create(user: unknown): Promise<IUser> {
-    const model = user as IUser;
-    return this.userRepository.Save({
-      ...model,
-      passwordHash: '',
-      salt: '',
-      active: true,
-    });
+  async create(user: CreateUserDto): Promise<IUser> {
+    const domain = await this.userFactory.makeUser(user);
+    return this.userRepository.Save(domain);
   }
 }
