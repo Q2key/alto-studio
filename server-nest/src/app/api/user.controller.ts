@@ -5,14 +5,14 @@ import { CreateUserDto } from '../../dto/user/create-user.dto';
 
 @Controller('user')
 export class UserController {
-  constructor(private useCases: UserUseCases) {}
+  constructor(private userUseCases: UserUseCases) {}
   @Get()
   async findAll(): Promise<IUser[]> {
-    return await this.useCases.findAll();
+    return await this.userUseCases.findAll();
   }
 
   @Post()
   async post(@Body() createCatDto: CreateUserDto): Promise<IUser> {
-    return await this.useCases.create(createCatDto);
+    return await this.userUseCases.create(createCatDto);
   }
 }

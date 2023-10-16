@@ -3,7 +3,7 @@ import { GenericRepository } from '../../core/generic-repository';
 import { Inject, Injectable } from '@nestjs/common';
 import { Scope } from '../../core/scope';
 import { CreateUserDto } from '../../../dto/user/create-user.dto';
-import { UserService } from './user.service';
+import { UserFactory } from './user.factory';
 
 @Injectable()
 export class UserUseCases {
@@ -11,8 +11,8 @@ export class UserUseCases {
     @Inject(Scope.USER_REPOSITORY)
     private userRepository: GenericRepository<IUser>,
 
-    @Inject(UserService)
-    private userFactory: UserService,
+    @Inject(UserFactory)
+    private userFactory: UserFactory,
   ) {}
 
   async findAll(): Promise<IUser[]> {

@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { InfraModule } from '../../infra/infra.module';
+import { InfraModule } from '../../services/services.module';
 import { UserUseCases } from './user/user.use-cases';
-import { UserService } from './user/user.service';
+import { UserFactory } from './user/user.factory';
 
 @Module({
   imports: [InfraModule],
-  providers: [UserUseCases, UserService],
+  providers: [UserUseCases, UserFactory],
   exports: [UserUseCases],
 })
 export class UseCasesModule {}

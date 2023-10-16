@@ -5,7 +5,7 @@ import { CryptoService } from '../../core/crypto-service';
 import { UserDomain, UserRoles } from '../../../domain/user/user.domain';
 
 @Injectable()
-export class UserService {
+export class UserFactory {
   constructor(@Inject(Scope.CRYPTO_SERVICE) private crypto: CryptoService) {}
 
   async makeUser(dto: CreateUserDto): Promise<UserDomain> {
