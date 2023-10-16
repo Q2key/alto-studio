@@ -1,9 +1,9 @@
-import { IUser } from '../../../domain/user/user.domain.interface';
-import { GenericRepository } from '../../core/generic-repository';
+import { GenericRepository } from '../../iface/generic-repository';
 import { Inject, Injectable } from '@nestjs/common';
-import { Scope } from '../../core/scope';
-import { CreateUserDto } from '../../../dto/user/create-user.dto';
+import { Scope } from '../../iface/scope';
 import { UserFactory } from './user.factory';
+import { IUser } from 'src/domain/user/user.domain.interface';
+import { CreateUserDto } from 'src/dto/user/create-user.dto';
 
 @Injectable()
 export class UserUseCases {

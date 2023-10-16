@@ -1,8 +1,8 @@
-import { CreateUserDto } from '../../../dto/user/create-user.dto';
 import { Inject, Injectable } from '@nestjs/common';
-import { Scope } from '../../core/scope';
-import { CryptoService } from '../../core/crypto-service';
-import { UserDomain, UserRoles } from '../../../domain/user/user.domain';
+import { Scope } from '../../iface/scope';
+import { CryptoService } from '../../iface/crypto-service';
+import { UserDomain, UserRoles } from 'src/domain/user/user.domain';
+import { CreateUserDto } from 'src/dto/user/create-user.dto';
 
 @Injectable()
 export class UserFactory {

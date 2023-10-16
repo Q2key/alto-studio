@@ -1,5 +1,5 @@
 import { Provider } from '@nestjs/common';
-import { Scope } from '../../app/core/scope';
+import { Scope } from '../../iface/scope';
 import { ArgonCryptoService } from './argon-crypto';
 
 export const ArgonCryptoProvider: Provider = {
