@@ -1,12 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Scope } from '../../contracts/scope';
-import { CryptoService } from '../../contracts/crypto-service';
+import { InjectionScope } from '../../contracts/types/InjectionScope';
+import { CryptoService } from '../../infrastructure/crypto/crypto-service';
 import { UserDomain, UserRoles } from 'src/domain/user/user.domain';
-import { CreateUserDto } from 'src/dto/create-user.dto';
+import { CreateUserDto } from 'src/contracts/dto/create-user.dto';
 
 @Injectable()
 export class UserFactory {
-  constructor(@Inject(Scope.CRYPTO_SERVICE) private crypto: CryptoService) {}
+  constructor(
+    @Inject(InjectionScope.CRYPTO_SERVICE) private crypto: CryptoService,
+  ) {}
 
   async makeUser(dto: CreateUserDto): Promise<UserDomain> {
     const cryptoPass = await this.crypto.encryptString(dto.password, 'salt');

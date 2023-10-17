@@ -1,10 +1,10 @@
 import { DataSource } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { Provider } from '@nestjs/common';
-import { Scope } from '../../../contracts/scope';
+import { InjectionScope } from '../../../contracts/types/InjectionScope';
 
 export const DataSourceProvider: Provider = {
-  provide: Scope.DATA_SOURCE,
+  provide: InjectionScope.DATA_SOURCE,
   useFactory: async () => {
     const dataSource = new DataSource({
       type: 'postgres',

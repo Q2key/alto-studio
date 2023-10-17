@@ -1,8 +1,8 @@
 import { Provider } from '@nestjs/common';
-import { Scope } from '../../contracts/scope';
+import { InjectionScope } from '../../contracts/types/InjectionScope';
 import { ArgonCryptoService } from './argon-crypto';
 
 export const ArgonCryptoProvider: Provider = {
-  provide: Scope.CRYPTO_SERVICE,
+  provide: InjectionScope.CRYPTO_SERVICE,
   useClass: ArgonCryptoService,
 };

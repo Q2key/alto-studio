@@ -1,9 +1,9 @@
-import { Scope } from '../../../contracts/scope';
+import { InjectionScope } from '../../../contracts/types/InjectionScope';
 import { DataSource } from 'typeorm';
 import { CourseRepository } from './course.repository';
 
 export const CourseRepositoryProvider = {
-  provide: Scope.COURSE_REPOSITORY,
+  provide: InjectionScope.COURSE_REPOSITORY,
   useFactory: (dataSource: DataSource) => new CourseRepository(dataSource),
-  inject: [Scope.DATA_SOURCE],
+  inject: [InjectionScope.DATA_SOURCE],
 };

@@ -1,15 +1,16 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ILesson } from '../../domain/lesson/lesson.domain.interface';
-import { GenericUseCase } from '../../contracts/generic-use-case';
+import { GenericUseCase } from '../generic-use-case';
 import { LessonRepository } from '../../infrastructure/repositories/lesson/lesson.repository';
-import { Scope } from '../../contracts/scope';
+import { InjectionScope } from '../../contracts/types/InjectionScope';
 
 @Injectable()
 export class GetLessonsUseCase
   implements GenericUseCase<undefined, Promise<ILesson[]>>
 {
   constructor(
-    @Inject(Scope.LESSON_REPOSITORY) private lessonRepository: LessonRepository,
+    @Inject(InjectionScope.LESSON_REPOSITORY)
+    private lessonRepository: LessonRepository,
   ) {}
 
   async execute(): Promise<ILesson[]> {

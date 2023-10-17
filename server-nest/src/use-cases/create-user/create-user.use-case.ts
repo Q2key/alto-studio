@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Scope } from '../../contracts/scope';
-import { CreateUserDto } from 'src/dto/create-user.dto';
-import { GenericRepository } from '../../contracts/generic-repository';
+import { InjectionScope } from '../../contracts/types/InjectionScope';
+import { CreateUserDto } from 'src/contracts/dto/create-user.dto';
+import { GenericRepository } from '../../infrastructure/repositories/generic-repository';
 import { IUser } from '../../domain/user/user.domain.interface';
-import { GenericUseCase } from '../../contracts/generic-use-case';
+import { GenericUseCase } from '../generic-use-case';
 import { UserFactory } from './user.factory';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class CreateUserUseCase
   implements GenericUseCase<CreateUserDto, Promise<IUser>>
 {
   constructor(
-    @Inject(Scope.USER_REPOSITORY)
+    @Inject(InjectionScope.USER_REPOSITORY)
     private userRepository: GenericRepository<IUser>,
     @Inject(UserFactory)
     private userFactory: UserFactory,

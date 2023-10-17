@@ -1,14 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { GenericRepository } from '../../../contracts/generic-repository';
+import { GenericRepository } from '../generic-repository';
 import { DataSource, Repository } from 'typeorm';
-import { Scope } from '../../../contracts/scope';
+import { InjectionScope } from '../../../contracts/types/InjectionScope';
 import { ILesson } from '../../../domain/lesson/lesson.domain.interface';
 import { LessonEntity } from '../../database/entities/lesson.entity';
 
 @Injectable()
 export class LessonRepository implements GenericRepository<ILesson> {
   private repo: Repository<LessonEntity>;
-  constructor(@Inject(Scope.DATA_SOURCE) private ds: DataSource) {
+  constructor(@Inject(InjectionScope.DATA_SOURCE) private ds: DataSource) {
     this.repo = this.ds.getRepository(LessonEntity);
   }
 
