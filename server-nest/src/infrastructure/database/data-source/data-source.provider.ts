@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { Provider } from '@nestjs/common';
-import { Scope } from '../../iface/scope';
+import { Scope } from '../../../contracts/scope';
 
 export const DataSourceProvider: Provider = {
   provide: Scope.DATA_SOURCE,

@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 import { UserRepository } from './user.repository';
-import { Scope } from '../../../iface/scope';
+import { Scope } from '../../../../contracts/scope';
 
 export const UserRepositoryProvider = {
   provide: Scope.USER_REPOSITORY,

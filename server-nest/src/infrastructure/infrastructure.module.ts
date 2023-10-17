@@ -5,4 +5,4 @@ import { ArgonCryptoModule } from './crypto/argon-crypto.module';
   imports: [ArgonCryptoModule],
   exports: [ArgonCryptoModule],
 })
-export class ServicesModule {}
+export class InfrastructureModule {}

@@ -1,10 +1,12 @@
-import argon2 from 'argon2';
-import { CryptoService } from '../../iface/crypto-service';
+import * as argon2 from 'argon2';
+import { CryptoService } from '../../contracts/crypto-service';
 import { randomBytes } from 'crypto';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ArgonCryptoService implements CryptoService {
+  constructor() {}
+
   public async encryptString(
     rawString: string,
     salt?: string,
