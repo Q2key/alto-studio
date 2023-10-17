@@ -1,4 +1,4 @@
-import { IUser } from '../../domain/user/user.domain.interface';
+import { IUser } from '../domain/user/user.domain.interface';
 
 export interface UpdateUserDto {
   id: string;

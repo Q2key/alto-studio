@@ -5,7 +5,7 @@ import { IUser } from '../../domain/user/user.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';
 
 @Injectable()
-export class GetUsersUserUseCase
+export class GetUsersUseCase
   implements GenericUseCase<undefined, Promise<IUser[]>>
 {
   constructor(

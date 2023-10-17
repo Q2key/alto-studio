@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Scope } from '../../contracts/scope';
-import { CreateUserDto } from 'src/dto/user/create-user.dto';
+import { CreateUserDto } from 'src/dto/create-user.dto';
 import { GenericRepository } from '../../contracts/generic-repository';
 import { IUser } from '../../domain/user/user.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';

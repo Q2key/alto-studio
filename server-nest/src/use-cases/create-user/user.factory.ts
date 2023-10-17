@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Scope } from '../../contracts/scope';
 import { CryptoService } from '../../contracts/crypto-service';
 import { UserDomain, UserRoles } from 'src/domain/user/user.domain';
-import { CreateUserDto } from 'src/dto/user/create-user.dto';
+import { CreateUserDto } from 'src/dto/create-user.dto';
 
 @Injectable()
 export class UserFactory {
