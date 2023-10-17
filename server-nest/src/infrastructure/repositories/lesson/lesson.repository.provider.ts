@@ -1,4 +1,4 @@
-import { Scope } from '../../../../contracts/scope';
+import { Scope } from '../../../contracts/scope';
 import { DataSource } from 'typeorm';
 import { LessonRepository } from './lesson.repository';
 
