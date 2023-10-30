@@ -1,4 +1,4 @@
-import { UserRoles } from 'src/server/domain/user/user.domain';
+import { UserRoles } from 'src/domain/user/user.domain';
 
 export interface CreateUserDto {
   id?: string;
