@@ -1,10 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectionScope } from '../../contracts/types/InjectionScope';
 import { CreateUserDto } from 'src/contracts/dto/create-user.dto';
-import { GenericRepository } from '../../infrastructure/repositories/generic-repository';
+import { GenericRepository } from '../../contracts/generic-repository';
 import { IUser } from '../../domain/user/user.domain.interface';
-import { GenericUseCase } from '../generic-use-case';
-import { UserFactory } from './user.factory';
+import { GenericUseCase } from '../../contracts/generic-use-case';
+import { CryptoService } from '../../contracts/crypto-service';
+import { UserDomain, UserRoles } from '../../domain/user/user.domain';
 
 @Injectable()
 export class CreateUserUseCase
@@ -13,12 +14,24 @@ export class CreateUserUseCase
   constructor(
     @Inject(InjectionScope.USER_REPOSITORY)
     private userRepository: GenericRepository<IUser>,
-    @Inject(UserFactory)
-    private userFactory: UserFactory,
+    @Inject(InjectionScope.CRYPTO_SERVICE) private crypto: CryptoService,
   ) {}
 
   async execute(dto: CreateUserDto): Promise<IUser> {
-    const domain = await this.userFactory.makeUser(dto);
+    const cryptoPass = await this.crypto.encryptString(dto.password, 'salt');
+
+    const domain = new UserDomain(
+      dto.firstName,
+      dto.middleName,
+      dto.lastName,
+      dto.email,
+      cryptoPass,
+      'salt',
+      UserRoles.User,
+      true,
+      undefined,
+    );
+
     return this.userRepository.Save(domain);
   }
 }

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { GenericRepository } from '../generic-repository';
+import { GenericRepository } from '../../../contracts/generic-repository';
 import { DataSource, Repository } from 'typeorm';
 import { InjectionScope } from '../../../contracts/types/InjectionScope';
 import { ILesson } from '../../../domain/lesson/lesson.domain.interface';

@@ -1,7 +1,7 @@
 import { DataSource, Repository } from 'typeorm';
 import { UserEntity } from '../../database/entities/user.entity';
 import { IUser } from '../../../domain/user/user.domain.interface';
-import { GenericRepository } from '../generic-repository';
+import { GenericRepository } from '../../../contracts/generic-repository';
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectionScope } from '../../../contracts/types/InjectionScope';
 

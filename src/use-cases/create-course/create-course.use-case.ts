@@ -1,4 +1,4 @@
-import { GenericUseCase } from '../generic-use-case';
+import { GenericUseCase } from '../../contracts/generic-use-case';
 import { CreateCourseDto } from '../../contracts/dto/create-course.dto';
 import { ICourse } from '../../domain/course/course.domain.interface';
 import { Inject, Injectable } from '@nestjs/common';

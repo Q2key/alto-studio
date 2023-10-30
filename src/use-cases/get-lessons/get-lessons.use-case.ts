@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ILesson } from '../../domain/lesson/lesson.domain.interface';
-import { GenericUseCase } from '../generic-use-case';
+import { GenericUseCase } from '../../contracts/generic-use-case';
 import { LessonRepository } from '../../infrastructure/repositories/lesson/lesson.repository';
 import { InjectionScope } from '../../contracts/types/InjectionScope';
 

@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectionScope } from '../../contracts/types/InjectionScope';
-import { GenericRepository } from '../../infrastructure/repositories/generic-repository';
+import { GenericRepository } from '../../contracts/generic-repository';
 import { IUser } from '../../domain/user/user.domain.interface';
-import { GenericUseCase } from '../generic-use-case';
+import { GenericUseCase } from '../../contracts/generic-use-case';
 
 @Injectable()
 export class GetUsersUseCase
