@@ -16,7 +16,7 @@
     "./src/**/*.ts",
     "./src/**/*.ts",
     "./@types/**/*.d.ts",
-    "./src/pages/**/*"
+    "./pages/**/*"
   ],
   "exclude": ["node_modules"]
 }
