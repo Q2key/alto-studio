@@ -3,7 +3,7 @@ import { CreateCourseDto } from '../../contracts/dto/create-course.dto';
 import { ICourse } from '../../domain/course/course.domain.interface';
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectionScope } from '../../contracts/types/InjectionScope';
-import { CourseRepository } from '../../infrastructure/repositories/course/course.repository';
+import { CourseRepository } from '../../infrastructure/repository/course/course.repository';
 
 @Injectable()
 export class CreateCourseUseCase
