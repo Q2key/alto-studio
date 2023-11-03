@@ -1,21 +1,12 @@
-import { Module } from '@nestjs/common';
-import { UserController } from './api/user.controller';
-import { UseCasesModule } from './use-cases/use-cases.module';
-import { RenderModule } from 'nest-next';
-import NextServer from 'next';
-import { resolve } from 'path';
+import { Module } from "@nestjs/common";
+import { UserController } from "./api/user.controller";
+import { UseCasesModule } from "./use-cases/use-cases.module";
 
 @Module({
   imports: [
-    RenderModule.forRootAsync(
-      NextServer({
-        dev: process.env.NODE_ENV !== 'production',
-        dir: resolve(__dirname, '..'),
-      }),
-      { viewsDir: null },
-    ),
-    UseCasesModule,
+    UseCasesModule
   ],
-  controllers: [UserController],
+  controllers: [UserController]
 })
-export class AppModule {}
+export class AppModule {
+}
