@@ -12,7 +12,7 @@ export class UserController {
   ) {}
 
   @Get('/login')
-  @Render('home')
+  @Render('login')
   public index() {
     return { title: 'hello' };
   }

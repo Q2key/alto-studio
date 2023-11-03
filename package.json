@@ -25,6 +25,7 @@
     "@nestjs/config": "^3.0.1",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
+    "@types/semantic-ui": "^2.2.8",
     "argon2": "^0.31.1",
     "nest-next": "10.0.0",
     "next": "13.4.2",
