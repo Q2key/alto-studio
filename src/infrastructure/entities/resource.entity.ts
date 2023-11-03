@@ -1,6 +1,6 @@
 import { Entity, Column, OneToMany } from 'typeorm';
 import { BaseEntity } from './base.entity';
-import { IResource } from '../../../domain/resource/resource.domain.interface';
+import { IResource } from '../../domain/resource/resource.domain.interface';
 import { UnitResourceEntity } from './unit-resource.entity';
 
 @Entity('resources')

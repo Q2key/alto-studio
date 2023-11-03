@@ -1,11 +1,11 @@
 import { Entity, Column, JoinColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
-import { IUser } from '../../../domain/user/user.domain.interface';
+import { IUser } from '../../domain/user/user.domain.interface';
 import {
   BillingCycleKind,
   DurationKind,
   ISubscription,
-} from '../../../domain/subscription/subscription.domain.interface';
+} from '../../domain/subscription/subscription.domain.interface';
 
 @Entity('subscriptions')
 export class SubscriptionEntity extends BaseEntity implements ISubscription {

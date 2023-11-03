@@ -3,7 +3,7 @@ import { GenericRepository } from '../../../contracts/generic-repository';
 import { DataSource, Repository } from 'typeorm';
 import { InjectionScope } from '../../../contracts/types/InjectionScope';
 import { ICourse } from '../../../domain/course/course.domain.interface';
-import { CourseEntity } from '../../database/entities/course.entity';
+import { CourseEntity } from '../../entities/course.entity';
 
 @Injectable()
 export class CourseRepository implements GenericRepository<ICourse> {

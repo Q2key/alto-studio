@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { Provider } from '@nestjs/common';
-import { InjectionScope } from '../../../contracts/types/InjectionScope';
+import { InjectionScope } from '../../contracts/types/InjectionScope';
 
 export const DataSourceProvider: Provider = {
   provide: InjectionScope.DATA_SOURCE,
