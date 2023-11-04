@@ -1,20 +1,20 @@
 import { Module } from '@nestjs/common';
-import { UserRepositoryProvider } from '../repository/user/user.repository.provider';
 import { DataSourceProvider } from '../data-source/data-source.provider';
-import { LessonRepositoryProvider } from '../repository/lesson/lesson.repository.provider';
-import { CourseRepositoryProvider } from '../repository/course/course.repository.provider';
+import { UserRepository } from '../repository/user.repository';
+import { CourseRepository } from '../repository/course.repository';
+import { LessonRepository } from '../repository/lesson.repository';
 
 @Module({
   providers: [
-    UserRepositoryProvider,
-    CourseRepositoryProvider,
-    LessonRepositoryProvider,
+    UserRepository,
+    CourseRepository,
+    LessonRepository,
     DataSourceProvider,
   ],
   exports: [
-    UserRepositoryProvider,
-    CourseRepositoryProvider,
-    LessonRepositoryProvider,
+    UserRepository,
+    CourseRepository,
+    LessonRepository,
     DataSourceProvider,
   ],
 })
