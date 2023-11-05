@@ -1,3 +1,4 @@
 export interface GenericDataSource<TDataSource> {
-  getDataSource: () => Promise<TDataSource>;
+  initDataSource(): Promise<void>;
+  getDataSource(): TDataSource;
 }

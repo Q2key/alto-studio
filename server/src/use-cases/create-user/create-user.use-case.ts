@@ -7,6 +7,7 @@ import { GenericUseCase } from '../../contracts/generic-use-case';
 import { CryptoService } from '../../contracts/crypto-service';
 import { UserDomain, UserRoles } from '../../domain/user/user.domain';
 import { UserRepository } from '../../infrastructure/repository/user.repository';
+import { ArgonCryptoService } from '../../infrastructure/crypto/./argon-crypto-service';
 
 @Injectable()
 export class CreateUserUseCase
@@ -15,7 +16,7 @@ export class CreateUserUseCase
   constructor(
     @Inject(UserRepository)
     private userRepository: GenericRepository<IUser>,
-    @Inject(IocTokens.CRYPTO_SERVICE) private crypto: CryptoService,
+    @Inject(ArgonCryptoService) private crypto: CryptoService,
   ) {}
 
   async execute(dto: CreateUserDto): Promise<IUser> {

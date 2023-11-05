@@ -1,25 +1,12 @@
 import { Provider } from '@nestjs/common';
 import { IocTokens } from '../../contracts/IocTokens';
-import { DataSource } from 'typeorm';
-import { UserEntity } from '../entities/user.entity';
+import { PostgresTypeOrmDataSource } from './postgres-data-source';
 
 export const TypeormDataSourceProvider: Provider = {
   provide: IocTokens.DATA_SOURCE,
   useFactory: async () => {
-    const dataSource = new DataSource({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5435,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'alto',
-      synchronize: true,
-      logging: false,
-      entities: [UserEntity],
-      migrations: [],
-      subscribers: [],
-    });
-
-    return await dataSource.initialize();
+    const pgDataSource = new PostgresTypeOrmDataSource();
+    await pgDataSource.initDataSource();
+    return pgDataSource;
   },
 };
