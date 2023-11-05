@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DataSourceProvider } from '../data-source/data-source.provider';
+import { TypeormDataSourceProvider } from '../data-source/typeorm-data-source.provider';
 import { UserRepository } from '../repository/user.repository';
 import { CourseRepository } from '../repository/course.repository';
 import { LessonRepository } from '../repository/lesson.repository';
@@ -9,13 +9,13 @@ import { LessonRepository } from '../repository/lesson.repository';
     UserRepository,
     CourseRepository,
     LessonRepository,
-    DataSourceProvider,
+    TypeormDataSourceProvider,
   ],
   exports: [
     UserRepository,
     CourseRepository,
     LessonRepository,
-    DataSourceProvider,
+    TypeormDataSourceProvider,
   ],
 })
 export class DatabaseModule {}

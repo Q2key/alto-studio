@@ -1,5 +1,4 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IocTokens } from '../../contracts/IocTokens';
 import { GenericRepository } from '../../contracts/generic-repository';
 import { IUser } from '../../domain/user/user.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';

@@ -1,9 +1,11 @@
-import { GenericDataSource } from '../../contracts/data-source';
-import { DataSource, DataSource as TypeOrmDataSource } from 'typeorm';
+import { Provider } from '@nestjs/common';
+import { IocTokens } from '../../contracts/IocTokens';
+import { DataSource } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 
-export class TypeormDataSource implements GenericDataSource<TypeOrmDataSource> {
-  async initialize(): Promise<TypeOrmDataSource> {
+export const TypeormDataSourceProvider: Provider = {
+  provide: IocTokens.DATA_SOURCE,
+  useFactory: async () => {
     const dataSource = new DataSource({
       type: 'postgres',
       host: 'localhost',
@@ -19,5 +21,5 @@ export class TypeormDataSource implements GenericDataSource<TypeOrmDataSource> {
     });
 
     return await dataSource.initialize();
-  }
-}
+  },
+};
