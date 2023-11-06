@@ -7,18 +7,18 @@ import { TypeOrmDataSource } from '../data-source/type-orm-data-source';
 
 @Injectable()
 export class LessonRepository implements AbstractLessonRepo {
-  private db: TypeOrmRepository<LessonEntity>;
+  private repo: TypeOrmRepository<LessonEntity>;
 
   constructor(private ds: TypeOrmDataSource) {
-    this.db = this.ds.getDataSource().getRepository(LessonEntity);
+    this.repo = this.ds.getDataSource().getRepository(LessonEntity);
   }
 
   async FindAll(): Promise<LessonEntity[]> {
-    return await this.db.find();
+    return await this.repo.find();
   }
 
   async Save(lesson: ILesson): Promise<ILesson> {
-    return await this.db.save(lesson);
+    return await this.repo.save(lesson);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

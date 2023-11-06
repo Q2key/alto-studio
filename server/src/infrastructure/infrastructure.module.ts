@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { UserRepository } from './repository/user.repository';
 import { CourseRepository } from './repository/course.repository';
 import { LessonRepository } from './repository/lesson.repository';
-import { UserEntity } from './entities/user.entity';
-import { DataSource } from 'typeorm';
 import { NativeCryptoService } from './crypto/native-crypto-service';
 import {
   AbstractCourseRepo,
@@ -17,10 +15,6 @@ import { TypeOrmDataSource } from './data-source/type-orm-data-source';
   imports: [],
   providers: [
     {
-      provide: AbstractCryptoService,
-      useClass: NativeCryptoService,
-    },
-    {
       provide: AbstractUserRepo,
       useClass: UserRepository,
     },
@@ -33,11 +27,15 @@ import { TypeOrmDataSource } from './data-source/type-orm-data-source';
       useClass: LessonRepository,
     },
     {
+      provide: AbstractCryptoService,
+      useClass: NativeCryptoService,
+    },
+    {
       provide: TypeOrmDataSource,
       useFactory: async () => {
-        const ds = new TypeOrmDataSource();
-        await ds.initDataSource();
-        return ds;
+        const typeOrmDataSource: TypeOrmDataSource = new TypeOrmDataSource();
+        await typeOrmDataSource.initDataSource();
+        return typeOrmDataSource;
       },
     },
   ],
