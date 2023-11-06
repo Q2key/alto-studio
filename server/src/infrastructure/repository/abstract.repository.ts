@@ -18,5 +18,7 @@ export abstract class AbstractRepository<T> implements GenericRepository<T> {
 }
 
 export abstract class AbstractUserRepo extends AbstractRepository<IUser> {}
+
 export abstract class AbstractCourseRepo extends AbstractRepository<ICourse> {}
+
 export abstract class AbstractLessonRepo extends AbstractRepository<ILesson> {}

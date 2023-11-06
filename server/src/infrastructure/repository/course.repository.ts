@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { DataSource, Repository } from 'typeorm';
+import { DataSource, Repository as TypeOrmRepository } from 'typeorm';
 import { ICourse } from '../../domain/course/course.domain.interface';
 import { CourseEntity } from '../entities/course.entity';
 import { AbstractCourseRepo } from './abstract.repository';
+import { TypeOrmDataSource } from '../data-source/type-orm-data-source';
 
 @Injectable()
 export class CourseRepository implements AbstractCourseRepo {
-  private repo: Repository<CourseEntity>;
+  private repo: TypeOrmRepository<CourseEntity>;
 
-  constructor(private ds: DataSource) {
-    this.repo = this.ds.getRepository(CourseEntity);
+  constructor(private ds: TypeOrmDataSource) {
+    this.repo = this.ds.getDataSource().getRepository(CourseEntity);
   }
 
   async FindAll(): Promise<ICourse[]> {

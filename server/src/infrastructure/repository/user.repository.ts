@@ -1,16 +1,16 @@
-import { DataSource, Repository } from 'typeorm';
+import { DataSource, Repository as TypeOrmRepository } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { IUser } from '../../domain/user/user.domain.interface';
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { AbstractUserRepo } from './abstract.repository';
-import { IocTokens } from '../../contracts/IocTokens';
+import { TypeOrmDataSource } from '../data-source/type-orm-data-source';
 
 @Injectable()
 export class UserRepository implements AbstractUserRepo {
-  private repo: Repository<UserEntity>;
+  private repo: TypeOrmRepository<UserEntity>;
 
-  constructor(private ds: DataSource) {
-    this.repo = this.ds.getRepository(UserEntity);
+  constructor(private ds: TypeOrmDataSource) {
+    this.repo = this.ds.getDataSource().getRepository(UserEntity);
   }
 
   async FindAll(): Promise<UserEntity[]> {

@@ -11,6 +11,7 @@ import {
   AbstractUserRepo,
 } from './repository/abstract.repository';
 import { AbstractCryptoService } from './crypto/abstract-crypto-service';
+import { TypeOrmDataSource } from './data-source/type-orm-data-source';
 
 @Module({
   imports: [],
@@ -32,22 +33,11 @@ import { AbstractCryptoService } from './crypto/abstract-crypto-service';
       useClass: LessonRepository,
     },
     {
-      provide: DataSource,
+      provide: TypeOrmDataSource,
       useFactory: async () => {
-        const ds = new DataSource({
-          type: 'postgres',
-          host: 'localhost',
-          port: 5435,
-          username: 'postgres',
-          password: 'postgres',
-          database: 'alto',
-          synchronize: true,
-          logging: false,
-          entities: [UserEntity],
-          migrations: [],
-          subscribers: [],
-        });
-        return await ds.initialize();
+        const ds = new TypeOrmDataSource();
+        await ds.initDataSource();
+        return ds;
       },
     },
   ],
@@ -56,7 +46,7 @@ import { AbstractCryptoService } from './crypto/abstract-crypto-service';
     AbstractCourseRepo,
     AbstractLessonRepo,
     AbstractCryptoService,
-    DataSource,
+    TypeOrmDataSource,
   ],
 })
 export class InfrastructureModule {}
