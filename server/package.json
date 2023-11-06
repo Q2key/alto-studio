@@ -72,6 +72,5 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  },
-  "nextConfig": {}
+  }
 }

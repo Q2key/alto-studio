@@ -10,6 +10,8 @@ import {
 } from './repository/abstract.repository';
 import { AbstractCryptoService } from './crypto/abstract-crypto-service';
 import { TypeOrmDataSource } from './data-source/type-orm-data-source';
+import { AbstractLogger } from './logger/abstract-logger';
+import { ConsoleLogger } from './logger/console-logger';
 
 @Module({
   imports: [],
@@ -38,12 +40,17 @@ import { TypeOrmDataSource } from './data-source/type-orm-data-source';
         return typeOrmDataSource;
       },
     },
+    {
+      provide: AbstractLogger,
+      useClass: ConsoleLogger,
+    },
   ],
   exports: [
     AbstractUserRepo,
     AbstractCourseRepo,
     AbstractLessonRepo,
     AbstractCryptoService,
+    AbstractLogger,
     TypeOrmDataSource,
   ],
 })
