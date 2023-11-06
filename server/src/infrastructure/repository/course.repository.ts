@@ -1,12 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { GenericRepository } from '../../contracts/generic-repository';
 import { DataSource, Repository } from 'typeorm';
 import { IocTokens } from '../../contracts/IocTokens';
 import { ICourse } from '../../domain/course/course.domain.interface';
 import { CourseEntity } from '../entities/course.entity';
+import { AbstractCourseRepo } from './abstract.repository';
 
 @Injectable()
-export class CourseRepository implements GenericRepository<ICourse> {
+export class CourseRepository implements AbstractCourseRepo {
   private repo: Repository<CourseEntity>;
 
   constructor(@Inject(IocTokens.DATA_SOURCE) private ds: DataSource) {
