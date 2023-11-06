@@ -1,19 +1,16 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { GenericRepository } from '../../contracts/generic-repository';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { IocTokens } from '../../contracts/IocTokens';
 import { ICourse } from '../../domain/course/course.domain.interface';
 import { CourseEntity } from '../entities/course.entity';
-import { PostgresTypeOrmDataSource } from '../data-source/postgres-data-source';
 
 @Injectable()
 export class CourseRepository implements GenericRepository<ICourse> {
   private repo: Repository<CourseEntity>;
 
-  constructor(
-    @Inject(IocTokens.DATA_SOURCE) private ds: PostgresTypeOrmDataSource,
-  ) {
-    this.repo = this.ds.getDataSource().getRepository(CourseEntity);
+  constructor(@Inject(IocTokens.DATA_SOURCE) private ds: DataSource) {
+    this.repo = this.ds.getRepository(CourseEntity);
   }
 
   async FindAll(): Promise<ICourse[]> {

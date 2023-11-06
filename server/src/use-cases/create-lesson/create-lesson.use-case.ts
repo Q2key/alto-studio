@@ -3,6 +3,7 @@ import { CreateLessonDto } from '../../contracts/dto/create-lesson.dto';
 import { ILesson } from '../../domain/lesson/lesson.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';
 import { LessonRepository } from '../../infrastructure/repository/lesson.repository';
+import { GenericRepository } from '../../contracts/generic-repository';
 
 @Injectable()
 export class CreateLessonUseCase
@@ -10,7 +11,7 @@ export class CreateLessonUseCase
 {
   constructor(
     @Inject(LessonRepository)
-    private lessonRepository: LessonRepository,
+    private lessonRepository: GenericRepository<ILesson>,
   ) {}
 
   async execute(dto: CreateLessonDto): Promise<ILesson> {
