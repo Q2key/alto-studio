@@ -2,18 +2,30 @@ import { Module } from '@nestjs/common';
 import { UserRepository } from './repository/user.repository';
 import { CourseRepository } from './repository/course.repository';
 import { LessonRepository } from './repository/lesson.repository';
-import { ArgonCryptoService } from './crypto/./argon-crypto-service';
 import { IocTokens } from '../contracts/IocTokens';
 import { UserEntity } from './entities/user.entity';
 import { DataSource } from 'typeorm';
+import { NativeCryptoService } from './crypto/native-crypto-service';
 
 @Module({
   imports: [],
   providers: [
-    ArgonCryptoService,
-    UserRepository,
-    CourseRepository,
-    LessonRepository,
+    {
+      provide: IocTokens.CRYPTO_SERVICE,
+      useClass: NativeCryptoService,
+    },
+    {
+      provide: IocTokens.USER_REPOSITORY,
+      useClass: UserRepository,
+    },
+    {
+      provide: IocTokens.COURSE_REPOSITORY,
+      useClass: CourseRepository,
+    },
+    {
+      provide: IocTokens.LESSON_REPOSITORY,
+      useClass: LessonRepository,
+    },
     {
       provide: IocTokens.DATA_SOURCE,
       useFactory: async () => {
@@ -35,11 +47,11 @@ import { DataSource } from 'typeorm';
     },
   ],
   exports: [
-    UserRepository,
-    CourseRepository,
-    LessonRepository,
-    ArgonCryptoService,
+    IocTokens.USER_REPOSITORY,
+    IocTokens.COURSE_REPOSITORY,
+    IocTokens.LESSON_REPOSITORY,
     IocTokens.DATA_SOURCE,
+    IocTokens.CRYPTO_SERVICE,
   ],
 })
 export class InfrastructureModule {}
