@@ -6,24 +6,30 @@ import { IocTokens } from '../contracts/IocTokens';
 import { UserEntity } from './entities/user.entity';
 import { DataSource } from 'typeorm';
 import { NativeCryptoService } from './crypto/native-crypto-service';
+import {
+  AbstractCourseRepo,
+  AbstractLessonRepo,
+  AbstractUserRepo,
+} from './repository/abstract.repository';
+import { AbstractCryptoService } from './crypto/abstract-crypto-service';
 
 @Module({
   imports: [],
   providers: [
     {
-      provide: IocTokens.CRYPTO_SERVICE,
+      provide: AbstractCryptoService,
       useClass: NativeCryptoService,
     },
     {
-      provide: IocTokens.USER_REPOSITORY,
+      provide: AbstractUserRepo,
       useClass: UserRepository,
     },
     {
-      provide: IocTokens.COURSE_REPOSITORY,
+      provide: AbstractCourseRepo,
       useClass: CourseRepository,
     },
     {
-      provide: IocTokens.LESSON_REPOSITORY,
+      provide: AbstractLessonRepo,
       useClass: LessonRepository,
     },
     {
@@ -47,11 +53,11 @@ import { NativeCryptoService } from './crypto/native-crypto-service';
     },
   ],
   exports: [
-    IocTokens.USER_REPOSITORY,
-    IocTokens.COURSE_REPOSITORY,
-    IocTokens.LESSON_REPOSITORY,
+    AbstractUserRepo,
+    AbstractCourseRepo,
+    AbstractLessonRepo,
+    AbstractCryptoService,
     IocTokens.DATA_SOURCE,
-    IocTokens.CRYPTO_SERVICE,
   ],
 })
 export class InfrastructureModule {}

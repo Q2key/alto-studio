@@ -1,10 +1,8 @@
-import { CryptoService } from '../../contracts/crypto-service';
 import { Injectable } from '@nestjs/common';
+import { AbstractCryptoService } from './abstract-crypto-service';
 
 @Injectable()
-export class NativeCryptoService implements CryptoService {
-  constructor() {}
-
+export class NativeCryptoService extends AbstractCryptoService {
   public async encryptString(
     rawString: string,
     salt?: string,

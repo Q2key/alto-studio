@@ -1,17 +1,13 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { ILesson } from '../../domain/lesson/lesson.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';
-import { GenericRepository } from '../../contracts/generic-repository';
-import { IocTokens } from '../../contracts/IocTokens';
+import { AbstractLessonRepo } from '../../infrastructure/repository/abstract.repository';
 
 @Injectable()
 export class GetLessonsUseCase
   implements GenericUseCase<undefined, Promise<ILesson[]>>
 {
-  constructor(
-    @Inject(IocTokens.LESSON_REPOSITORY)
-    private lessonRepository: GenericRepository<ILesson>,
-  ) {}
+  constructor(private lessonRepository: AbstractLessonRepo) {}
 
   async execute(): Promise<ILesson[]> {
     return this.lessonRepository.FindAll();

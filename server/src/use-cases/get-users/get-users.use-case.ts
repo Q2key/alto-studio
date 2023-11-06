@@ -1,19 +1,15 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { GenericRepository } from '../../contracts/generic-repository';
+import { Injectable } from '@nestjs/common';
 import { IUser } from '../../domain/user/user.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';
-import { IocTokens } from '../../contracts/IocTokens';
+import { AbstractUserRepo } from '../../infrastructure/repository/abstract.repository';
 
 @Injectable()
 export class GetUsersUseCase
   implements GenericUseCase<undefined, Promise<IUser[]>>
 {
-  constructor(
-    @Inject(IocTokens.USER_REPOSITORY)
-    private userRepository: GenericRepository<IUser>,
-  ) {}
+  constructor(private repo: AbstractUserRepo) {}
 
   async execute(): Promise<IUser[]> {
-    return this.userRepository.FindAll();
+    return this.repo.FindAll();
   }
 }

@@ -1,12 +1,12 @@
 import { DataSource, Repository } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { IUser } from '../../domain/user/user.domain.interface';
-import { GenericRepository } from '../../contracts/generic-repository';
 import { Inject, Injectable } from '@nestjs/common';
 import { IocTokens } from '../../contracts/IocTokens';
+import { AbstractRepository } from './abstract.repository';
 
 @Injectable()
-export class UserRepository implements GenericRepository<IUser> {
+export class UserRepository implements AbstractRepository<IUser> {
   private repo: Repository<UserEntity>;
 
   constructor(@Inject(IocTokens.DATA_SOURCE) private ds: DataSource) {

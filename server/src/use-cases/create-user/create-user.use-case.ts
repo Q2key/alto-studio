@@ -1,20 +1,18 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from 'src/contracts/dto/create-user.dto';
-import { GenericRepository } from '../../contracts/generic-repository';
 import { IUser } from '../../domain/user/user.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';
-import { CryptoService } from '../../contracts/crypto-service';
 import { UserDomain, UserRoles } from '../../domain/user/user.domain';
-import { IocTokens } from '../../contracts/IocTokens';
+import { AbstractUserRepo } from '../../infrastructure/repository/abstract.repository';
+import { AbstractCryptoService } from '../../infrastructure/crypto/abstract-crypto-service';
 
 @Injectable()
 export class CreateUserUseCase
   implements GenericUseCase<CreateUserDto, Promise<IUser>>
 {
   constructor(
-    @Inject(IocTokens.USER_REPOSITORY)
-    private userRepository: GenericRepository<IUser>,
-    @Inject(IocTokens.CRYPTO_SERVICE) private crypto: CryptoService,
+    private repo: AbstractUserRepo,
+    private crypto: AbstractCryptoService,
   ) {}
 
   async execute(dto: CreateUserDto): Promise<IUser> {
@@ -32,6 +30,6 @@ export class CreateUserUseCase
       undefined,
     );
 
-    return this.userRepository.Save(domain);
+    return this.repo.Save(domain);
   }
 }
