@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { UserRepository } from './repository/user.repository';
 import { CourseRepository } from './repository/course.repository';
 import { LessonRepository } from './repository/lesson.repository';
-import { IocTokens } from '../contracts/IocTokens';
 import { UserEntity } from './entities/user.entity';
 import { DataSource } from 'typeorm';
 import { NativeCryptoService } from './crypto/native-crypto-service';
@@ -33,7 +32,7 @@ import { AbstractCryptoService } from './crypto/abstract-crypto-service';
       useClass: LessonRepository,
     },
     {
-      provide: IocTokens.DATA_SOURCE,
+      provide: DataSource,
       useFactory: async () => {
         const ds = new DataSource({
           type: 'postgres',
@@ -57,7 +56,7 @@ import { AbstractCryptoService } from './crypto/abstract-crypto-service';
     AbstractCourseRepo,
     AbstractLessonRepo,
     AbstractCryptoService,
-    IocTokens.DATA_SOURCE,
+    DataSource,
   ],
 })
 export class InfrastructureModule {}

@@ -9,7 +9,7 @@ import { IocTokens } from '../../contracts/IocTokens';
 export class UserRepository implements AbstractUserRepo {
   private repo: Repository<UserEntity>;
 
-  constructor(@Inject(IocTokens.DATA_SOURCE) private ds: DataSource) {
+  constructor(private ds: DataSource) {
     this.repo = this.ds.getRepository(UserEntity);
   }
 
@@ -21,14 +21,17 @@ export class UserRepository implements AbstractUserRepo {
     return await this.repo.save(user);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async Delete(identity: string): Promise<IUser> {
     return Promise.resolve(undefined);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async FindOne(params: unknown): Promise<IUser> {
     return Promise.resolve(undefined);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async Update(update: IUser): Promise<IUser> {
     return Promise.resolve(undefined);
   }

@@ -9,7 +9,7 @@ import { AbstractLessonRepo } from './abstract.repository';
 export class LessonRepository implements AbstractLessonRepo {
   private repo: Repository<LessonEntity>;
 
-  constructor(@Inject(IocTokens.DATA_SOURCE) private ds: DataSource) {
+  constructor(private ds: DataSource) {
     this.repo = this.ds.getRepository(LessonEntity);
   }
 
@@ -21,14 +21,17 @@ export class LessonRepository implements AbstractLessonRepo {
     return await this.repo.save(lesson);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async Delete(identity: string): Promise<ILesson> {
     return Promise.resolve(undefined);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async FindOne(params: unknown): Promise<ILesson> {
     return Promise.resolve(undefined);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async Update(update: ILesson): Promise<ILesson> {
     return Promise.resolve(undefined);
   }
