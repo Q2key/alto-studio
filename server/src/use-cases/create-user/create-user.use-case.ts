@@ -19,14 +19,11 @@ export class CreateUserUseCase
     private crypto: AbstractCryptoService,
     private authService: AbstractAuthService,
     private logger: AbstractLogger,
-    private configService: ConfigService,
   ) {}
 
   async execute(dto: CreateUserDto): Promise<IUser> {
     const cryptoPass = await this.crypto.encryptString(dto.password, 'salt');
     const authService = await this.authService.validateUser('', '', '');
-
-    const config = this.configService.get<AppConfig>('api');
 
     const domain = new UserDomain(
       dto.firstName,
