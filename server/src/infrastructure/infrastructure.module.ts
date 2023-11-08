@@ -12,9 +12,17 @@ import { AbstractCryptoService } from './crypto/abstract-crypto-service';
 import { TypeOrmDataSource } from './data-source/type-orm-data-source';
 import { AbstractLogger } from './logger/abstract-logger';
 import { ConsoleLogger } from './logger/console-logger';
+import { AbstractAuthService } from './auth/abstract-auth-service';
+import { ConcreteAuthService } from './auth/auth-service';
+import { ConfigModule } from '@nestjs/config';
+import appConfig from './config/app.config';
 
 @Module({
-  imports: [],
+  imports: [
+    ConfigModule.forRoot({
+      load: [appConfig],
+    }),
+  ],
   providers: [
     {
       provide: AbstractUserRepo,
@@ -44,6 +52,10 @@ import { ConsoleLogger } from './logger/console-logger';
       provide: AbstractLogger,
       useClass: ConsoleLogger,
     },
+    {
+      provide: AbstractAuthService,
+      useClass: ConcreteAuthService,
+    },
   ],
   exports: [
     AbstractUserRepo,
@@ -52,6 +64,8 @@ import { ConsoleLogger } from './logger/console-logger';
     AbstractCryptoService,
     AbstractLogger,
     TypeOrmDataSource,
+    AbstractAuthService,
+    ConfigModule,
   ],
 })
 export class InfrastructureModule {}
