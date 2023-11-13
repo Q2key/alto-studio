@@ -15,16 +15,23 @@ import { ConsoleLogger } from './logger/console-logger';
 import { AbstractAuthService } from './abs/abstract.auth-service';
 import { ConcreteAuthService } from './auth/auth-service';
 import { ConfigModule } from '@nestjs/config';
-import appConfig from './config/app.config';
 import { AbstractTypeormDataSource } from './abs/abstract.typeorm.data-source';
+import { AbstractFileStorageService } from './abs/abstract.fille-storage.service';
+import { S3Service } from './aws/s3.service';
+import appConfig from './config/app.config';
+import { AppConfigModule } from './config/app.config.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      load: [appConfig],
-    }),
-  ],
+  imports: [AppConfigModule],
   providers: [
+    {
+      provide: AbstractTypeormDataSource,
+      useFactory: async (cfg: ConfigModule) => {
+        const typeOrmDataSource = new TypeormPostgresDataSource(cfg);
+        await typeOrmDataSource.initDataSource();
+        return typeOrmDataSource;
+      },
+    },
     {
       provide: AbstractUserRepo,
       useClass: UserRepository,
@@ -42,20 +49,16 @@ import { AbstractTypeormDataSource } from './abs/abstract.typeorm.data-source';
       useClass: NativeCryptoService,
     },
     {
-      provide: AbstractTypeormDataSource,
-      useFactory: async () => {
-        const typeOrmDataSource = new TypeormPostgresDataSource();
-        await typeOrmDataSource.initDataSource();
-        return typeOrmDataSource;
-      },
-    },
-    {
       provide: AbstractLogger,
       useClass: ConsoleLogger,
     },
     {
       provide: AbstractAuthService,
       useClass: ConcreteAuthService,
+    },
+    {
+      provide: AbstractFileStorageService,
+      useClass: S3Service,
     },
   ],
   exports: [
@@ -66,7 +69,8 @@ import { AbstractTypeormDataSource } from './abs/abstract.typeorm.data-source';
     AbstractLogger,
     AbstractTypeormDataSource,
     AbstractAuthService,
-    ConfigModule,
+    AbstractFileStorageService,
+    AppConfigModule,
   ],
 })
 export class InfrastructureModule {}
