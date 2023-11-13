@@ -6,6 +6,14 @@ export interface PostgresConfig {
   database: string;
 }
 
+export interface MongoConfig {
+  host: string;
+  port: number;
+  username: string;
+  password: string;
+  database: string;
+}
+
 export interface ApiConfig {
   port: number;
 }
@@ -13,4 +21,5 @@ export interface ApiConfig {
 export interface AppConfig {
   apiConfig: ApiConfig;
   postgresConfig: PostgresConfig;
+  mongoConfig: MongoConfig;
 }

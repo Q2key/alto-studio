@@ -16,10 +16,12 @@ import { ConsoleLogger } from './logger/console-logger';
 import { AbstractAuthService } from './abs/abstract.auth-service';
 import { ConcreteAuthService } from './auth/auth-service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { AbstractTypeormDataSource } from './abs/abstract.typeorm.data-source';
 import { AbstractFileStorageService } from './abs/abstract.fille-storage.service';
 import { S3Service } from './aws/s3.service';
-import { PostgresConfig } from '../contracts/app-config';
+import { MongoConfig, PostgresConfig } from '../contracts/app-config';
+import { TypeormMongoDataSource } from './data-source/typeorm-mongo.data-source';
+import { AbstractPgDataSource } from './abs/abstract.pg-data-source';
+import { AbstractMongoDataSource } from './abs/abstract.mongo-data-source';
 
 @Module({
   imports: [
@@ -29,11 +31,21 @@ import { PostgresConfig } from '../contracts/app-config';
   ],
   providers: [
     {
-      provide: AbstractTypeormDataSource,
+      provide: AbstractPgDataSource,
       useFactory: async (configService: ConfigService) => {
         const postgresConfig =
           configService.get<PostgresConfig>('postgresConfig');
         const typeOrmDataSource = new TypeormPostgresDataSource(postgresConfig);
+        await typeOrmDataSource.initDataSource();
+        return typeOrmDataSource;
+      },
+      inject: [ConfigService],
+    },
+    {
+      provide: AbstractMongoDataSource,
+      useFactory: async (configService: ConfigService) => {
+        const mongoConfig = configService.get<MongoConfig>('mongoConfig');
+        const typeOrmDataSource = new TypeormMongoDataSource(mongoConfig);
         await typeOrmDataSource.initDataSource();
         return typeOrmDataSource;
       },
@@ -74,7 +86,8 @@ import { PostgresConfig } from '../contracts/app-config';
     AbstractLessonRepo,
     AbstractCryptoService,
     AbstractLogger,
-    AbstractTypeormDataSource,
+    AbstractPgDataSource,
+    AbstractMongoDataSource,
     AbstractAuthService,
     AbstractFileStorageService,
     ConfigModule,

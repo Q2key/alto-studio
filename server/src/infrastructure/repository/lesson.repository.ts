@@ -3,13 +3,14 @@ import { Repository as TypeOrmRepository } from 'typeorm';
 import { ILesson } from '../../domain/lesson/lesson.domain.interface';
 import { LessonEntity } from '../entities/lesson.entity';
 import { AbstractLessonRepo } from '../abs/abstract.repository';
-import { AbstractTypeormDataSource } from '../abs/abstract.typeorm.data-source';
+import { AbstractPgDataSource } from '../abs/abstract.pg-data-source';
+import { DataSource as TypeOrmDataSource } from 'typeorm/data-source/DataSource';
 
 @Injectable()
 export class LessonRepository implements AbstractLessonRepo {
   private repo: TypeOrmRepository<LessonEntity>;
 
-  constructor(private ds: AbstractTypeormDataSource) {
+  constructor(private ds: AbstractPgDataSource<TypeOrmDataSource>) {
     this.repo = this.ds.getDataSource().getRepository(LessonEntity);
   }
 

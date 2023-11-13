@@ -3,13 +3,14 @@ import { UserEntity } from '../entities/user.entity';
 import { IUser } from '../../domain/user/user.domain.interface';
 import { Injectable } from '@nestjs/common';
 import { AbstractUserRepo } from '../abs/abstract.repository';
-import { AbstractTypeormDataSource } from '../abs/abstract.typeorm.data-source';
+import { AbstractPgDataSource } from '../abs/abstract.pg-data-source';
+import { DataSource as TypeOrmDataSource } from 'typeorm/data-source/DataSource';
 
 @Injectable()
 export class UserRepository implements AbstractUserRepo {
   private repo: TypeOrmRepository<UserEntity>;
 
-  constructor(private ds: AbstractTypeormDataSource) {
+  constructor(private ds: AbstractPgDataSource<TypeOrmDataSource>) {
     this.repo = this.ds.getDataSource().getRepository(UserEntity);
   }
 
