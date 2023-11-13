@@ -1,5 +1,5 @@
 import { DataSource as TypeOrmDataSource } from 'typeorm';
-import { UserEntity } from '../entities/typeorm/user.entity';
+import { UserEntity } from '../entities/postgres/user.entity';
 import { Injectable } from '@nestjs/common';
 import { PostgresConfig } from '../../contracts/app-config';
 import { TypeOrmBaseDataSource } from './typeorm-base-data-source';

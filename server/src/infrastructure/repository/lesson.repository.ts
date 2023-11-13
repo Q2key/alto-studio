@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Repository as TypeOrmRepository } from 'typeorm';
 import { ILesson } from '../../domain/lesson/lesson.domain.interface';
-import { LessonEntity } from '../entities/typeorm/lesson.entity';
+import { LessonEntity } from '../entities/postgres/lesson.entity';
 import { AbstractLessonRepo } from '../abs/abstract.repository';
 import { AbstractPgDataSource } from '../abs/abstract.pg-data-source';
 import { DataSource as TypeOrmDataSource } from 'typeorm/data-source/DataSource';
