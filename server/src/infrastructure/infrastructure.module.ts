@@ -8,11 +8,11 @@ import {
   AbstractLessonRepo,
   AbstractUserRepo,
 } from './abs/abstract.repository';
-import { AbstractCryptoService } from './abs/abstract-crypto-service';
+import { AbstractCryptoService } from './abs/abstract.crypto-service';
 import { TypeormPostgresDataSource } from './data-source/typeorm-postgres.data-source';
-import { AbstractLogger } from './abs/abstract-logger';
+import { AbstractLogger } from './abs/abstract.logger';
 import { ConsoleLogger } from './logger/console-logger';
-import { AbstractAuthService } from './abs/abstract-auth-service';
+import { AbstractAuthService } from './abs/abstract.auth-service';
 import { ConcreteAuthService } from './auth/auth-service';
 import { ConfigModule } from '@nestjs/config';
 import appConfig from './config/app.config';
@@ -43,10 +43,8 @@ import appConfig from './config/app.config';
     {
       provide: TypeormPostgresDataSource,
       useFactory: async () => {
-        const typeOrmDataSource: TypeormPostgresDataSource =
-          new TypeormPostgresDataSource();
-        await typeOrmDataSource.initDataSource();
-        return typeOrmDataSource;
+        const typeOrmDataSource = new TypeormPostgresDataSource();
+        return await typeOrmDataSource.initAndGetDataSource();
       },
     },
     {

@@ -1,4 +1,4 @@
-import { AbstractLogger } from '../abs/abstract-logger';
+import { AbstractLogger } from '../abs/abstract.logger';
 
 export class PinoLogger extends AbstractLogger {
   debug(message: string): void {

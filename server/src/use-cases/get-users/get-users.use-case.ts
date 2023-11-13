@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { IUser } from '../../domain/user/user.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';
 import { AbstractUserRepo } from '../../infrastructure/abs/abstract.repository';
-import { AbstractLogger } from '../../infrastructure/abs/abstract-logger';
+import { AbstractLogger } from '../../infrastructure/abs/abstract.logger';
 
 @Injectable()
 export class GetUsersUseCase

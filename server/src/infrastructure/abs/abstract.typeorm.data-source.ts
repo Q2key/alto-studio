@@ -5,6 +5,4 @@ export abstract class AbstractTypeormDataSource
   implements GenericDataSource<DataSource>
 {
   abstract getDataSource(): DataSource;
-
-  abstract initDataSource(): Promise<void>;
 }

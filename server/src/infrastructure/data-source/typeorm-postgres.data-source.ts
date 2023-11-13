@@ -24,12 +24,13 @@ export class TypeormPostgresDataSource extends AbstractTypeormDataSource {
     this.dataSource = ds;
   }
 
-  async initDataSource(): Promise<void> {
+  async initAndGetDataSource(): Promise<TypeOrmDataSource> {
     if (this.dataSource.isInitialized) {
       throw new Error('DataSource is already initialized');
     }
 
     await this.dataSource.initialize();
+    return Promise.resolve(this.dataSource);
   }
 
   getDataSource(): TypeOrmDataSource {

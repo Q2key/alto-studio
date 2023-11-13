@@ -1,7 +1,7 @@
 import * as argon2 from 'argon2';
 import { randomBytes } from 'crypto';
 import { Injectable } from '@nestjs/common';
-import { AbstractCryptoService } from '../abs/abstract-crypto-service';
+import { AbstractCryptoService } from '../abs/abstract.crypto-service';
 
 @Injectable()
 export class ArgonCryptoService extends AbstractCryptoService {

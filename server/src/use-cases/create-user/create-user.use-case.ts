@@ -4,9 +4,9 @@ import { IUser } from '../../domain/user/user.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';
 import { UserDomain, UserRoles } from '../../domain/user/user.domain';
 import { AbstractUserRepo } from '../../infrastructure/abs/abstract.repository';
-import { AbstractCryptoService } from '../../infrastructure/abs/abstract-crypto-service';
-import { AbstractAuthService } from '../../infrastructure/abs/abstract-auth-service';
-import { AbstractLogger } from '../../infrastructure/abs/abstract-logger';
+import { AbstractCryptoService } from '../../infrastructure/abs/abstract.crypto-service';
+import { AbstractAuthService } from '../../infrastructure/abs/abstract.auth-service';
+import { AbstractLogger } from '../../infrastructure/abs/abstract.logger';
 import { ConfigService } from '@nestjs/config';
 import { AppConfig } from '../../infrastructure/config/app.config';
 
