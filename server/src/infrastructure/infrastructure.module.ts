@@ -16,6 +16,7 @@ import { AbstractAuthService } from './abs/abstract.auth-service';
 import { ConcreteAuthService } from './auth/auth-service';
 import { ConfigModule } from '@nestjs/config';
 import appConfig from './config/app.config';
+import { AbstractTypeormDataSource } from './abs/abstract.typeorm.data-source';
 
 @Module({
   imports: [
@@ -41,10 +42,11 @@ import appConfig from './config/app.config';
       useClass: NativeCryptoService,
     },
     {
-      provide: TypeormPostgresDataSource,
+      provide: AbstractTypeormDataSource,
       useFactory: async () => {
         const typeOrmDataSource = new TypeormPostgresDataSource();
-        return await typeOrmDataSource.initAndGetDataSource();
+        await typeOrmDataSource.initDataSource();
+        return typeOrmDataSource;
       },
     },
     {
@@ -62,7 +64,7 @@ import appConfig from './config/app.config';
     AbstractLessonRepo,
     AbstractCryptoService,
     AbstractLogger,
-    TypeormPostgresDataSource,
+    AbstractTypeormDataSource,
     AbstractAuthService,
     ConfigModule,
   ],
