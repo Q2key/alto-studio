@@ -14,11 +14,11 @@ export default (): AppConfig => {
       database: process.env.POSTGRES_DATABASE,
     },
     mongoConfig: {
-      host: process.env.POSTGRES_HOST,
-      port: parseInt(process.env.POSTGRES_PORT),
+      host: process.env.MONGO_HOST,
+      port: parseInt(process.env.MONGO_PORT),
       username: process.env.MONGO_USER_NAME,
       password: process.env.MONGO_PASSWORD,
-      database: process.env.POSTGRES_DATABASE,
+      database: process.env.MONGO_DATABASE,
     },
   };
 };

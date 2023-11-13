@@ -1,6 +1,6 @@
 import { Entity, Column, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 import { BaseEntity } from './base.entity';
-import { IUnit } from '../../domain/unit/unit.domain.interface';
+import { IUnit } from '../../../domain/unit/unit.domain.interface';
 import { LessonEntity } from './lesson.entity';
 import { UnitResourceEntity } from './unit-resource.entity';
 

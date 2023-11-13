@@ -1,6 +1,6 @@
 import { Entity, Column, ManyToOne } from 'typeorm';
 import { BaseEntity } from './base.entity';
-import { IUnitResource } from '../../domain/unit-resource/unit-resource.domain.interface';
+import { IUnitResource } from '../../../domain/unit-resource/unit-resource.domain.interface';
 import { ResourceEntity } from './resource.entity';
 import { UnitEntity } from './unit.entity';
 

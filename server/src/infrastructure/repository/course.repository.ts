@@ -4,7 +4,7 @@ import {
   Repository as TypeOrmRepository,
 } from 'typeorm';
 import { ICourse } from '../../domain/course/course.domain.interface';
-import { CourseEntity } from '../entities/course.entity';
+import { CourseEntity } from '../entities/typeorm/course.entity';
 import { AbstractCourseRepo } from '../abs/abstract.repository';
 import { AbstractPgDataSource } from '../abs/abstract.pg-data-source';
 

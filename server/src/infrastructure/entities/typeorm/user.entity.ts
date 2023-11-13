@@ -1,7 +1,7 @@
 import { Entity, Column } from 'typeorm';
 import { BaseEntity } from './base.entity';
-import { UserRoles } from '../../domain/user/user.domain';
-import { IUser } from '../../domain/user/user.domain.interface';
+import { UserRoles } from '../../../domain/user/user.domain';
+import { IUser } from '../../../domain/user/user.domain.interface';
 
 @Entity('user')
 export class UserEntity extends BaseEntity implements IUser {

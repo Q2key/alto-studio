@@ -1,22 +1,23 @@
 import { DataSource as TypeOrmDataSource } from 'typeorm/data-source/DataSource';
-import { PostgresConfig } from '../../contracts/app-config';
+import { MongoConfig } from '../../contracts/app-config';
 import { TypeOrmBaseDataSource } from './typeorm-base-data-source';
+import { UserEntity } from '../entities/mongo/user.entity';
 
 export class TypeormMongoDataSource extends TypeOrmBaseDataSource {
   dataSource: TypeOrmDataSource;
 
-  constructor(private pgConfig: PostgresConfig) {
+  constructor(private mongoConfig: MongoConfig) {
     super();
     this.dataSource = new TypeOrmDataSource({
       type: 'mongodb',
-      // host: this.pgConfig.host,
-      // port: this.pgConfig.port,
-      username: this.pgConfig.username,
-      password: this.pgConfig.password,
-      // database: this.pgConfig.database,
+      host: this.mongoConfig.host,
+      port: this.mongoConfig.port,
+      username: this.mongoConfig.username,
+      // password: this.mongoConfig.password,
+      database: this.mongoConfig.database,
       synchronize: true,
       logging: false,
-      entities: [],
+      entities: [UserEntity],
       migrations: [],
       subscribers: [],
     });
