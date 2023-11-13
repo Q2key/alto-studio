@@ -1,4 +1,4 @@
-import { AbstractLogger } from './abstract-logger';
+import { AbstractLogger } from '../abs/abstract-logger';
 
 export class ConsoleLogger extends AbstractLogger {
   debug(message: string): void {

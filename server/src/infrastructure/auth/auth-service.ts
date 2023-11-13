@@ -1,4 +1,4 @@
-import { AbstractAuthService } from './abstract-auth-service';
+import { AbstractAuthService } from '../abs/abstract-auth-service';
 
 export class ConcreteAuthService extends AbstractAuthService {
   validateUser(

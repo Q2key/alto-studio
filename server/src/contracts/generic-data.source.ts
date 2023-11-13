@@ -1,4 +1,4 @@
-export interface GenericDbDataSource<TDataSource> {
+export interface GenericDataSource<TDataSource> {
   initDataSource: () => Promise<void>;
   getDataSource: () => TDataSource;
 }

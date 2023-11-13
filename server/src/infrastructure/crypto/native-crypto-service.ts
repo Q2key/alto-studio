@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { AbstractCryptoService } from './abstract-crypto-service';
+import { AbstractCryptoService } from '../abs/abstract-crypto-service';
 
 @Injectable()
 export class NativeCryptoService extends AbstractCryptoService {

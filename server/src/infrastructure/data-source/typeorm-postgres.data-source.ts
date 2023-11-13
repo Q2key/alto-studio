@@ -1,11 +1,13 @@
-import { DataSource } from 'typeorm';
+import { DataSource as TypeOrmDataSource } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
-import { GenericDbDataSource } from '../../contracts/generic-db-data.source';
+import { AbstractTypeormDataSource } from '../abs/abstract.typeorm.data-source';
 
-export class TypeOrmDataSource implements GenericDbDataSource<DataSource> {
-  private readonly dataSource: DataSource;
+export class TypeormPostgresDataSource extends AbstractTypeormDataSource {
+  private readonly dataSource: TypeOrmDataSource;
+
   constructor() {
-    const ds = new DataSource({
+    super();
+    const ds = new TypeOrmDataSource({
       type: 'postgres',
       host: 'localhost',
       port: 5435,
@@ -30,7 +32,7 @@ export class TypeOrmDataSource implements GenericDbDataSource<DataSource> {
     await this.dataSource.initialize();
   }
 
-  getDataSource(): DataSource {
+  getDataSource(): TypeOrmDataSource {
     if (!this.dataSource.isInitialized) {
       throw new Error('DataSource is not initialized');
     }

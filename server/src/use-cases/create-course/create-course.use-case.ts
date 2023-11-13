@@ -2,7 +2,7 @@ import { GenericUseCase } from '../../contracts/generic-use-case';
 import { CreateCourseDto } from '../../contracts/dto/create-course.dto';
 import { ICourse } from '../../domain/course/course.domain.interface';
 import { Injectable } from '@nestjs/common';
-import { AbstractCourseRepo } from '../../infrastructure/repository/abstract.repository';
+import { AbstractCourseRepo } from '../../infrastructure/abs/abstract.repository';
 
 @Injectable()
 export class CreateCourseUseCase

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ILesson } from '../../domain/lesson/lesson.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';
-import { AbstractLessonRepo } from '../../infrastructure/repository/abstract.repository';
+import { AbstractLessonRepo } from '../../infrastructure/abs/abstract.repository';
 
 @Injectable()
 export class GetLessonsUseCase

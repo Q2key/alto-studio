@@ -1,15 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { Repository as TypeOrmRepository } from 'typeorm';
+import {
+  DataSource as TypeOrmDataSource,
+  Repository as TypeOrmRepository,
+} from 'typeorm';
 import { ICourse } from '../../domain/course/course.domain.interface';
 import { CourseEntity } from '../entities/course.entity';
-import { AbstractCourseRepo } from './abstract.repository';
-import { TypeOrmDataSource } from '../data-source/type-orm-data-source';
+import { AbstractCourseRepo } from '../abs/abstract.repository';
+import { AbstractTypeormDataSource } from '../abs/abstract.typeorm.data-source';
 
 @Injectable()
 export class CourseRepository implements AbstractCourseRepo {
   private repo: TypeOrmRepository<CourseEntity>;
 
-  constructor(private ds: TypeOrmDataSource) {
+  constructor(private ds: AbstractTypeormDataSource) {
     this.repo = this.ds.getDataSource().getRepository(CourseEntity);
   }
 

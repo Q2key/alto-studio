@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateLessonDto } from '../../contracts/dto/create-lesson.dto';
 import { ILesson } from '../../domain/lesson/lesson.domain.interface';
 import { GenericUseCase } from '../../contracts/generic-use-case';
-import { AbstractLessonRepo } from '../../infrastructure/repository/abstract.repository';
+import { AbstractLessonRepo } from '../../infrastructure/abs/abstract.repository';
 
 @Injectable()
 export class CreateLessonUseCase
