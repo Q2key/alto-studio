@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import appConfig from './config/app.config';
 import { UserRepository } from './repository/user.repository';
 import { CourseRepository } from './repository/course.repository';
 import { LessonRepository } from './repository/lesson.repository';
@@ -18,7 +19,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AbstractTypeormDataSource } from './abs/abstract.typeorm.data-source';
 import { AbstractFileStorageService } from './abs/abstract.fille-storage.service';
 import { S3Service } from './aws/s3.service';
-import appConfig from './config/app.config';
 import { PostgresConfig } from '../contracts/app-config';
 
 @Module({
@@ -30,10 +30,10 @@ import { PostgresConfig } from '../contracts/app-config';
   providers: [
     {
       provide: AbstractTypeormDataSource,
-      useFactory: async (sv: ConfigService) => {
-        const typeOrmDataSource = new TypeormPostgresDataSource(
-          sv.get<PostgresConfig>('postgresConfig'),
-        );
+      useFactory: async (configService: ConfigService) => {
+        const postgresConfig =
+          configService.get<PostgresConfig>('postgresConfig');
+        const typeOrmDataSource = new TypeormPostgresDataSource(postgresConfig);
         await typeOrmDataSource.initDataSource();
         return typeOrmDataSource;
       },
