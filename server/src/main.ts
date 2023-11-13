@@ -1,10 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
-import { AppConfig } from './infrastructure/config/app.config';
+import { ApiConfig, AppConfig } from './contracts/app-config';
 
 (async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService<AppConfig>);
-  await app.listen(configService.get<string>('port'));
+  const apiConfig = configService.get<ApiConfig>('apiConfig');
+  await app.listen(apiConfig.port);
 })();

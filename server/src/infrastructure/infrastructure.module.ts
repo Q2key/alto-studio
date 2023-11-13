@@ -14,23 +14,30 @@ import { AbstractLogger } from './abs/abstract.logger';
 import { ConsoleLogger } from './logger/console-logger';
 import { AbstractAuthService } from './abs/abstract.auth-service';
 import { ConcreteAuthService } from './auth/auth-service';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AbstractTypeormDataSource } from './abs/abstract.typeorm.data-source';
 import { AbstractFileStorageService } from './abs/abstract.fille-storage.service';
 import { S3Service } from './aws/s3.service';
 import appConfig from './config/app.config';
-import { AppConfigModule } from './config/app.config.module';
+import { PostgresConfig } from '../contracts/app-config';
 
 @Module({
-  imports: [AppConfigModule],
+  imports: [
+    ConfigModule.forRoot({
+      load: [appConfig],
+    }),
+  ],
   providers: [
     {
       provide: AbstractTypeormDataSource,
-      useFactory: async (cfg: ConfigModule) => {
-        const typeOrmDataSource = new TypeormPostgresDataSource(cfg);
+      useFactory: async (sv: ConfigService) => {
+        const typeOrmDataSource = new TypeormPostgresDataSource(
+          sv.get<PostgresConfig>('postgresConfig'),
+        );
         await typeOrmDataSource.initDataSource();
         return typeOrmDataSource;
       },
+      inject: [ConfigService],
     },
     {
       provide: AbstractUserRepo,
@@ -70,7 +77,7 @@ import { AppConfigModule } from './config/app.config.module';
     AbstractTypeormDataSource,
     AbstractAuthService,
     AbstractFileStorageService,
-    AppConfigModule,
+    ConfigModule,
   ],
 })
 export class InfrastructureModule {}

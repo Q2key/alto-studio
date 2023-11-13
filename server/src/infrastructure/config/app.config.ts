@@ -1,9 +1,16 @@
-export interface AppConfig {
-  port: number;
-}
+import { AppConfig } from '../../contracts/app-config';
 
 export default (): AppConfig => {
   return {
-    port: parseInt(process.env.PORT) ?? 6666,
+    apiConfig: {
+      port: parseInt(process.env.PORT),
+    },
+    postgresConfig: {
+      host: 'localhost',
+      port: 5435,
+      username: 'postgres',
+      password: 'postgres',
+      database: 'alto',
+    },
   };
 };

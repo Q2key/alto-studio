@@ -7,8 +7,6 @@ import { AbstractUserRepo } from '../../infrastructure/abs/abstract.repository';
 import { AbstractCryptoService } from '../../infrastructure/abs/abstract.crypto-service';
 import { AbstractAuthService } from '../../infrastructure/abs/abstract.auth-service';
 import { AbstractLogger } from '../../infrastructure/abs/abstract.logger';
-import { ConfigService } from '@nestjs/config';
-import { AppConfig } from '../../infrastructure/config/app.config';
 
 @Injectable()
 export class CreateUserUseCase

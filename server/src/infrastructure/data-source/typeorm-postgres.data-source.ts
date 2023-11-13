@@ -1,28 +1,28 @@
 import { DataSource as TypeOrmDataSource } from 'typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { AbstractTypeormDataSource } from '../abs/abstract.typeorm.data-source';
-import { ConfigModule } from '@nestjs/config';
-import { AppConfig } from '../../contracts/app-config';
+import { Injectable } from '@nestjs/common';
+import { PostgresConfig } from '../../contracts/app-config';
 
+@Injectable()
 export class TypeormPostgresDataSource extends AbstractTypeormDataSource {
   private readonly dataSource: TypeOrmDataSource;
 
-  constructor(cfg: ConfigModule) {
+  constructor(private pgConfig: PostgresConfig) {
     super();
     const ds = new TypeOrmDataSource({
       type: 'postgres',
-      host: 'localhost',
-      port: 5435,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'alto',
+      host: pgConfig.host,
+      port: pgConfig.port,
+      username: pgConfig.username,
+      password: pgConfig.password,
+      database: pgConfig.database,
       synchronize: true,
       logging: false,
       entities: [UserEntity],
       migrations: [],
       subscribers: [],
     });
-
     this.dataSource = ds;
   }
 
