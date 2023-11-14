@@ -1,8 +1,8 @@
-import { GenericDataSource } from '../../contracts/generic-data.source';
 import { DataSource as TypeOrmDataSource } from 'typeorm/data-source/DataSource';
+import { AbstractDataSource } from '../abs/abstract.data-source';
 
 export class TypeOrmBaseDataSource
-  implements GenericDataSource<TypeOrmDataSource>
+  implements AbstractDataSource<TypeOrmDataSource>
 {
   protected dataSource: TypeOrmDataSource;
 

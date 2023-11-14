@@ -6,7 +6,7 @@ import {
 import { ICourse } from '../../domain/course/course.domain.interface';
 import { CourseEntity } from '../entities/postgres/course.entity';
 import { AbstractCourseRepo } from '../abs/abstract.repository';
-import { AbstractPgDataSource } from '../abs/abstract.pg-data-source';
+import { AbstractPgDataSource } from '../abs/abstract.data-source';
 
 @Injectable()
 export class CourseRepository implements AbstractCourseRepo {

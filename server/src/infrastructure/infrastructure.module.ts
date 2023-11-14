@@ -20,8 +20,10 @@ import { AbstractFileStorageService } from './abs/abstract.fille-storage.service
 import { S3Service } from './aws/s3.service';
 import { MongoConfig, PostgresConfig } from '../contracts/app-config';
 import { TypeormMongoDataSource } from './data-source/typeorm-mongo.data-source';
-import { AbstractPgDataSource } from './abs/abstract.pg-data-source';
-import { AbstractMongoDataSource } from './abs/abstract.mongo-data-source';
+import {
+  AbstractMongoDataSource,
+  AbstractPgDataSource,
+} from './abs/abstract.data-source';
 
 @Module({
   imports: [

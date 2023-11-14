@@ -3,8 +3,8 @@ import { UserEntity } from '../entities/postgres/user.entity';
 import { IUser } from '../../domain/user/user.domain.interface';
 import { Injectable } from '@nestjs/common';
 import { AbstractUserRepo } from '../abs/abstract.repository';
-import { AbstractPgDataSource } from '../abs/abstract.pg-data-source';
 import { DataSource as TypeOrmDataSource } from 'typeorm/data-source/DataSource';
+import { AbstractPgDataSource } from '../abs/abstract.data-source';
 
 @Injectable()
 export class UserRepository implements AbstractUserRepo {
