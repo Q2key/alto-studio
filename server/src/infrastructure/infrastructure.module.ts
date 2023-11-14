@@ -3,7 +3,7 @@ import appConfig from './config/app.config';
 import { UserRepository } from './repository/user.repository';
 import { CourseRepository } from './repository/course.repository';
 import { LessonRepository } from './repository/lesson.repository';
-import { NativeCryptoService } from './crypto/native-crypto-service';
+import { NativeCryptoService } from './crypto-service/native-crypto-service';
 import {
   AbstractCourseRepo,
   AbstractLessonRepo,
@@ -14,10 +14,10 @@ import { TypeormPostgresDataSource } from './data-source/typeorm-postgres.data-s
 import { AbstractLogger } from './abs/abstract.logger';
 import { ConsoleLogger } from './logger/console-logger';
 import { AbstractAuthService } from './abs/abstract.auth-service';
-import { ConcreteAuthService } from './auth/auth-service';
+import { ConcreteAuthService } from './auth-service/auth-service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AbstractFileStorageService } from './abs/abstract.fille-storage.service';
-import { S3Service } from './aws/s3.service';
+import { S3Service } from './s3-service/s3.service';
 import { MongoConfig, PostgresConfig } from '../contracts/app-config';
 import { TypeormMongoDataSource } from './data-source/typeorm-mongo.data-source';
 import {
