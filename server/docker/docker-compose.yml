@@ -4,12 +4,12 @@ services:
   alto-postgres:
     image: postgres:15.2-alpine
     restart: always
-    build: ../database
+    build: ./database
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - '5435:5432'
+      - '5438:5432'
   alto-mongodb:
     image: mongo:latest
     restart: always
